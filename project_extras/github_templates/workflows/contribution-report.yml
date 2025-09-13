@@ -1,0 +1,50 @@
+name: Contribution Report
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'  # Every Monday at midnight
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  contribution-report:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # Fetch all history for accurate stats
+    
+    - name: Generate Contribution Report
+      run: |
+        echo "# Weekly Contribution Report" > contribution_report.md
+        echo "Generated on: $(date)" >> contribution_report.md
+        echo "" >> contribution_report.md
+        
+        echo "## Commit Statistics" >> contribution_report.md
+        echo "\`\`\`" >> contribution_report.md
+        git shortlog -sn >> contribution_report.md
+        echo "\`\`\`" >> contribution_report.md
+        echo "" >> contribution_report.md
+        
+        echo "## Recent Commits (Last 7 days)" >> contribution_report.md
+        echo "\`\`\`" >> contribution_report.md
+        git log --since="7 days ago" --pretty=format:"%h %an %ad %s" --date=short >> contribution_report.md
+        echo "\`\`\`" >> contribution_report.md
+        echo "" >> contribution_report.md
+        
+        echo "## Lines of Code Changes" >> contribution_report.md
+        echo "\`\`\`" >> contribution_report.md
+        git log --since="7 days ago" --pretty=tformat: --numstat | \
+        awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "Added lines: %s\nRemoved lines: %s\nTotal changes: %s\n", add, subs, loc }' >> contribution_report.md
+        echo "\`\`\`" >> contribution_report.md
+        
+        echo "## File Changes" >> contribution_report.md
+        echo "\`\`\`" >> contribution_report.md
+        git diff --stat HEAD~7 HEAD >> contribution_report.md
+        echo "\`\`\`" >> contribution_report.md
+    
+    - name: Upload Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: contribution-report
+        path: contribution_report.md

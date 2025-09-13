@@ -1,0 +1,26 @@
+name: Cub3D Project Board
+description: Project management board for Cub3D development
+
+columns:
+  - name: "To Do"
+    description: "Tasks to be done"
+  - name: "In Progress"
+    description: "Currently being worked on"
+  - name: "Code Review"
+    description: "Ready for review"
+  - name: "Testing"
+    description: "Ready for testing"
+  - name: "Done"
+    description: "Completed tasks"
+
+milestones:
+  - title: "Phase 1: Basic Setup"
+    description: "Project initialization and basic structure"
+  - title: "Phase 2: Core Engine"
+    description: "Raycasting engine implementation"
+  - title: "Phase 3: Graphics"
+    description: "Texture mapping and rendering"
+  - title: "Phase 4: Gameplay"
+    description: "Player movement and interaction"
+  - title: "Phase 5: Polish"
+    description: "Final testing and optimization"

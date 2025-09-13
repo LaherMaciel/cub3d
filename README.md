@@ -44,6 +44,12 @@ This will create the `cub3d` executable.
 - `make re` - Rebuild from scratch
 - `make run` - Build and run the program
 - `make norm` - Check code style with norminette
+- `make stats` - Show project statistics
+- `make final-report` - Generate comprehensive project report
+- `make personal` - Update README with personal analytics (individual)
+- `make mutual` - Update README with mutual analytics (shared)
+- `make compare` - Update README with side-by-side comparison
+- `make submit` - Prepare project for submission (removes analytics)
 - `make help` - Show all available targets
 
 ## Usage
@@ -85,6 +91,10 @@ cub3d/
 │   │   └── include/              # Libft headers
 │   └── minilibx-linux/           # Graphics library
 ├── objects/                       # Compiled object files
+├── project_extras/                # Development tools and analytics
+│   ├── scripts/                  # Analytics and utility scripts
+│   ├── .github/                  # GitHub workflows and templates
+│   └── docs/                     # Documentation files
 ├── Makefile                       # Build configuration
 ├── .gitignore                     # Git ignore rules
 └── README.md                      # This file
@@ -115,7 +125,7 @@ This project is part of the 42 School curriculum and demonstrates:
 
 ## Collaboration
 
-This is a collaborative project between two developers. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to this project.
+This is a collaborative project between two developers. Please see [project_extras/docs/CONTRIBUTING.md](project_extras/docs/CONTRIBUTING.md) for guidelines on how to contribute to this project.
 
 ### Development Workflow
 - Use feature branches for new development
@@ -129,6 +139,12 @@ This is a collaborative project between two developers. Please see [CONTRIBUTING
 3. Make your changes
 4. Run `make norm` to check style
 5. Submit a pull request
+
+### Analytics and Tracking
+- **Project Analytics**: See [project_extras/docs/PROJECT_ANALYTICS.md](project_extras/docs/PROJECT_ANALYTICS.md) for detailed development insights
+- **Personal Stats**: Use `make personal` for individual analytics
+- **Team Comparison**: Use `make compare` for side-by-side team statistics
+- **Submission Prep**: Use `make submit` to prepare for 42 submission
 
 ## Authors
 

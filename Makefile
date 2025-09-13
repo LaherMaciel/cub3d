@@ -40,6 +40,7 @@ RESET   = \033[0m
 $(NAME): $(LIBFT) $(MLX) $(OBJECTS_DIRECTORY) $(OBJECTS)
 	@if $(CC) $(CFLAGS) $(OBJECTS) $(INCLUDES) $(LIBS) -o $(NAME); \
 	then \
+		$(MAKE) -s norm; \
 		echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) created!"; \
 	else \
 		echo "[" "$(RED)Error$(RESET)" "] | An error occurred while creating $(NAME)."; \
@@ -75,6 +76,7 @@ clean:
 
 fclean: clean
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing binary files..."
+	@rm -rf .norminette.log
 	@rm -rf $(NAME)
 	@make -sC $(LIBFT_DIRECTORY) fclean > /dev/null 2>&1
 	@make -sC $(MLX_DIRECTORY) clean > /dev/null 2>&1
@@ -82,16 +84,17 @@ fclean: clean
 
 norm:
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Norminetting..."
-	@if norminette $(SRCS_DIRECTORY) $(HEADER_DIRECTORY) $(LIBFT_DIRECTORY)src/ $(LIBFT_DIRECTORY)include/ > .norminette.log ; then \
-	    if grep -q "Error!" .norminette.log; then \
-	        echo "[" "$(RED)!!$(RESET)" "] | Norminette found errors."; \
-	        grep "Error!" .norminette.log | awk '{print "[ " "$(RED)!!$(RESET)" " ] | " $$0}'; \
-	    else \
-	        echo "[" "$(GREEN)OK$(RESET)" "] | Norminette passed!"; \
-	    fi; \
+	@for lib in libraries/*/; do \
+		if [ "$$lib" != "libraries/minilibx-linux/" ]; then \
+			norminette $$lib >> .norminette.log 2>&1; \
+		fi; \
+	done
+	@norminette $(SRCS_DIRECTORY) $(HEADER_DIRECTORY) >> .norminette.log 2>&1
+	@if grep -q "Error!" .norminette.log; then \
+		echo "[" "$(RED)!!$(RESET)" "] | Norminette found errors."; \
+		grep "Error!" .norminette.log | awk '{print "[ " "$(RED)!!$(RESET)" " ] | " $$0}'; \
 	else \
-	    echo "[" "$(RED)XX$(RESET)" "] | Norminette Error!"; \
-		norminette $(SRCS_DIRECTORY) $(HEADER_DIRECTORY) $(LIBFT_DIRECTORY)src/ $(LIBFT_DIRECTORY)include/ | awk '/Error!/ {print "[ " "$(RED)!!$(RESET)" " ] | " $$0}'; \
+		echo "[" "$(GREEN)OK$(RESET)" "] | Norminette passed!"; \
 	fi
 
 re: fclean

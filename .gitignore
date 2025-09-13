@@ -63,5 +63,9 @@ Desktop.ini
 *.xpm~
 *.xpm.bak
 
+# Archive files
+*.tgz
+*.tar.gz
+
 # Custom ignore patterns
 # Add any project-specific files to ignore here

@@ -113,11 +113,32 @@ This project is part of the 42 School curriculum and demonstrates:
 
 *Screenshots will be added once the project is complete*
 
-## Author
+## Collaboration
 
-**lahermaciel** - 42 School Student
+This is a collaborative project between two developers. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to this project.
 
-GitHub: [@lahermaciel](https://github.com/lahermaciel)
+### Development Workflow
+- Use feature branches for new development
+- All changes require code review
+- Follow the 42 norminette style guide
+- Test thoroughly before submitting pull requests
+
+### Getting Started
+1. Clone the repository
+2. Create a feature branch
+3. Make your changes
+4. Run `make norm` to check style
+5. Submit a pull request
+
+## Authors
+
+**Laher Maciel** - 42 School Student
+- GitHub: [@LaherMaciel](https://github.com/LaherMaciel)
+- 42 Profile: [@lawences](https://profile-v3.intra.42.fr/users/lawences)
+
+**Kayki Rocha** - 42 School Student
+- GitHub: [@UnderOfAll](https://github.com/UnderOfAll)
+- 42 Profile: [@karocha-](https://profile-v3.intra.42.fr/users/karocha-)
 
 ## Acknowledgments
 

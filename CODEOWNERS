@@ -1,0 +1,20 @@
+# Code Owners
+# This file defines who is responsible for reviewing different parts of the codebase
+
+# Global owners - both collaborators review all changes
+* @LaherMaciel @UnderOfAll
+
+# Source code
+src/ @LaherMaciel @UnderOfAll
+include/ @LaherMaciel @UnderOfAll
+
+# Libraries (both should review library changes)
+libraries/libft/ @LaherMaciel @UnderOfAll
+libraries/minilibx-linux/ @LaherMaciel @UnderOfAll
+
+# Documentation
+*.md @LaherMaciel @UnderOfAll
+.github/ @LaherMaciel @UnderOfAll
+
+# Build files
+Makefile @LaherMaciel @UnderOfAll

@@ -114,6 +114,16 @@ help:
 	@echo "  re         - Rebuild the project"
 	@echo "  run        - Build and run cub3d"
 	@echo "  norm       - Check code style with norminette"
+	@echo "  stats      - Show project statistics"
+	@echo "  final-report - Generate comprehensive project report"
 	@echo "  help       - Show this help message"
 
-.PHONY: all clean fclean re run norm help
+stats:
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Generating project statistics..."
+	@./scripts/project_stats.sh
+
+final-report:
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Generating final project report..."
+	@./scripts/final_report.sh
+
+.PHONY: all clean fclean re run norm stats final-report help

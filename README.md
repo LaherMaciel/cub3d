@@ -1,10 +1,15 @@
 # Cub3D
 
+[![42 School](https://img.shields.io/badge/42-School-blue)](https://42.fr/)
+[![Language](https://img.shields.io/badge/Language-C-orange)](https://en.wikipedia.org/wiki/C_(programming_language))
+[![Platform](https://img.shields.io/badge/Platform-Linux-green)](https://www.linux.org/)
+[![Status](https://img.shields.io/badge/Status-In_Development-yellow)]()
+
 A 3D raycasting game engine inspired by the legendary Wolfenstein 3D, built from scratch using the MiniLibX graphics library.
 
 ## Overview
 
-Cub3D is a 42 School project that involves creating a 3D game engine using raycasting techniques. The project demonstrates understanding of computer graphics, mathematics, and C programming.
+Cub3D is a 42 School project that involves creating a 3D game engine using raycasting techniques. This project demonstrates understanding of computer graphics, mathematics, and C programming. The engine renders a 3D world from a 2D map using raycasting algorithms, similar to the original Wolfenstein 3D.
 
 ## Features
 
@@ -21,6 +26,7 @@ Cub3D is a 42 School project that involves creating a 3D game engine using rayca
 - GCC compiler
 - MiniLibX library (42 School graphics library)
 - Make
+- X11 libraries (for Linux)
 
 ### Building
 
@@ -28,12 +34,22 @@ Cub3D is a 42 School project that involves creating a 3D game engine using rayca
 make
 ```
 
-This will create the `cub3D` executable.
+This will create the `cub3d` executable.
+
+### Available Make Targets
+
+- `make` or `make all` - Build the project
+- `make clean` - Remove object files
+- `make fclean` - Remove all generated files
+- `make re` - Rebuild from scratch
+- `make run` - Build and run the program
+- `make norm` - Check code style with norminette
+- `make help` - Show all available targets
 
 ## Usage
 
 ```bash
-./cub3D map.cub
+./cub3d map.cub
 ```
 
 Where `map.cub` is a valid map file following the cub3d format specification.
@@ -60,20 +76,29 @@ The `.cub` file format includes:
 
 ```
 cub3d/
-├── src/           # Source code
-├── includes/      # Header files
-├── maps/          # Example map files
-├── textures/      # Texture files
-├── Makefile       # Build configuration
-└── README.md      # This file
+├── src/                           # Project source code
+├── include/                       # Project header files
+│   └── cub3d.h                   # Main header file
+├── libraries/                     # External libraries
+│   ├── libft/                    # Custom C library
+│   │   ├── src/                  # Libft source files
+│   │   └── include/              # Libft headers
+│   └── minilibx-linux/           # Graphics library
+├── objects/                       # Compiled object files
+├── Makefile                       # Build configuration
+├── .gitignore                     # Git ignore rules
+└── README.md                      # This file
 ```
 
 ## Technical Details
 
 - **Language**: C
 - **Graphics Library**: MiniLibX
+- **Custom Library**: Libft (42 School standard library)
 - **Rendering**: Raycasting algorithm
-- **Platform**: Linux/macOS
+- **Platform**: Linux (WSL2 compatible)
+- **Build System**: Make
+- **Code Style**: Norminette compliant
 
 ## Development
 
@@ -90,7 +115,9 @@ This project is part of the 42 School curriculum and demonstrates:
 
 ## Author
 
-[Your Name] - 42 School Student
+**lahermaciel** - 42 School Student
+
+GitHub: [@lahermaciel](https://github.com/lahermaciel)
 
 ## Acknowledgments
 

@@ -7,7 +7,68 @@ This document provides comprehensive insights into project development progress 
 *Note: This section is automatically updated when you run `make`, `make fclean`, or `make re`*
 
 <!-- PROJECT_ANALYTICS -->
-*Analytics will be displayed here automatically*
+## 📊 Live Project Analytics
+
+### 🏁 Development Race
+| Developer | Commits | Percentage | Progress Bar | Energy Level |
+|-----------|---------|------------|--------------|--------------|
+| **Laher Maciel** | 7 | 100% | [████████████████████] 100% | 🔥🔥🔥🔥🔥 |
+| **Kayki Rocha** | 0 | 0% | [░░░░░░░░░░░░░░░░░░░░] 0% | 🔥⚡⚡⚡⚡ |
+| **🤝 Collaborative** | 0 | 0% | [░░░░░░░░░░░░░░░░░░░░] 0% | 🔥⚡⚡⚡⚡ |
+
+### 📈 Code Statistics Dashboard
+- **📊 Total Commits**: `7`
+- **⏱️ Project Duration**: `1 days`
+- **➕ Lines Added**: `7004`
+- **➖ Lines Removed**: `104`
+- **🔄 Net Changes**: `6900`
+- **⚡ Recent Activity**: `7 commits` (last 7 days)
+
+### 🎯 Weekly Performance
+| Developer | This Week | Energy Level |
+|-----------|-----------|--------------|
+| **Laher** | 7 commits | 🔥🔥🔥🔥🔥 |
+| **Kayki** | 0 commits | 🔥⚡⚡⚡⚡ |
+
+### 🚀 Development Velocity
+- **📅 Average Commits/Day**: `7`
+- **🔥 Velocity Status**: **BLAZING FAST** - You're coding machines!
+
+### 🎮 Current Status
+⚡ **HIGH VOLTAGE** - Great momentum! Don't stop now!
+
+### 🏆 Competition Status
+🥇 **Laher is ahead** - Kayki, time to step up your game! 🎯
+
+#### 📝 Recent Activity
+```
+🔹 392208c Enhance project analytics and documentation: add scripts for individual, mutual, and comparison analytics; update Makefile with new commands for personal and mutual analytics; introduce README updates for analytics sections; create comprehensive PROJECT_ANALYTICS.md for tracking development insights; implement GitHub workflows for automated analytics updates and contribution reporting.
+🔹 3154112 Add project management and documentation files: create CODEOWNERS for code review assignments, add CONTRIBUTING.md for contribution guidelines, and introduce PROJECT_ANALYTICS.md for tracking development insights. Update Makefile with new commands for project statistics and final report generation. Include GitHub workflows for CI and contribution reporting, along with scripts for generating project statistics and final reports.
+🔹 b8832df Add libft library: implement core functions including memory management, string manipulation, and linked list operations; add Makefile and README for documentation.
+🔹 e48c3f3 Update README with additional badges, enhance project description, and clarify file structure; minor update to main.c header comment.
+🔹 d3c0873 Remove .tgz files from git tracking and add to .gitignore
+🔹 9754a18 Implement initial project structure for cub3d: add Makefile, source files, header, and library dependencies; update .gitignore to include archive files.
+🔹 72ddec9 Initial commit: Add README and .gitignore
+```
+
+#### 📁 Most Active Files
+```
+📄       6 
+📄       4 README.md
+📄       4 Makefile
+📄       2 src/main.c
+📄       2 scripts/project_stats.sh
+```
+
+#### 🎯 Next Milestones
+- [ ] **50 commits** - Halfway to greatness! 🎯
+- [ ] **100 commits** - Century club! 💯
+- [ ] **Perfect balance** - 50/50 collaboration! ⚖️
+- [ ] **Code quality** - Zero norminette errors! ✨
+
+---
+*🔄 Last updated: Sun Sep 14 15:11:01 WEST 2025 | Auto-updated on build*
+
 <!-- END_ANALYTICS -->
 
 ## Team Members
@@ -26,209 +87,96 @@ This document provides comprehensive insights into project development progress 
 Use prefixes to identify development areas:
 - `[Laher]` - Laher's development work
 - `[Kayki]` - Kayki's development work
-- `[Both]` - Collaborative development
+- `[Both]` - Collaborative work
 
-Example:
-```
-[Laher] Add raycasting algorithm
-[Kayki] Implement texture mapping
-[Both] Fix memory leaks in map parsing
-```
+### 3. Code Review Process
+- All changes require pull request review
+- Use descriptive commit messages
+- Follow 42 norminette standards
 
-### 3. Development Labels
-Use labels to categorize development work:
-- `laher-dev` - Development by Laher
-- `kayki-dev` - Development by Kayki
-- `collaborative` - Joint development
-- `review-needed` - Needs peer review
+### 4. Workload Distribution
+- Track individual contributions
+- Monitor collaborative efforts
+- Ensure balanced development load
 
-## Workload Distribution
+## Project Statistics
 
-### Phase 1: Project Setup (Target: 50/50)
-- [ ] Repository setup
-- [ ] Makefile configuration
-- [ ] Basic project structure
-- [ ] Documentation
+### Repository Overview
+- **Language**: C
+- **Graphics Library**: MiniLibX
+- **Custom Library**: Libft
+- **Build System**: Make
+- **Code Style**: Norminette compliant
 
-### Phase 2: Core Engine (Target: 50/50)
-- [ ] Raycasting algorithm
-- [ ] Player movement
-- [ ] Collision detection
-- [ ] Map parsing
+### Development Workflow
+1. Create feature branch
+2. Implement changes
+3. Run `make norm` for style check
+4. Submit pull request
+5. Code review and merge
 
-### Phase 3: Graphics (Target: 50/50)
-- [ ] Texture loading
-- [ ] Sprite rendering
-- [ ] Color management
-- [ ] MiniLibX integration
+## Analytics Features
 
-### Phase 4: Gameplay (Target: 50/50)
-- [ ] Input handling
-- [ ] Game loop
-- [ ] State management
-- [ ] Error handling
+### Real-time Tracking
+- Live commit statistics
+- Development velocity
+- Code contribution metrics
+- Team performance insights
 
-### Phase 5: Polish (Target: 50/50)
-- [ ] Code optimization
-- [ ] Memory management
-- [ ] Testing
-- [ ] Final documentation
+### Historical Analysis
+- Project timeline
+- Development patterns
+- Collaboration trends
+- Milestone tracking
 
-## Weekly Check-ins
+### Competitive Elements
+- Development race tracking
+- Energy level indicators
+- Performance comparisons
+- Motivation metrics
 
-Every week, review:
-1. Commit count per person
-2. Lines of code added/removed
-3. Number of pull requests created/reviewed
-4. Issues assigned and resolved
+## Usage
 
-## GitHub Features for Tracking
+### Viewing Analytics
+- **Main Analytics**: This file contains all project insights
+- **Live Updates**: Automatically updated on build/clean operations
+- **Individual Stats**: Use `make personal` for personal analytics
+- **Comparison**: Use `make compare` for side-by-side comparison
 
-### 1. Enable Insights
-- Repository Settings → General → Features
-- Enable "Issues" and "Pull requests"
-- Enable "Discussions" (optional)
+### Updating Analytics
+Analytics are automatically updated when you run:
+- `make` or `make all`
+- `make fclean`
+- `make re`
 
-### 2. Use Project Boards
-- Create project boards for different phases
-- Assign tasks to specific members
-- Track progress visually
-
-### 3. Use Milestones
-- Create milestones for each phase
-- Assign issues and PRs to milestones
-- Track completion percentage
-
-### 4. Regular Reviews
-- Weekly contribution reviews
-- Monthly workload assessment
-- Adjust distribution if needed
-
-## Fair Collaboration Guidelines
-
-1. **Equal Participation**: Aim for 50/50 contribution split
-2. **Regular Communication**: Daily standups or check-ins
-3. **Code Reviews**: All code must be reviewed by the other member
-4. **Documentation**: Both members should understand all parts
-5. **Knowledge Sharing**: Explain complex implementations to each other
-
-## Tools for Tracking
-
-### GitHub CLI (Optional)
+### Manual Updates
+To manually update analytics:
 ```bash
-# Install GitHub CLI
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-sudo apt update
-sudo apt install gh
-
-# View contribution stats
-gh api repos/:owner/:repo/stats/contributors
+./project_extras/scripts/update_analytics.sh
 ```
 
-### Git Shortlog (Local)
-```bash
-# View commit count per author
-git shortlog -sn
+## Project Management
 
-# View commits by author with details
-git log --pretty=format:"%h %an %s" --graph
-```
+### File Organization
+- `src/` - Source code
+- `include/` - Header files
+- `libraries/` - External libraries
+- `project_extras/` - Development tools and analytics
 
-## 📈 Comprehensive Contribution Analysis
+### Collaboration Tools
+- GitHub Issues for bug tracking
+- Pull Requests for code review
+- Project boards for task management
+- Analytics for progress tracking
 
-### Real-Time Contribution Tracking
-The live analytics above show real-time contribution data. Here's what each metric means:
+## Final Report
 
-#### **Commit Analysis**
-- **Individual Commits**: Shows who made what changes
-- **Collaborative Commits**: Joint work marked with `[Both]` tag
-- **Percentage Distribution**: Visual representation of workload split
+When the project is complete, use `make final-report` to generate a comprehensive project summary including:
+- Total development time
+- Final contribution statistics
+- Project completion metrics
+- Team collaboration analysis
 
-#### **Code Contribution Metrics**
-- **Lines Added/Removed**: Actual code changes per developer
-- **File Activity**: Which files each person worked on most
-- **Recent Activity**: Last 7 days of development activity
+---
 
-#### **Development Velocity**
-- **Commits per Day**: Average development pace
-- **Weekly Performance**: Current week's activity level
-- **Energy Levels**: Visual indicators based on activity
-
-### 📊 Detailed Contribution Breakdown
-
-#### **By Development Phase**
-| Phase | Laher's Role | Kayki's Role | Collaboration Level |
-|-------|-------------|--------------|-------------------|
-| **Setup** | Repository, Makefile | Documentation, Structure | High |
-| **Core Engine** | Raycasting Algorithm | Player Movement | Medium |
-| **Graphics** | Texture Loading | Rendering Pipeline | High |
-| **Gameplay** | Input Handling | Game Loop | Medium |
-| **Polish** | Optimization | Testing | High |
-
-#### **By File Type**
-| File Type | Laher's Focus | Kayki's Focus | Shared Work |
-|-----------|---------------|---------------|-------------|
-| **Source Files** | Core algorithms | User interface | Bug fixes |
-| **Headers** | Data structures | Function declarations | Documentation |
-| **Libraries** | Integration | Testing | Maintenance |
-| **Documentation** | Technical specs | User guides | Project management |
-
-### 🎯 Contribution Quality Metrics
-
-#### **Code Quality Indicators**
-- **Norminette Compliance**: Both developers maintain style standards
-- **Code Review Coverage**: All changes reviewed by partner
-- **Documentation Coverage**: Comments and README updates
-- **Test Coverage**: Functionality testing and validation
-
-#### **Collaboration Effectiveness**
-- **Knowledge Transfer**: Areas where skills were shared
-- **Problem Solving**: Joint debugging and optimization
-- **Code Ownership**: Clear responsibility for different modules
-- **Communication**: Regular updates and progress sharing
-
-### 📋 Final Project Report
-
-At the end of the project, use this section to generate a comprehensive development report:
-
-#### **Overall Development Statistics**
-```bash
-# Generate final project report
-make final-report
-```
-
-#### **Key Metrics to Track**
-- **Total Commits**: Overall commit count per developer
-- **Lines of Code**: Total additions, deletions, and net changes
-- **Pull Requests**: Created, reviewed, and merged
-- **Issues**: Created, assigned, and resolved
-- **File Contributions**: Which files were primarily developed by whom
-- **Time Investment**: Estimated development time per phase
-
-#### **Development Areas Breakdown**
-- **Core Engine**: Raycasting, player movement, collision detection
-- **Graphics**: Texture loading, rendering, MiniLibX integration
-- **Gameplay**: Input handling, game loop, state management
-- **Infrastructure**: Build system, documentation, testing
-- **Bug Fixes**: Issue resolution and code optimization
-
-#### **Collaboration Analysis**
-- **Code Review Patterns**: Who reviewed what
-- **Pair Programming Sessions**: Joint development sessions
-- **Knowledge Sharing**: Areas where knowledge was transferred
-- **Problem Solving**: How challenges were tackled together
-
-#### **Project Success Metrics**
-- **Code Quality**: Norminette compliance, code organization
-- **Documentation**: Completeness and clarity
-- **Testing**: Coverage and reliability
-- **Performance**: Optimization and efficiency
-- **Learning Outcomes**: Skills developed and knowledge gained
-
-## Notes
-
-- This analytics system helps understand project development patterns
-- The goal is to ensure balanced collaboration and learning
-- Adjust development approaches based on insights gained
-- Focus on building great software together!
+*This analytics system provides transparent tracking of project development and team collaboration, helping maintain motivation and ensure balanced contributions.*

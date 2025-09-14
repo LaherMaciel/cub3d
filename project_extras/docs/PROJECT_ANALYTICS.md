@@ -4,7 +4,7 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-9-orange?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-10-orange?style=for-the-badge)
 ![Duration](https://img.shields.io/badge/Duration-1_Days-purple?style=for-the-badge)
 
 </div>
@@ -19,14 +19,10 @@
 
 ### 🏁 Development Race
 
-| Developer | Commits | Percentage | Progress Bar | Energy Level |
-|-----------|---------|------------|--------------|--------------|
-| **Laher Maciel** | 9 | 100% | ┌─────────────────────────┐
-│█████████████████████████│ 100%
-└─────────────────────────┘ | 🚀🔥💯⚡🎯 |
-| **Kayki Rocha** | 0 | 0% | ┌─────────────────────────┐
-│░░░░░░░░░░░░░░░░░░░░░░░░░│   0%
-└─────────────────────────┘ | 💤⚡⚡⚡⚡ |
+| Developer | Commits | Code Changes | Activity Level | Energy Level |
+|-----------|---------|--------------|----------------|--------------|
+| **Laher Maciel** | 10 | +7983/-695 (7288 net) | 🏆 **EXCEPTIONAL** - Outstanding contribution (7288 lines) | 🚀🔥💯⚡🎯 |
+| **Kayki Rocha** | 0 | +0/-0 (0 net) | 📝 **PENDING** - Awaiting contribution | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
 
@@ -34,12 +30,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `9` | Total number of commits |
+| **📊 Total Commits** | `10` | Total number of commits |
 | **⏱️ Project Duration** | `1 days` | Days since first commit |
-| **➕ Lines Added** | `7924` | Total lines of code added |
-| **➖ Lines Removed** | `671` | Total lines of code removed |
-| **🔄 Net Changes** | `7253` | Net code changes |
-| **⚡ Recent Activity** | `9 commits` | Commits in last 7 days |
+| **➕ Lines Added** | `7983` | Total lines of code added |
+| **➖ Lines Removed** | `695` | Total lines of code removed |
+| **🔄 Net Changes** | `7288` | Net code changes |
+| **⚡ Recent Activity** | `10 commits` | Commits in last 7 days |
 
 </div>
 
@@ -47,14 +43,14 @@
 
 | Developer | This Week | Energy Level | Lines Added | Lines Removed |
 |-----------|-----------|--------------|-------------|---------------|
-| **Laher Maciel** | 9 commits | 🚀🔥💯⚡🎯 | 7924 | 671 |
+| **Laher Maciel** | 10 commits | 🚀🔥💯⚡🎯 | 7983 | 695 |
 | **Kayki Rocha** | 0 commits | 💤⚡⚡⚡⚡ | 0 | 0 |
 
 ### 🚀 Development Velocity
 
 <div align="center">
 
-| **📅 Average Commits/Day** | `9` |
+| **📅 Average Commits/Day** | `10` |
 | **📈 Development Trend** | 🚀 **BLAZING FAST** - You're coding machines! |
 
 </div>
@@ -72,13 +68,14 @@
 
 <div align="center">
 
-🏆 **Laher Maciel is LEADING** - Strong performance! Others, time to step up! 🎯
+🏆 **Laher Maciel is LEADING** - Strong code contribution! Others, time to step up! 🎯
 
 </div>
 
 ### 📝 Recent Activity
 
 ```text
+🔹 f8d4952 Add test script for team member detection and update PROJECT_ANALYTICS.md: Introduce a new Bash script to identify team members from git authors, and update analytics documentation to reflect the current team composition and commit statistics.
 🔹 15a0dc5 Revamp PROJECT_ANALYTICS.md and update analytics script: Update formatting and add new sections for project insights, performance metrics, and team collaboration. Ensure real-time tracking and automated updates for better project management.
 🔹 26bd90b Remove outdated PROJECT_ANALYTICS.md and libft.a files; introduce simple analytics script for generating project analytics documentation with real-time tracking and performance metrics.
 🔹 392208c Enhance project analytics and documentation: add scripts for individual, mutual, and comparison analytics; update Makefile with new commands for personal and mutual analytics; introduce README updates for analytics sections; create comprehensive PROJECT_ANALYTICS.md for tracking development insights; implement GitHub workflows for automated analytics updates and contribution reporting.
@@ -93,11 +90,11 @@
 ### 📁 Most Active Files
 
 ```text
-📄       8 
+📄       9 
+📄       4 project_extras/scripts/update_analytics.sh
+📄       4 project_extras/docs/PROJECT_ANALYTICS.md
 📄       4 README.md
 📄       4 Makefile
-📄       3 project_extras/scripts/update_analytics.sh
-📄       3 project_extras/docs/PROJECT_ANALYTICS.md
 📄       2 src/main.c
 📄       2 scripts/project_stats.sh
 📄       2 project_extras/PROJECT_ANALYTICS.md
@@ -115,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Sun Sep 14 15:25:04 WEST 2025 | Auto-updated on build*
+*🔄 Last updated: Sun Sep 14 15:40:36 WEST 2025 | Auto-updated on build*
 
 </div>
 
@@ -128,31 +125,21 @@
 - **Laher Maciel** - Active contributor
 - **Kayki Rocha** - Active contributor
 
-## 🔧 Development Insights
+## 🔧 Development Workflow
 
-### 1. GitHub Analytics
-- Repository → Insights → Contributors
-- View development patterns and collaboration metrics
-- Track project evolution over time
-
-### 2. Development Tags
-Use prefixes to identify development areas:
-- `[AuthorName]` - Specific author's development work
-- `[Both]` - Collaborative work
-
-### 3. Code Review Process
+### Code Review Process
 - All changes require pull request review
 - Use descriptive commit messages
 - Follow 42 norminette standards
 
-### 4. Workload Distribution
+### Workload Distribution
 - Track individual contributions
 - Monitor collaborative efforts
 - Ensure balanced development load
 
-## 📊 Project Statistics
+## 📊 Project Overview
 
-### Repository Overview
+### Repository Details
 - **Language**: C
 - **Graphics Library**: MiniLibX
 - **Custom Library**: Libft
@@ -165,26 +152,6 @@ Use prefixes to identify development areas:
 3. Run `make norm` for style check
 4. Submit pull request
 5. Code review and merge
-
-## 🚀 Analytics Features
-
-### Real-time Tracking
-- Live commit statistics
-- Development velocity
-- Code contribution metrics
-- Team performance insights
-
-### Historical Analysis
-- Project timeline
-- Development patterns
-- Collaboration trends
-- Milestone tracking
-
-### Competitive Elements
-- Development race tracking
-- Energy level indicators
-- Performance comparisons
-- Motivation metrics
 
 ## 📖 Usage
 
@@ -206,19 +173,12 @@ To manually update analytics:
 ./project_extras/scripts/update_analytics.sh
 ```
 
-## 📁 Project Management
+## 📁 Project Structure
 
-### File Organization
 - `src/` - Source code
 - `include/` - Header files
 - `libraries/` - External libraries
 - `project_extras/` - Development tools and analytics
-
-### Collaboration Tools
-- GitHub Issues for bug tracking
-- Pull Requests for code review
-- Project boards for task management
-- Analytics for progress tracking
 
 ## 📋 Final Report
 

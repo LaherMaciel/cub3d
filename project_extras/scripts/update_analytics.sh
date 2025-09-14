@@ -15,28 +15,6 @@ fi
 TOTAL_COMMITS=$(git rev-list --count HEAD)
 TOTAL_AUTHORS=$(git log --pretty=format:"%an" | sort | uniq | wc -l)
 
-# Dynamic teammate detection from git repository
-get_team_members() {
-    # Define known team members (always include both)
-    local known_team=("Laher Maciel" "Kayki Rocha")
-    local team_members=()
-    
-    # Always include known team members
-    team_members=("${known_team[@]}")
-    
-    # Get all unique authors from git log
-    local authors=$(git log --pretty=format:"%an" | sort | uniq)
-    
-    # Add any other authors not in the known team
-    while IFS= read -r author; do
-        if [ -n "$author" ] && [[ ! " ${team_members[@]} " =~ " ${author} " ]]; then
-            team_members+=("$author")
-        fi
-    done <<< "$authors"
-    
-    echo "${team_members[@]}"
-}
-
 # Get commit counts for each team member
 get_author_commits() {
     local author="$1"
@@ -57,17 +35,6 @@ get_recent_activity() {
     git log --since="7 days ago" --author="$author" --oneline | wc -l
 }
 
-# Calculate percentages
-if [ $TOTAL_COMMITS -gt 0 ]; then
-    LAHER_PERCENT=$((LAHER_COMMITS * 100 / TOTAL_COMMITS))
-    KAYKI_PERCENT=$((KAYKI_COMMITS * 100 / TOTAL_COMMITS))
-    BOTH_PERCENT=$((BOTH_COMMITS * 100 / TOTAL_COMMITS))
-else
-    LAHER_PERCENT=0
-    KAYKI_PERCENT=0
-    BOTH_PERCENT=0
-fi
-
 # Get lines of code statistics
 TOTAL_ADDED=$(git log --pretty=tformat: --numstat | awk '{add += $1} END {print add+0}')
 TOTAL_REMOVED=$(git log --pretty=tformat: --numstat | awk '{subs += $2} END {print subs+0}')
@@ -85,21 +52,25 @@ else
     PROJECT_DAYS=0
 fi
 
-# Create professional progress bars
-create_progress_bar() {
-    local percent=$1
-    local width=25
-    local filled=$((percent * width / 100))
-    local empty=$((width - filled))
+# Create activity level indicator based on code changes
+create_activity_level() {
+    local added=$1
+    local removed=$2
+    local net_changes=$((added - removed))
     
-    printf "┌"
-    for i in $(seq 1 $width); do printf "─"; done
-    printf "┐\n│"
-    for i in $(seq 1 $filled); do printf "█"; done
-    for i in $(seq 1 $empty); do printf "░"; done
-    printf "│ %3d%%\n└" $percent
-    for i in $(seq 1 $width); do printf "─"; done
-    printf "┘"
+    if [ $added -eq 0 ]; then
+        echo "📝 **PENDING** - Awaiting contribution"
+    elif [ $net_changes -le 50 ]; then
+        echo "🔧 **INITIAL** - Foundation work ($net_changes lines)"
+    elif [ $net_changes -le 200 ]; then
+        echo "⚙️ **DEVELOPING** - Active development ($net_changes lines)"
+    elif [ $net_changes -le 500 ]; then
+        echo "🚀 **PROGRESSIVE** - Significant contribution ($net_changes lines)"
+    elif [ $net_changes -le 1000 ]; then
+        echo "💪 **INTENSIVE** - Major development ($net_changes lines)"
+    else
+        echo "🏆 **EXCEPTIONAL** - Outstanding contribution ($net_changes lines)"
+    fi
 }
 
 # Create professional emoji progress indicator
@@ -143,33 +114,37 @@ get_motivational_message() {
     fi
 }
 
-# Generate professional competition message
+# Generate professional competition message based on code changes
 get_competition_message() {
     local team_members=("$@")
-    local max_commits=0
+    local max_changes=0
     local leader=""
-    local total_commits=0
+    local total_changes=0
     
-    # Find the leader
+    # Find the leader based on code changes
     for member in "${team_members[@]}"; do
-        local commits=$(get_author_commits "$member")
-        total_commits=$((total_commits + commits))
-        if [ "$commits" -gt "$max_commits" ]; then
-            max_commits=$commits
+        local stats=($(get_author_stats "$member"))
+        local added=${stats[0]}
+        local removed=${stats[1]}
+        local net_changes=$((added - removed))
+        total_changes=$((total_changes + net_changes))
+        
+        if [ "$net_changes" -gt "$max_changes" ]; then
+            max_changes=$net_changes
             leader="$member"
         fi
     done
     
     if [ ${#team_members[@]} -eq 1 ]; then
         echo "👤 **SOLO DEVELOPER** - You're handling this project independently! Great work!"
-    elif [ "$max_commits" -gt "$((total_commits / 2))" ]; then
-        echo "🏆 **$leader is LEADING** - Strong performance! Others, time to step up! 🎯"
+    elif [ "$max_changes" -gt "$((total_changes / 2))" ]; then
+        echo "🏆 **$leader is LEADING** - Strong code contribution! Others, time to step up! 🎯"
     else
         echo "🤝 **BALANCED TEAMWORK** - Excellent collaboration! Keep the momentum! 👥"
     fi
 }
 
-# Get team members dynamically - always include both team members
+# Get team members - always include both team members
 TEAM_MEMBERS=("Laher Maciel" "Kayki Rocha")
 
 # Create the analytics content
@@ -195,21 +170,28 @@ $ANALYTICS_SECTION
 
 ### 🏁 Development Race
 
-| Developer | Commits | Percentage | Progress Bar | Energy Level |
-|-----------|---------|------------|--------------|--------------|
+| Developer | Commits | Code Changes | Activity Level | Energy Level |
+|-----------|---------|--------------|----------------|--------------|
 EOF
 
 # Add team members dynamically
 for member in "${TEAM_MEMBERS[@]}"; do
     commits=$(get_author_commits "$member")
-    percent=$((commits * 100 / TOTAL_COMMITS))
     stats=($(get_author_stats "$member"))
     added=${stats[0]}
     removed=${stats[1]}
+    net_changes=$((added - removed))
     recent=$(get_recent_activity "$member")
     
+    # Calculate percentage based on code changes, not commits
+    if [ $TOTAL_ADDED -gt 0 ]; then
+        change_percent=$((added * 100 / TOTAL_ADDED))
+    else
+        change_percent=0
+    fi
+    
     cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
-| **$member** | $commits | $percent% | $(create_progress_bar $percent) | $(create_emoji_progress $percent) |
+| **$member** | $commits | +$added/-$removed ($net_changes net) | $(create_activity_level $added $removed) | $(create_emoji_progress $change_percent) |
 EOF
 done
 
@@ -332,31 +314,21 @@ done
 
 cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
 
-## 🔧 Development Insights
+## 🔧 Development Workflow
 
-### 1. GitHub Analytics
-- Repository → Insights → Contributors
-- View development patterns and collaboration metrics
-- Track project evolution over time
-
-### 2. Development Tags
-Use prefixes to identify development areas:
-- \`[AuthorName]\` - Specific author's development work
-- \`[Both]\` - Collaborative work
-
-### 3. Code Review Process
+### Code Review Process
 - All changes require pull request review
 - Use descriptive commit messages
 - Follow 42 norminette standards
 
-### 4. Workload Distribution
+### Workload Distribution
 - Track individual contributions
 - Monitor collaborative efforts
 - Ensure balanced development load
 
-## 📊 Project Statistics
+## 📊 Project Overview
 
-### Repository Overview
+### Repository Details
 - **Language**: C
 - **Graphics Library**: MiniLibX
 - **Custom Library**: Libft
@@ -369,26 +341,6 @@ Use prefixes to identify development areas:
 3. Run \`make norm\` for style check
 4. Submit pull request
 5. Code review and merge
-
-## 🚀 Analytics Features
-
-### Real-time Tracking
-- Live commit statistics
-- Development velocity
-- Code contribution metrics
-- Team performance insights
-
-### Historical Analysis
-- Project timeline
-- Development patterns
-- Collaboration trends
-- Milestone tracking
-
-### Competitive Elements
-- Development race tracking
-- Energy level indicators
-- Performance comparisons
-- Motivation metrics
 
 ## 📖 Usage
 
@@ -410,19 +362,12 @@ To manually update analytics:
 ./project_extras/scripts/update_analytics.sh
 \`\`\`
 
-## 📁 Project Management
+## 📁 Project Structure
 
-### File Organization
 - \`src/\` - Source code
 - \`include/\` - Header files
 - \`libraries/\` - External libraries
 - \`project_extras/\` - Development tools and analytics
-
-### Collaboration Tools
-- GitHub Issues for bug tracking
-- Pull Requests for code review
-- Project boards for task management
-- Analytics for progress tracking
 
 ## 📋 Final Report
 

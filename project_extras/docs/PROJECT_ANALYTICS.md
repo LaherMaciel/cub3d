@@ -4,7 +4,7 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-11-orange?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-12-orange?style=for-the-badge)
 ![Duration](https://img.shields.io/badge/Duration-1_Days-purple?style=for-the-badge)
 
 </div>
@@ -21,15 +21,15 @@
 
 | Developer | This Week | Activity Level | Energy Level | Lines Added | Lines Removed |
 |-----------|-----------|----------------|--------------|-------------|---------------|
-| **Laher Maciel** | 11 commits | 👑 **DOMINANT** - Outstanding week (7193 lines) | 🚀🔥💯⚡🎯 | 8057 | 864 |
+| **Laher Maciel** | 12 commits | 👑 **DOMINANT** - Outstanding week (9054 lines) | 🚀🔥💯⚡🎯 | 8139 | 915 |
 | **Kayki Rocha** | 0 commits | 📝 **PENDING** - No activity this week | 💤⚡⚡⚡⚡ | 0 | 0 |
 
 ### 🏁 Development Race
 
 | Developer | Commits | Code Changes | Activity Level | Energy Level |
 |-----------|---------|--------------|----------------|--------------|
-| **Laher Maciel** | 11 | +8057/-864 (7193 net) | 👑 **DOMINANT** - Primary contributor (100%) | 🚀🔥💯⚡🎯 |
-| **Kayki Rocha** | 0 | +0/-0 (0 net) | 📝 **PENDING** - Awaiting contribution | 💤⚡⚡⚡⚡ |
+| **Laher Maciel** | 12 | +8139/-915 (9054 total) | 👑 **DOMINANT** - Primary contributor (100%) | 🚀🔥💯⚡🎯 |
+| **Kayki Rocha** | 0 | +0/-0 (0 total) | 📝 **PENDING** - Awaiting contribution | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
 
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `11` | Total number of commits |
+| **📊 Total Commits** | `12` | Total number of commits |
 | **⏱️ Project Duration** | `1 days` | Days since first commit |
-| **➕ Lines Added** | `8057` | Total lines of code added |
-| **➖ Lines Removed** | `864` | Total lines of code removed |
-| **🔄 Net Changes** | `7193` | Net code changes |
-| **⚡ Recent Activity** | `11 commits` | Commits in last 7 days |
+| **➕ Lines Added** | `8139` | Total lines of code added |
+| **➖ Lines Removed** | `915` | Total lines of code removed |
+| **🔄 Net Changes** | `7224` | Net code changes |
+| **⚡ Recent Activity** | `12 commits` | Commits in last 7 days |
 
 </div>
 
@@ -50,7 +50,7 @@
 
 <div align="center">
 
-| **📅 Average Commits/Day** | `11` |
+| **📅 Average Commits/Day** | `12` |
 | **📈 Development Trend** | 🚀 **BLAZING FAST** - You're coding machines! |
 
 </div>
@@ -75,6 +75,7 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 1e8b39d Update PROJECT_ANALYTICS.md and analytics script: Increment commit count to 11, enhance weekly performance metrics, and improve activity level indicators for better clarity and accuracy in tracking contributions.
 🔹 1db0db1 Update PROJECT_ANALYTICS.md and analytics script: Increment commit count to 10, enhance developer activity metrics, and improve formatting for better clarity. Adjust analytics script to reflect code changes and activity levels, ensuring accurate tracking of contributions.
 🔹 f8d4952 Add test script for team member detection and update PROJECT_ANALYTICS.md: Introduce a new Bash script to identify team members from git authors, and update analytics documentation to reflect the current team composition and commit statistics.
 🔹 15a0dc5 Revamp PROJECT_ANALYTICS.md and update analytics script: Update formatting and add new sections for project insights, performance metrics, and team collaboration. Ensure real-time tracking and automated updates for better project management.
@@ -84,15 +85,14 @@
 🔹 b8832df Add libft library: implement core functions including memory management, string manipulation, and linked list operations; add Makefile and README for documentation.
 🔹 e48c3f3 Update README with additional badges, enhance project description, and clarify file structure; minor update to main.c header comment.
 🔹 d3c0873 Remove .tgz files from git tracking and add to .gitignore
-🔹 9754a18 Implement initial project structure for cub3d: add Makefile, source files, header, and library dependencies; update .gitignore to include archive files.
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      10 
-📄       5 project_extras/scripts/update_analytics.sh
-📄       5 project_extras/docs/PROJECT_ANALYTICS.md
+📄      11 
+📄       6 project_extras/scripts/update_analytics.sh
+📄       6 project_extras/docs/PROJECT_ANALYTICS.md
 📄       4 README.md
 📄       4 Makefile
 📄       2 src/main.c
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Sun Sep 14 15:52:38 WEST 2025 | Auto-updated on build*
+*🔄 Last updated: Sun Sep 14 15:58:57 WEST 2025 | Auto-updated on build*
 
 </div>
 

@@ -56,9 +56,10 @@ fi
 create_activity_level() {
     local added=$1
     local total_added=$2
-    local net_changes=$((added - $3))
+    local removed=$3
+    local total_changes=$((added + removed))
     
-    if [ $added -eq 0 ]; then
+    if [ $total_changes -eq 0 ]; then
         echo "📝 **PENDING** - Awaiting contribution"
     elif [ $total_added -eq 0 ]; then
         echo "🔧 **INITIAL** - Starting project"
@@ -85,22 +86,22 @@ create_activity_level() {
 create_weekly_activity_level() {
     local added=$1
     local removed=$2
-    local net_changes=$((added - removed))
+    local total_changes=$((added + removed))
     
-    if [ $added -eq 0 ]; then
+    if [ $total_changes -eq 0 ]; then
         echo "📝 **PENDING** - No activity this week"
-    elif [ $net_changes -le 10 ]; then
-        echo "🔧 **MINIMAL** - Light work ($net_changes lines)"
-    elif [ $net_changes -le 50 ]; then
-        echo "⚙️ **MODERATE** - Steady progress ($net_changes lines)"
-    elif [ $net_changes -le 100 ]; then
-        echo "🚀 **ACTIVE** - Good pace ($net_changes lines)"
-    elif [ $net_changes -le 200 ]; then
-        echo "💪 **INTENSIVE** - Strong work ($net_changes lines)"
-    elif [ $net_changes -le 500 ]; then
-        echo "🏆 **EXCEPTIONAL** - Major progress ($net_changes lines)"
+    elif [ $total_changes -le 10 ]; then
+        echo "🔧 **MINIMAL** - Light work ($total_changes lines)"
+    elif [ $total_changes -le 50 ]; then
+        echo "⚙️ **MODERATE** - Steady progress ($total_changes lines)"
+    elif [ $total_changes -le 100 ]; then
+        echo "🚀 **ACTIVE** - Good pace ($total_changes lines)"
+    elif [ $total_changes -le 200 ]; then
+        echo "💪 **INTENSIVE** - Strong work ($total_changes lines)"
+    elif [ $total_changes -le 500 ]; then
+        echo "🏆 **EXCEPTIONAL** - Major progress ($total_changes lines)"
     else
-        echo "👑 **DOMINANT** - Outstanding week ($net_changes lines)"
+        echo "👑 **DOMINANT** - Outstanding week ($total_changes lines)"
     fi
 }
 
@@ -233,6 +234,7 @@ for member in "${TEAM_MEMBERS[@]}"; do
     added=${stats[0]}
     removed=${stats[1]}
     net_changes=$((added - removed))
+    total_changes=$((added + removed))
     recent=$(get_recent_activity "$member")
     
     # Calculate percentage based on code changes, not commits
@@ -243,7 +245,7 @@ for member in "${TEAM_MEMBERS[@]}"; do
     fi
     
     cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
-| **$member** | $commits | +$added/-$removed ($net_changes net) | $(create_activity_level $added $TOTAL_ADDED $removed) | $(create_emoji_progress $change_percent) |
+| **$member** | $commits | +$added/-$removed ($total_changes total) | $(create_activity_level $added $TOTAL_ADDED $removed) | $(create_emoji_progress $change_percent) |
 EOF
 done
 

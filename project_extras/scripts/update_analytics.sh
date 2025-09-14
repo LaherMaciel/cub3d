@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Simple analytics script that just creates the PROJECT_ANALYTICS.md file
+# Professional Project Analytics Generator
+# Automatically detects team members from git repository and generates comprehensive analytics
 
 TEMP_README="ANALYTICS_TEMP.md"
 ANALYTICS_SECTION="<!-- PROJECT_ANALYTICS -->"
@@ -14,10 +15,40 @@ fi
 TOTAL_COMMITS=$(git rev-list --count HEAD)
 TOTAL_AUTHORS=$(git log --pretty=format:"%an" | sort | uniq | wc -l)
 
-# Get commit counts per author
-LAHER_COMMITS=$(git log --author="Laher" --oneline | wc -l)
-KAYKI_COMMITS=$(git log --author="Kayki" --oneline | wc -l)
-BOTH_COMMITS=$(git log --grep="\[Both\]" --oneline | wc -l)
+# Dynamic teammate detection from git repository
+get_team_members() {
+    # Get all unique authors from git log
+    local authors=$(git log --pretty=format:"%an" | sort | uniq)
+    local team_members=()
+    
+    while IFS= read -r author; do
+        if [ -n "$author" ]; then
+            team_members+=("$author")
+        fi
+    done <<< "$authors"
+    
+    echo "${team_members[@]}"
+}
+
+# Get commit counts for each team member
+get_author_commits() {
+    local author="$1"
+    git log --author="$author" --oneline | wc -l
+}
+
+# Get lines of code statistics for each team member
+get_author_stats() {
+    local author="$1"
+    local added=$(git log --author="$author" --pretty=tformat: --numstat | awk '{add += $1} END {print add+0}')
+    local removed=$(git log --author="$author" --pretty=tformat: --numstat | awk '{subs += $2} END {print subs+0}')
+    echo "$added $removed"
+}
+
+# Get recent activity for each team member (last 7 days)
+get_recent_activity() {
+    local author="$1"
+    git log --since="7 days ago" --author="$author" --oneline | wc -l
+}
 
 # Calculate percentages
 if [ $TOTAL_COMMITS -gt 0 ]; then
@@ -47,158 +78,254 @@ else
     PROJECT_DAYS=0
 fi
 
-# Create progress bars
+# Create professional progress bars
 create_progress_bar() {
     local percent=$1
-    local width=20
+    local width=25
     local filled=$((percent * width / 100))
     local empty=$((width - filled))
     
-    printf "["
+    printf "┌"
+    for i in $(seq 1 $width); do printf "─"; done
+    printf "┐\n│"
     for i in $(seq 1 $filled); do printf "█"; done
     for i in $(seq 1 $empty); do printf "░"; done
-    printf "] %d%%" $percent
+    printf "│ %3d%%\n└" $percent
+    for i in $(seq 1 $width); do printf "─"; done
+    printf "┘"
 }
 
-# Create emoji progress indicator
+# Create professional emoji progress indicator
 create_emoji_progress() {
     local percent=$1
-    if [ $percent -ge 80 ]; then
-        echo "🔥🔥🔥🔥🔥"
-    elif [ $percent -ge 60 ]; then
+    if [ $percent -ge 90 ]; then
+        echo "🚀🔥💯⚡🎯"
+    elif [ $percent -ge 80 ]; then
         echo "🔥🔥🔥🔥⚡"
-    elif [ $percent -ge 40 ]; then
+    elif [ $percent -ge 70 ]; then
         echo "🔥🔥🔥⚡⚡"
-    elif [ $percent -ge 20 ]; then
+    elif [ $percent -ge 60 ]; then
         echo "🔥🔥⚡⚡⚡"
-    else
+    elif [ $percent -ge 50 ]; then
         echo "🔥⚡⚡⚡⚡"
+    elif [ $percent -ge 30 ]; then
+        echo "⚡⚡⚡⚡⚡"
+    elif [ $percent -ge 10 ]; then
+        echo "🌱⚡⚡⚡⚡"
+    else
+        echo "💤⚡⚡⚡⚡"
     fi
 }
 
-# Generate motivational message
+# Generate professional motivational message
 get_motivational_message() {
     local recent_commits=$1
     
-    if [ $recent_commits -gt 10 ]; then
-        echo "🚀 **ROCKET MODE** - You're on fire! Keep this energy!"
+    if [ $recent_commits -gt 15 ]; then
+        echo "🚀 **EXCEPTIONAL PERFORMANCE** - Outstanding dedication! You're setting the bar high!"
+    elif [ $recent_commits -gt 10 ]; then
+        echo "🔥 **EXCELLENT MOMENTUM** - Great progress! Keep up the fantastic work!"
     elif [ $recent_commits -gt 5 ]; then
-        echo "⚡ **HIGH VOLTAGE** - Great momentum! Don't stop now!"
+        echo "⚡ **STRONG ACTIVITY** - Good pace! Maintain this steady progress!"
     elif [ $recent_commits -gt 2 ]; then
-        echo "📈 **STEADY CLIMB** - Good progress! Push a bit more!"
+        echo "📈 **CONSISTENT EFFORT** - Steady progress! Push for more commits!"
     elif [ $recent_commits -gt 0 ]; then
-        echo "🐌 **SLOW BUT SURE** - Every step counts! Pick up the pace!"
+        echo "🐌 **MINIMAL ACTIVITY** - Every contribution counts! Increase your frequency!"
     else
-        echo "💤 **SLEEPING BEAUTY** - Time to wake up and code! ⏰"
+        echo "💤 **INACTIVE PERIOD** - Time to re-engage! Let's get back to coding! ⏰"
     fi
 }
 
-# Generate competition message
+# Generate professional competition message
 get_competition_message() {
-    local laher_commits=$1
-    local kayki_commits=$2
-    local diff=$((laher_commits - kayki_commits))
+    local team_members=("$@")
+    local max_commits=0
+    local leader=""
+    local total_commits=0
     
-    if [ $diff -gt 10 ]; then
-        echo "🏆 **Laher is DOMINATING** - Kayki, this is your chance to catch up! 🏃‍♂️💨"
-    elif [ $diff -gt 5 ]; then
-        echo "🥇 **Laher is ahead** - Kayki, time to step up your game! 🎯"
-    elif [ $diff -lt -10 ]; then
-        echo "🏆 **Kayki is DOMINATING** - Laher, don't let them win! 🏃‍♂️💨"
-    elif [ $diff -lt -5 ]; then
-        echo "🥇 **Kayki is ahead** - Laher, time to step up your game! 🎯"
+    # Find the leader
+    for member in "${team_members[@]}"; do
+        local commits=$(get_author_commits "$member")
+        total_commits=$((total_commits + commits))
+        if [ "$commits" -gt "$max_commits" ]; then
+            max_commits=$commits
+            leader="$member"
+        fi
+    done
+    
+    if [ ${#team_members[@]} -eq 1 ]; then
+        echo "👤 **SOLO DEVELOPER** - You're handling this project independently! Great work!"
+    elif [ "$max_commits" -gt "$((total_commits / 2))" ]; then
+        echo "🏆 **$leader is LEADING** - Strong performance! Others, time to step up! 🎯"
     else
-        echo "🤝 **Perfect Balance** - Great teamwork! Keep it up! 👥"
+        echo "🤝 **BALANCED TEAMWORK** - Excellent collaboration! Keep the momentum! 👥"
     fi
 }
+
+# Get team members dynamically
+TEAM_MEMBERS=($(get_team_members))
 
 # Create the analytics content
 cat > "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
-# Project Analytics
+# 📊 Project Analytics Dashboard
 
-This document provides comprehensive insights into project development progress and team collaboration patterns for the Cub3D project.
+<div align="center">
 
-## 📊 Live Analytics
+![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
+![Team](https://img.shields.io/badge/Team-${#TEAM_MEMBERS[@]}_Members-blue?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-$TOTAL_COMMITS-orange?style=for-the-badge)
+![Duration](https://img.shields.io/badge/Duration-${PROJECT_DAYS}_Days-purple?style=for-the-badge)
 
-*Note: This section is automatically updated when you run \`make\`, \`make fclean\`, or \`make re\`*
+</div>
+
+---
+
+## 📈 Live Project Analytics
+
+*This section is automatically updated when you run \`make\`, \`make fclean\`, or \`make re\`*
 
 $ANALYTICS_SECTION
-## 📊 Live Project Analytics
 
 ### 🏁 Development Race
+
 | Developer | Commits | Percentage | Progress Bar | Energy Level |
 |-----------|---------|------------|--------------|--------------|
-| **Laher Maciel** | $LAHER_COMMITS | $LAHER_PERCENT% | $(create_progress_bar $LAHER_PERCENT) | $(create_emoji_progress $LAHER_PERCENT) |
-| **Kayki Rocha** | $KAYKI_COMMITS | $KAYKI_PERCENT% | $(create_progress_bar $KAYKI_PERCENT) | $(create_emoji_progress $KAYKI_PERCENT) |
-| **🤝 Collaborative** | $BOTH_COMMITS | $BOTH_PERCENT% | $(create_progress_bar $BOTH_PERCENT) | $(create_emoji_progress $BOTH_PERCENT) |
+EOF
 
-### 📈 Code Statistics Dashboard
-- **📊 Total Commits**: \`$TOTAL_COMMITS\`
-- **⏱️ Project Duration**: \`$PROJECT_DAYS days\`
-- **➕ Lines Added**: \`$TOTAL_ADDED\`
-- **➖ Lines Removed**: \`$TOTAL_REMOVED\`
-- **🔄 Net Changes**: \`$NET_CHANGES\`
-- **⚡ Recent Activity**: \`$RECENT_COMMITS commits\` (last 7 days)
+# Add team members dynamically
+for member in "${TEAM_MEMBERS[@]}"; do
+    commits=$(get_author_commits "$member")
+    percent=$((commits * 100 / TOTAL_COMMITS))
+    stats=($(get_author_stats "$member"))
+    added=${stats[0]}
+    removed=${stats[1]}
+    recent=$(get_recent_activity "$member")
+    
+    cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
+| **$member** | $commits | $percent% | $(create_progress_bar $percent) | $(create_emoji_progress $percent) |
+EOF
+done
+
+cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
+
+### 📊 Code Statistics Dashboard
+
+<div align="center">
+
+| Metric | Value | Description |
+|--------|-------|-------------|
+| **📊 Total Commits** | \`$TOTAL_COMMITS\` | Total number of commits |
+| **⏱️ Project Duration** | \`$PROJECT_DAYS days\` | Days since first commit |
+| **➕ Lines Added** | \`$TOTAL_ADDED\` | Total lines of code added |
+| **➖ Lines Removed** | \`$TOTAL_REMOVED\` | Total lines of code removed |
+| **🔄 Net Changes** | \`$NET_CHANGES\` | Net code changes |
+| **⚡ Recent Activity** | \`$RECENT_COMMITS commits\` | Commits in last 7 days |
+
+</div>
 
 ### 🎯 Weekly Performance
-| Developer | This Week | Energy Level |
-|-----------|-----------|--------------|
-| **Laher** | $(git log --since="7 days ago" --author="Laher" --oneline 2>/dev/null | wc -l) commits | $(create_emoji_progress $(( $(git log --since="7 days ago" --author="Laher" --oneline 2>/dev/null | wc -l) * 100 / 7 ))) |
-| **Kayki** | $(git log --since="7 days ago" --author="Kayki" --oneline 2>/dev/null | wc -l) commits | $(create_emoji_progress $(( $(git log --since="7 days ago" --author="Kayki" --oneline 2>/dev/null | wc -l) * 100 / 7 ))) |
+
+| Developer | This Week | Energy Level | Lines Added | Lines Removed |
+|-----------|-----------|--------------|-------------|---------------|
+EOF
+
+# Add weekly performance for each team member
+for member in "${TEAM_MEMBERS[@]}"; do
+    recent=$(get_recent_activity "$member")
+    stats=($(get_author_stats "$member"))
+    added=${stats[0]}
+    removed=${stats[1]}
+    percent=$((recent * 100 / 7))
+    
+    cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
+| **$member** | $recent commits | $(create_emoji_progress $percent) | $added | $removed |
+EOF
+done
+
+cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
 
 ### 🚀 Development Velocity
+
+<div align="center">
+
 EOF
 
 # Add velocity indicators
 if [ $PROJECT_DAYS -gt 0 ]; then
     DAILY_AVERAGE=$((TOTAL_COMMITS / PROJECT_DAYS))
-    echo "- **📅 Average Commits/Day**: \`$DAILY_AVERAGE\`" >> "project_extras/docs/PROJECT_ANALYTICS.md"
-    
-    if [ $DAILY_AVERAGE -gt 5 ]; then
-        echo "- **🔥 Velocity Status**: **BLAZING FAST** - You're coding machines!" >> "project_extras/docs/PROJECT_ANALYTICS.md"
-    elif [ $DAILY_AVERAGE -gt 2 ]; then
-        echo "- **⚡ Velocity Status**: **GOOD PACE** - Keep the momentum!" >> "project_extras/docs/PROJECT_ANALYTICS.md"
-    else
-        echo "- **🐌 Velocity Status**: **SLOW BURN** - Time to accelerate!" >> "project_extras/docs/PROJECT_ANALYTICS.md"
-    fi
+    cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
+| **📅 Average Commits/Day** | \`$DAILY_AVERAGE\` |
+| **📈 Development Trend** | $(if [ $DAILY_AVERAGE -gt 5 ]; then echo "🚀 **BLAZING FAST** - You're coding machines!"; elif [ $DAILY_AVERAGE -gt 2 ]; then echo "⚡ **GOOD PACE** - Keep the momentum!"; else echo "🐌 **SLOW BURN** - Time to accelerate!"; fi) |
+
+</div>
+
+EOF
 fi
 
-# Add motivational sections
 cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
 
 ### 🎮 Current Status
+
+<div align="center">
+
 $(get_motivational_message $RECENT_COMMITS)
 
+</div>
+
 ### 🏆 Competition Status
-$(get_competition_message $LAHER_COMMITS $KAYKI_COMMITS)
 
-#### 📝 Recent Activity
-\`\`\`
-$(git log --oneline -8 | sed 's/^/🔹 /')
+<div align="center">
+
+$(get_competition_message "${TEAM_MEMBERS[@]}")
+
+</div>
+
+### 📝 Recent Activity
+
+\`\`\`text
+$(git log --oneline -10 | sed 's/^/🔹 /')
 \`\`\`
 
-#### 📁 Most Active Files
-\`\`\`
-$(git log --pretty=format: --name-only | sort | uniq -c | sort -rn | head -5 | sed 's/^/📄 /')
+### 📁 Most Active Files
+
+\`\`\`text
+$(git log --pretty=format: --name-only | sort | uniq -c | sort -rn | head -8 | sed 's/^/📄 /')
 \`\`\`
 
-#### 🎯 Next Milestones
+### 🎯 Next Milestones
+
 - [ ] **50 commits** - Halfway to greatness! 🎯
 - [ ] **100 commits** - Century club! 💯
 - [ ] **Perfect balance** - 50/50 collaboration! ⚖️
 - [ ] **Code quality** - Zero norminette errors! ✨
+- [ ] **Documentation** - Complete project documentation! 📚
 
 ---
+
+<div align="center">
+
 *🔄 Last updated: $(date) | Auto-updated on build*
+
+</div>
 
 <!-- END_ANALYTICS -->
 
-## Team Members
+---
 
-- **Laher Maciel** ([@LaherMaciel](https://github.com/LaherMaciel))
-- **Kayki Rocha** ([@UnderOfAll](https://github.com/UnderOfAll))
+## 👥 Team Members
 
-## Development Insights
+EOF
+
+# Add team members dynamically
+for member in "${TEAM_MEMBERS[@]}"; do
+    cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
+- **$member** - Active contributor
+EOF
+done
+
+cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
+
+## 🔧 Development Insights
 
 ### 1. GitHub Analytics
 - Repository → Insights → Contributors
@@ -207,8 +334,7 @@ $(git log --pretty=format: --name-only | sort | uniq -c | sort -rn | head -5 | s
 
 ### 2. Development Tags
 Use prefixes to identify development areas:
-- \`[Laher]\` - Laher's development work
-- \`[Kayki]\` - Kayki's development work
+- \`[AuthorName]\` - Specific author's development work
 - \`[Both]\` - Collaborative work
 
 ### 3. Code Review Process
@@ -221,7 +347,7 @@ Use prefixes to identify development areas:
 - Monitor collaborative efforts
 - Ensure balanced development load
 
-## Project Statistics
+## 📊 Project Statistics
 
 ### Repository Overview
 - **Language**: C
@@ -237,7 +363,7 @@ Use prefixes to identify development areas:
 4. Submit pull request
 5. Code review and merge
 
-## Analytics Features
+## 🚀 Analytics Features
 
 ### Real-time Tracking
 - Live commit statistics
@@ -257,7 +383,7 @@ Use prefixes to identify development areas:
 - Performance comparisons
 - Motivation metrics
 
-## Usage
+## 📖 Usage
 
 ### Viewing Analytics
 - **Main Analytics**: This file contains all project insights
@@ -277,7 +403,7 @@ To manually update analytics:
 ./project_extras/scripts/update_analytics.sh
 \`\`\`
 
-## Project Management
+## 📁 Project Management
 
 ### File Organization
 - \`src/\` - Source code
@@ -291,7 +417,7 @@ To manually update analytics:
 - Project boards for task management
 - Analytics for progress tracking
 
-## Final Report
+## 📋 Final Report
 
 When the project is complete, use \`make final-report\` to generate a comprehensive project summary including:
 - Total development time
@@ -301,7 +427,11 @@ When the project is complete, use \`make final-report\` to generate a comprehens
 
 ---
 
+<div align="center">
+
 *This analytics system provides transparent tracking of project development and team collaboration, helping maintain motivation and ensure balanced contributions.*
+
+</div>
 EOF
 
 # Exit silently

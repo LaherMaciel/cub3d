@@ -4,7 +4,7 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-8-orange?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-9-orange?style=for-the-badge)
 ![Duration](https://img.shields.io/badge/Duration-1_Days-purple?style=for-the-badge)
 
 </div>
@@ -21,12 +21,12 @@
 
 | Developer | Commits | Percentage | Progress Bar | Energy Level |
 |-----------|---------|------------|--------------|--------------|
-| **Laher** | 8 | 100% | ┌─────────────────────────┐
+| **Laher Maciel** | 9 | 100% | ┌─────────────────────────┐
 │█████████████████████████│ 100%
 └─────────────────────────┘ | 🚀🔥💯⚡🎯 |
-| **Maciel** | 8 | 100% | ┌─────────────────────────┐
-│█████████████████████████│ 100%
-└─────────────────────────┘ | 🚀🔥💯⚡🎯 |
+| **Kayki Rocha** | 0 | 0% | ┌─────────────────────────┐
+│░░░░░░░░░░░░░░░░░░░░░░░░░│   0%
+└─────────────────────────┘ | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
 
@@ -34,12 +34,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `8` | Total number of commits |
+| **📊 Total Commits** | `9` | Total number of commits |
 | **⏱️ Project Duration** | `1 days` | Days since first commit |
-| **➕ Lines Added** | `7612` | Total lines of code added |
-| **➖ Lines Removed** | `543` | Total lines of code removed |
-| **🔄 Net Changes** | `7069` | Net code changes |
-| **⚡ Recent Activity** | `8 commits` | Commits in last 7 days |
+| **➕ Lines Added** | `7924` | Total lines of code added |
+| **➖ Lines Removed** | `671` | Total lines of code removed |
+| **🔄 Net Changes** | `7253` | Net code changes |
+| **⚡ Recent Activity** | `9 commits` | Commits in last 7 days |
 
 </div>
 
@@ -47,14 +47,14 @@
 
 | Developer | This Week | Energy Level | Lines Added | Lines Removed |
 |-----------|-----------|--------------|-------------|---------------|
-| **Laher** | 8 commits | 🚀🔥💯⚡🎯 | 7612 | 543 |
-| **Maciel** | 8 commits | 🚀🔥💯⚡🎯 | 7612 | 543 |
+| **Laher Maciel** | 9 commits | 🚀🔥💯⚡🎯 | 7924 | 671 |
+| **Kayki Rocha** | 0 commits | 💤⚡⚡⚡⚡ | 0 | 0 |
 
 ### 🚀 Development Velocity
 
 <div align="center">
 
-| **📅 Average Commits/Day** | `8` |
+| **📅 Average Commits/Day** | `9` |
 | **📈 Development Trend** | 🚀 **BLAZING FAST** - You're coding machines! |
 
 </div>
@@ -72,13 +72,14 @@
 
 <div align="center">
 
-🤝 **BALANCED TEAMWORK** - Excellent collaboration! Keep the momentum! 👥
+🏆 **Laher Maciel is LEADING** - Strong performance! Others, time to step up! 🎯
 
 </div>
 
 ### 📝 Recent Activity
 
 ```text
+🔹 15a0dc5 Revamp PROJECT_ANALYTICS.md and update analytics script: Update formatting and add new sections for project insights, performance metrics, and team collaboration. Ensure real-time tracking and automated updates for better project management.
 🔹 26bd90b Remove outdated PROJECT_ANALYTICS.md and libft.a files; introduce simple analytics script for generating project analytics documentation with real-time tracking and performance metrics.
 🔹 392208c Enhance project analytics and documentation: add scripts for individual, mutual, and comparison analytics; update Makefile with new commands for personal and mutual analytics; introduce README updates for analytics sections; create comprehensive PROJECT_ANALYTICS.md for tracking development insights; implement GitHub workflows for automated analytics updates and contribution reporting.
 🔹 3154112 Add project management and documentation files: create CODEOWNERS for code review assignments, add CONTRIBUTING.md for contribution guidelines, and introduce PROJECT_ANALYTICS.md for tracking development insights. Update Makefile with new commands for project statistics and final report generation. Include GitHub workflows for CI and contribution reporting, along with scripts for generating project statistics and final reports.
@@ -92,13 +93,13 @@
 ### 📁 Most Active Files
 
 ```text
-📄       7 
+📄       8 
 📄       4 README.md
 📄       4 Makefile
+📄       3 project_extras/scripts/update_analytics.sh
+📄       3 project_extras/docs/PROJECT_ANALYTICS.md
 📄       2 src/main.c
 📄       2 scripts/project_stats.sh
-📄       2 project_extras/scripts/update_analytics.sh
-📄       2 project_extras/docs/PROJECT_ANALYTICS.md
 📄       2 project_extras/PROJECT_ANALYTICS.md
 ```
 
@@ -114,7 +115,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Sun Sep 14 15:19:27 WEST 2025 | Auto-updated on build*
+*🔄 Last updated: Sun Sep 14 15:25:04 WEST 2025 | Auto-updated on build*
 
 </div>
 
@@ -124,8 +125,8 @@
 
 ## 👥 Team Members
 
-- **Laher** - Active contributor
-- **Maciel** - Active contributor
+- **Laher Maciel** - Active contributor
+- **Kayki Rocha** - Active contributor
 
 ## 🔧 Development Insights
 

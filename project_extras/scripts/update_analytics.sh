@@ -17,12 +17,19 @@ TOTAL_AUTHORS=$(git log --pretty=format:"%an" | sort | uniq | wc -l)
 
 # Dynamic teammate detection from git repository
 get_team_members() {
-    # Get all unique authors from git log
-    local authors=$(git log --pretty=format:"%an" | sort | uniq)
+    # Define known team members (always include both)
+    local known_team=("Laher Maciel" "Kayki Rocha")
     local team_members=()
     
+    # Always include known team members
+    team_members=("${known_team[@]}")
+    
+    # Get all unique authors from git log
+    local authors=$(git log --pretty=format:"%an" | sort | uniq)
+    
+    # Add any other authors not in the known team
     while IFS= read -r author; do
-        if [ -n "$author" ]; then
+        if [ -n "$author" ] && [[ ! " ${team_members[@]} " =~ " ${author} " ]]; then
             team_members+=("$author")
         fi
     done <<< "$authors"
@@ -162,8 +169,8 @@ get_competition_message() {
     fi
 }
 
-# Get team members dynamically
-TEAM_MEMBERS=($(get_team_members))
+# Get team members dynamically - always include both team members
+TEAM_MEMBERS=("Laher Maciel" "Kayki Rocha")
 
 # Create the analytics content
 cat > "project_extras/docs/PROJECT_ANALYTICS.md" << EOF

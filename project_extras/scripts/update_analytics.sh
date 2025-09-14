@@ -52,24 +52,55 @@ else
     PROJECT_DAYS=0
 fi
 
-# Create activity level indicator based on code changes
+# Create activity level indicator based on relative contribution (for overall project)
 create_activity_level() {
+    local added=$1
+    local total_added=$2
+    local net_changes=$((added - $3))
+    
+    if [ $added -eq 0 ]; then
+        echo "📝 **PENDING** - Awaiting contribution"
+    elif [ $total_added -eq 0 ]; then
+        echo "🔧 **INITIAL** - Starting project"
+    else
+        local contribution_percent=$((added * 100 / total_added))
+        
+        if [ $contribution_percent -le 5 ]; then
+            echo "🔧 **INITIAL** - Early contribution ($contribution_percent%)"
+        elif [ $contribution_percent -le 20 ]; then
+            echo "⚙️ **DEVELOPING** - Building foundation ($contribution_percent%)"
+        elif [ $contribution_percent -le 40 ]; then
+            echo "🚀 **PROGRESSIVE** - Active development ($contribution_percent%)"
+        elif [ $contribution_percent -le 60 ]; then
+            echo "💪 **INTENSIVE** - Major contribution ($contribution_percent%)"
+        elif [ $contribution_percent -le 80 ]; then
+            echo "🏆 **EXCEPTIONAL** - Leading development ($contribution_percent%)"
+        else
+            echo "👑 **DOMINANT** - Primary contributor ($contribution_percent%)"
+        fi
+    fi
+}
+
+# Create weekly activity level indicator based on absolute numbers
+create_weekly_activity_level() {
     local added=$1
     local removed=$2
     local net_changes=$((added - removed))
     
     if [ $added -eq 0 ]; then
-        echo "📝 **PENDING** - Awaiting contribution"
+        echo "📝 **PENDING** - No activity this week"
+    elif [ $net_changes -le 10 ]; then
+        echo "🔧 **MINIMAL** - Light work ($net_changes lines)"
     elif [ $net_changes -le 50 ]; then
-        echo "🔧 **INITIAL** - Foundation work ($net_changes lines)"
+        echo "⚙️ **MODERATE** - Steady progress ($net_changes lines)"
+    elif [ $net_changes -le 100 ]; then
+        echo "🚀 **ACTIVE** - Good pace ($net_changes lines)"
     elif [ $net_changes -le 200 ]; then
-        echo "⚙️ **DEVELOPING** - Active development ($net_changes lines)"
+        echo "💪 **INTENSIVE** - Strong work ($net_changes lines)"
     elif [ $net_changes -le 500 ]; then
-        echo "🚀 **PROGRESSIVE** - Significant contribution ($net_changes lines)"
-    elif [ $net_changes -le 1000 ]; then
-        echo "💪 **INTENSIVE** - Major development ($net_changes lines)"
+        echo "🏆 **EXCEPTIONAL** - Major progress ($net_changes lines)"
     else
-        echo "🏆 **EXCEPTIONAL** - Outstanding contribution ($net_changes lines)"
+        echo "👑 **DOMINANT** - Outstanding week ($net_changes lines)"
     fi
 }
 
@@ -168,6 +199,27 @@ cat > "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
 
 $ANALYTICS_SECTION
 
+### 🎯 Weekly Performance
+
+| Developer | This Week | Activity Level | Energy Level | Lines Added | Lines Removed |
+|-----------|-----------|----------------|--------------|-------------|---------------|
+EOF
+
+# Add weekly performance for each team member
+for member in "${TEAM_MEMBERS[@]}"; do
+    recent=$(get_recent_activity "$member")
+    stats=($(get_author_stats "$member"))
+    added=${stats[0]}
+    removed=${stats[1]}
+    percent=$((recent * 100 / 7))
+    
+    cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
+| **$member** | $recent commits | $(create_weekly_activity_level $added $removed) | $(create_emoji_progress $percent) | $added | $removed |
+EOF
+done
+
+cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
+
 ### 🏁 Development Race
 
 | Developer | Commits | Code Changes | Activity Level | Energy Level |
@@ -191,7 +243,7 @@ for member in "${TEAM_MEMBERS[@]}"; do
     fi
     
     cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
-| **$member** | $commits | +$added/-$removed ($net_changes net) | $(create_activity_level $added $removed) | $(create_emoji_progress $change_percent) |
+| **$member** | $commits | +$added/-$removed ($net_changes net) | $(create_activity_level $added $TOTAL_ADDED $removed) | $(create_emoji_progress $change_percent) |
 EOF
 done
 
@@ -211,27 +263,6 @@ cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
 | **⚡ Recent Activity** | \`$RECENT_COMMITS commits\` | Commits in last 7 days |
 
 </div>
-
-### 🎯 Weekly Performance
-
-| Developer | This Week | Energy Level | Lines Added | Lines Removed |
-|-----------|-----------|--------------|-------------|---------------|
-EOF
-
-# Add weekly performance for each team member
-for member in "${TEAM_MEMBERS[@]}"; do
-    recent=$(get_recent_activity "$member")
-    stats=($(get_author_stats "$member"))
-    added=${stats[0]}
-    removed=${stats[1]}
-    percent=$((recent * 100 / 7))
-    
-    cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
-| **$member** | $recent commits | $(create_emoji_progress $percent) | $added | $removed |
-EOF
-done
-
-cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
 
 ### 🚀 Development Velocity
 

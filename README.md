@@ -128,17 +128,15 @@ This project is part of the 42 School curriculum and demonstrates:
 This is a collaborative project between two developers. Please see [project_extras/docs/CONTRIBUTING.md](project_extras/docs/CONTRIBUTING.md) for guidelines on how to contribute to this project.
 
 ### Development Workflow
-- Use feature branches for new development
 - All changes require code review
 - Follow the 42 norminette style guide
-- Test thoroughly before submitting pull requests
+- Test thoroughly before committing
 
 ### Getting Started
 1. Clone the repository
-2. Create a feature branch
-3. Make your changes
-4. Run `make norm` to check style
-5. Submit a pull request
+2. Make your changes
+3. Run `make norm` to check style
+4. Commit and push your changes
 
 ### Analytics and Tracking
 - **Project Analytics**: See [project_extras/docs/PROJECT_ANALYTICS.md](project_extras/docs/PROJECT_ANALYTICS.md) for detailed development insights

@@ -5,18 +5,11 @@ This is a collaborative project between two developers. Please follow these guid
 ## Getting Started
 
 1. Clone the repository
-2. Create a new branch for your feature/fix
-3. Make your changes
-4. Test your changes thoroughly
-5. Submit a pull request
+2. Make your changes
+3. Test your changes thoroughly
+4. Commit and push your changes
 
 ## Development Workflow
-
-### Branch Naming Convention
-- `feature` - New functionality and feature implementation
-- `fix` - Bug fixes and issue resolution
-- `refactor` - Code optimization and structural improvements
-- `docs` - Documentation updates and project guides
 
 ### Code Style
 - Follow the 42 norminette style guide
@@ -29,13 +22,13 @@ This is a collaborative project between two developers. Please follow these guid
 - Test your changes thoroughly before submitting
 - Ensure the project builds without errors
 
-## Pull Request Process
+## Code Review Process
 
 1. Ensure your code follows the style guide
 2. Update documentation if needed
 3. Add tests if applicable
 4. Request review from your collaborator
-5. Address any feedback before merging
+5. Address any feedback before finalizing
 
 ## Communication
 

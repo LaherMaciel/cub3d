@@ -41,7 +41,6 @@ $(NAME): $(LIBFT) $(MLX) $(OBJECTS_DIRECTORY) $(OBJECTS)
 	@if $(CC) $(CFLAGS) $(OBJECTS) $(INCLUDES) $(LIBS) -o $(NAME); \
 	then \
 		$(MAKE) -s norm; \
-		./project_extras/scripts/update_analytics.sh; \
 		echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) created!"; \
 	else \
 		echo "[" "$(RED)Error$(RESET)" "] | An error occurred while creating $(NAME)."; \
@@ -73,6 +72,9 @@ clean:
 	@rm -rf $(OBJECTS_DIRECTORY)
 	@make -sC $(LIBFT_DIRECTORY) clean > /dev/null 2>&1
 	@make -sC $(MLX_DIRECTORY) clean > /dev/null 2>&1
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Updating Project analytics..."
+	@./project_extras/scripts/update_analytics.sh
+	@echo "[" "$(GREEN)OK$(RESET)" "] | Analytics updated!"
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Object files removed."
 
 fclean: clean
@@ -81,7 +83,6 @@ fclean: clean
 	@rm -rf $(NAME)
 	@make -sC $(LIBFT_DIRECTORY) fclean > /dev/null 2>&1
 	@make -sC $(MLX_DIRECTORY) clean > /dev/null 2>&1
-	@./project_extras/scripts/update_analytics.sh
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Binary file removed."
 
 norm:
@@ -116,36 +117,15 @@ help:
 	@echo "  re         - Rebuild the project"
 	@echo "  run        - Build and run cub3d"
 	@echo "  norm       - Check code style with norminette"
-	@echo "  stats      - Show project statistics"
-	@echo "  final-report - Generate comprehensive project report"
-	@echo "  personal   - Update README with personal analytics (individual)"
-	@echo "  mutual     - Update README with mutual analytics (shared)"
-	@echo "  compare    - Update README with side-by-side comparison"
 	@echo "  submit     - Prepare project for submission (removes analytics)"
 	@echo "  help       - Show this help message"
 
-stats:
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Generating project statistics..."
-	@./project_extras/scripts/project_stats.sh
-
-final-report:
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Generating final project report..."
-	@./project_extras/scripts/final_report.sh
-
-personal:
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Updating personal analytics..."
-	@./project_extras/scripts/individual_analytics.sh
-
-mutual:
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Updating mutual analytics..."
-	@./project_extras/scripts/update_analytics.sh
-
-compare:
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Updating comparison analytics..."
-	@./project_extras/scripts/comparison_analytics.sh
 
 submit:
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Preparing project for submission..."
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing none mandatory files..."
 	@./project_extras/scripts/prepare_submission.sh
+	@echo "[" "$(GREEN)OK$(RESET)" "] | None mandatory files removed!"
+	@echo "[" "$(GREEN)OK$(RESET)" "] | Project prepared for submission!"
 
-.PHONY: all clean fclean re run norm stats final-report personal mutual compare submit help
+.PHONY: all clean fclean re run norm submit help

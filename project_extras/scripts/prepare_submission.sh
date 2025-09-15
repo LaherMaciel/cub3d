@@ -31,6 +31,14 @@ if [ -f "README.md" ]; then
     echo "✅ README analytics removed"
 fi
 
+# Clean up analytics calls from Makefile
+echo "🧹 Cleaning Makefile analytics calls..."
+if [ -f "Makefile" ]; then
+    # Remove analytics script calls
+    sed -i '/@\.\/project_extras\/scripts\/update_analytics\.sh/d' Makefile
+    echo "✅ Makefile analytics calls removed"
+fi
+
 # Clean build artifacts
 echo "🧹 Cleaning build artifacts..."
 rm -f .norminette.log 2>/dev/null || true

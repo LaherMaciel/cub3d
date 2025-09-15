@@ -13,10 +13,10 @@ This is a collaborative project between two developers. Please follow these guid
 ## Development Workflow
 
 ### Branch Naming Convention
-- `feature/description` - for new features
-- `fix/description` - for bug fixes
-- `refactor/description` - for code refactoring
-- `docs/description` - for documentation updates
+- `feature` - New functionality and feature implementation
+- `fix` - Bug fixes and issue resolution
+- `refactor` - Code optimization and structural improvements
+- `docs` - Documentation updates and project guides
 
 ### Code Style
 - Follow the 42 norminette style guide

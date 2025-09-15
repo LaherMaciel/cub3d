@@ -11,6 +11,8 @@ This is a collaborative project between two developers. Please follow these guid
 
 ## Development Workflow
 
+testing docs branch
+
 ### Code Style
 - Follow the 42 norminette style guide
 - Use meaningful variable and function names

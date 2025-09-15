@@ -4,8 +4,8 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-12-orange?style=for-the-badge)
-![Duration](https://img.shields.io/badge/Duration-1_Days-purple?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-16-orange?style=for-the-badge)
+![Duration](https://img.shields.io/badge/Duration-2_Days-purple?style=for-the-badge)
 
 </div>
 
@@ -21,14 +21,14 @@
 
 | Developer | This Week | Activity Level | Energy Level | Lines Added | Lines Removed |
 |-----------|-----------|----------------|--------------|-------------|---------------|
-| **Laher Maciel** | 12 commits | 👑 **DOMINANT** - Outstanding week (9054 lines) | 🚀🔥💯⚡🎯 | 8139 | 915 |
+| **Laher Maciel** | 16 commits | 👑 **DOMINANT** - Outstanding week (9771 lines) | 🚀🔥💯⚡🎯 | 8563 | 1208 |
 | **Kayki Rocha** | 0 commits | 📝 **PENDING** - No activity this week | 💤⚡⚡⚡⚡ | 0 | 0 |
 
 ### 🏁 Development Race
 
 | Developer | Commits | Code Changes | Activity Level | Energy Level |
 |-----------|---------|--------------|----------------|--------------|
-| **Laher Maciel** | 12 | +8139/-915 (9054 total) | 👑 **DOMINANT** - Primary contributor (100%) | 🚀🔥💯⚡🎯 |
+| **Laher Maciel** | 16 | +8563/-1208 (9771 total) | 👑 **DOMINANT** - Primary contributor (100%) | 🚀🔥💯⚡🎯 |
 | **Kayki Rocha** | 0 | +0/-0 (0 total) | 📝 **PENDING** - Awaiting contribution | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `12` | Total number of commits |
-| **⏱️ Project Duration** | `1 days` | Days since first commit |
-| **➕ Lines Added** | `8139` | Total lines of code added |
-| **➖ Lines Removed** | `915` | Total lines of code removed |
-| **🔄 Net Changes** | `7224` | Net code changes |
-| **⚡ Recent Activity** | `12 commits` | Commits in last 7 days |
+| **📊 Total Commits** | `16` | Total number of commits |
+| **⏱️ Project Duration** | `2 days` | Days since first commit |
+| **➕ Lines Added** | `8563` | Total lines of code added |
+| **➖ Lines Removed** | `1208` | Total lines of code removed |
+| **🔄 Net Changes** | `7355` | Net code changes |
+| **⚡ Recent Activity** | `16 commits` | Commits in last 7 days |
 
 </div>
 
@@ -50,7 +50,7 @@
 
 <div align="center">
 
-| **📅 Average Commits/Day** | `12` |
+| **📅 Average Commits/Day** | `8` |
 | **📈 Development Trend** | 🚀 **BLAZING FAST** - You're coding machines! |
 
 </div>
@@ -60,7 +60,7 @@
 
 <div align="center">
 
-🔥 **EXCELLENT MOMENTUM** - Great progress! Keep up the fantastic work!
+🚀 **EXCEPTIONAL PERFORMANCE** - Outstanding dedication! You're setting the bar high!
 
 </div>
 
@@ -75,29 +75,29 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 b751c82 Update CONTRIBUTING.md to clarify branch naming conventions: Simplified descriptions for branch types to enhance understanding of their purposes in the development workflow.
+🔹 b232965 Remove obsolete branch management script: Deleted the script that managed Git branches, streamlining the repository and eliminating unnecessary files.
+🔹 29ea2ac Add branch management script and update test script: Introduce a new Bash script for managing Git branches with a clear naming convention, and add a new line to the test script for team member detection.
+🔹 91a1e7c Update PROJECT_ANALYTICS.md and analytics script: Increment commit count to 12, enhance weekly performance metrics, and improve activity level indicators for better clarity and accuracy in tracking contributions.
 🔹 1e8b39d Update PROJECT_ANALYTICS.md and analytics script: Increment commit count to 11, enhance weekly performance metrics, and improve activity level indicators for better clarity and accuracy in tracking contributions.
 🔹 1db0db1 Update PROJECT_ANALYTICS.md and analytics script: Increment commit count to 10, enhance developer activity metrics, and improve formatting for better clarity. Adjust analytics script to reflect code changes and activity levels, ensuring accurate tracking of contributions.
 🔹 f8d4952 Add test script for team member detection and update PROJECT_ANALYTICS.md: Introduce a new Bash script to identify team members from git authors, and update analytics documentation to reflect the current team composition and commit statistics.
 🔹 15a0dc5 Revamp PROJECT_ANALYTICS.md and update analytics script: Update formatting and add new sections for project insights, performance metrics, and team collaboration. Ensure real-time tracking and automated updates for better project management.
 🔹 26bd90b Remove outdated PROJECT_ANALYTICS.md and libft.a files; introduce simple analytics script for generating project analytics documentation with real-time tracking and performance metrics.
 🔹 392208c Enhance project analytics and documentation: add scripts for individual, mutual, and comparison analytics; update Makefile with new commands for personal and mutual analytics; introduce README updates for analytics sections; create comprehensive PROJECT_ANALYTICS.md for tracking development insights; implement GitHub workflows for automated analytics updates and contribution reporting.
-🔹 3154112 Add project management and documentation files: create CODEOWNERS for code review assignments, add CONTRIBUTING.md for contribution guidelines, and introduce PROJECT_ANALYTICS.md for tracking development insights. Update Makefile with new commands for project statistics and final report generation. Include GitHub workflows for CI and contribution reporting, along with scripts for generating project statistics and final reports.
-🔹 b8832df Add libft library: implement core functions including memory management, string manipulation, and linked list operations; add Makefile and README for documentation.
-🔹 e48c3f3 Update README with additional badges, enhance project description, and clarify file structure; minor update to main.c header comment.
-🔹 d3c0873 Remove .tgz files from git tracking and add to .gitignore
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      11 
-📄       6 project_extras/scripts/update_analytics.sh
-📄       6 project_extras/docs/PROJECT_ANALYTICS.md
+📄      15 
+📄       7 project_extras/scripts/update_analytics.sh
+📄       7 project_extras/docs/PROJECT_ANALYTICS.md
 📄       4 README.md
 📄       4 Makefile
+📄       2 test_team.sh
 📄       2 src/main.c
 📄       2 scripts/project_stats.sh
-📄       2 project_extras/PROJECT_ANALYTICS.md
 ```
 
 ### 🎯 Next Milestones
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Sun Sep 14 15:58:57 WEST 2025 | Auto-updated on build*
+*🔄 Last updated: Mon Sep 15 11:45:41 WEST 2025 | Auto-updated on build*
 
 </div>
 

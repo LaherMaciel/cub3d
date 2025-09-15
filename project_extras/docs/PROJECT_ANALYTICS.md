@@ -4,7 +4,7 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-22-orange?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-23-orange?style=for-the-badge)
 ![Duration](https://img.shields.io/badge/Duration-2_Days-purple?style=for-the-badge)
 
 </div>
@@ -21,14 +21,14 @@
 
 | Developer | This Week | Activity Level | Energy Level | Lines Added | Lines Removed |
 |-----------|-----------|----------------|--------------|-------------|---------------|
-| **Laher Maciel** | 22 commits | 👑 **DOMINANT** - Outstanding week (9963 lines) | 🚀🔥💯⚡🎯 | 8645 | 1318 |
+| **Laher Maciel** | 23 commits | 👑 **DOMINANT** - Outstanding week (10035 lines) | 🚀🔥💯⚡🎯 | 8675 | 1360 |
 | **Kayki Rocha** | 0 commits | 📝 **PENDING** - No activity this week | 💤⚡⚡⚡⚡ | 0 | 0 |
 
 ### 🏁 Development Race
 
 | Developer | Commits | Code Changes | Activity Level | Energy Level |
 |-----------|---------|--------------|----------------|--------------|
-| **Laher Maciel** | 22 | +8645/-1318 (9963 total) | 👑 **DOMINANT** - Primary contributor (100%) | 🚀🔥💯⚡🎯 |
+| **Laher Maciel** | 23 | +8675/-1360 (10035 total) | 👑 **DOMINANT** - Primary contributor (100%) | 🚀🔥💯⚡🎯 |
 | **Kayki Rocha** | 0 | +0/-0 (0 total) | 📝 **PENDING** - Awaiting contribution | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `22` | Total number of commits |
+| **📊 Total Commits** | `23` | Total number of commits |
 | **⏱️ Project Duration** | `2 days` | Days since first commit |
-| **➕ Lines Added** | `8645` | Total lines of code added |
-| **➖ Lines Removed** | `1318` | Total lines of code removed |
-| **🔄 Net Changes** | `7327` | Net code changes |
-| **⚡ Recent Activity** | `22 commits` | Commits in last 7 days |
+| **➕ Lines Added** | `8675` | Total lines of code added |
+| **➖ Lines Removed** | `1360` | Total lines of code removed |
+| **🔄 Net Changes** | `7315` | Net code changes |
+| **⚡ Recent Activity** | `23 commits` | Commits in last 7 days |
 
 </div>
 
@@ -75,6 +75,7 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 45b8af4 Refactor Makefile to remove analytics script calls and update submission process; enhance PROJECT_ANALYTICS.md with latest commit statistics and developer activity metrics.
 🔹 8efefff Update PROJECT_ANALYTICS.md to reflect the latest timestamp for auto-updates.
 🔹 04eb216 Remove test script for team member detection and update PROJECT_ANALYTICS.md to reflect the latest commit statistics and developer activity metrics.
 🔹 ea50084 Update README.md and CONTRIBUTING.md to enhance development workflow: Streamlined steps for creating feature branches and submitting pull requests, clarified testing requirements, and added branch naming conventions for better contributor guidance.
@@ -84,18 +85,17 @@
 🔹 b751c82 Update CONTRIBUTING.md to clarify branch naming conventions: Simplified descriptions for branch types to enhance understanding of their purposes in the development workflow.
 🔹 b232965 Remove obsolete branch management script: Deleted the script that managed Git branches, streamlining the repository and eliminating unnecessary files.
 🔹 29ea2ac Add branch management script and update test script: Introduce a new Bash script for managing Git branches with a clear naming convention, and add a new line to the test script for team member detection.
-🔹 91a1e7c Update PROJECT_ANALYTICS.md and analytics script: Increment commit count to 12, enhance weekly performance metrics, and improve activity level indicators for better clarity and accuracy in tracking contributions.
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      21 
-📄      11 project_extras/docs/PROJECT_ANALYTICS.md
+📄      22 
+📄      12 project_extras/docs/PROJECT_ANALYTICS.md
 📄       7 project_extras/scripts/update_analytics.sh
 📄       6 README.md
 📄       5 project_extras/docs/CONTRIBUTING.md
-📄       4 Makefile
+📄       5 Makefile
 📄       3 test_team.sh
 📄       2 src/main.c
 ```
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Mon Sep 15 12:23:02 WEST 2025 | Auto-updated on build*
+*🔄 Last updated: Mon Sep 15 12:30:26 WEST 2025 | Auto-updated on build*
 
 </div>
 

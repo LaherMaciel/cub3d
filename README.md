@@ -44,11 +44,6 @@ This will create the `cub3d` executable.
 - `make re` - Rebuild from scratch
 - `make run` - Build and run the program
 - `make norm` - Check code style with norminette
-- `make stats` - Show project statistics
-- `make final-report` - Generate comprehensive project report
-- `make personal` - Update README with personal analytics (individual)
-- `make mutual` - Update README with mutual analytics (shared)
-- `make compare` - Update README with side-by-side comparison
 - `make submit` - Prepare project for submission (removes analytics)
 - `make help` - Show all available targets
 
@@ -128,22 +123,20 @@ This project is part of the 42 School curriculum and demonstrates:
 This is a collaborative project between two developers. Please see [project_extras/docs/CONTRIBUTING.md](project_extras/docs/CONTRIBUTING.md) for guidelines on how to contribute to this project.
 
 ### Development Workflow
-- Use feature branches for new development
-- All changes require code review
+- Work directly on main branch
+- Coordinate changes with your collaborator
 - Follow the 42 norminette style guide
-- Test thoroughly before submitting pull requests
+- Test thoroughly before committing
 
 ### Getting Started
 1. Clone the repository
-2. Create a feature branch
-3. Make your changes
-4. Run `make norm` to check style
-5. Submit a pull request
+2. Make your changes
+3. Run `make norm` to check style
+4. Commit and push your changes
 
 ### Analytics and Tracking
 - **Project Analytics**: See [project_extras/docs/PROJECT_ANALYTICS.md](project_extras/docs/PROJECT_ANALYTICS.md) for detailed development insights
-- **Personal Stats**: Use `make personal` for individual analytics
-- **Team Comparison**: Use `make compare` for side-by-side team statistics
+- **Auto-Updates**: Analytics update automatically on `make`, `fclean`, and `re`
 - **Submission Prep**: Use `make submit` to prepare for 42 submission
 
 ## Authors

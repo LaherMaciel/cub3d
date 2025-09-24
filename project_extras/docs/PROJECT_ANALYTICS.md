@@ -4,8 +4,8 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-25-orange?style=for-the-badge)
-![Duration](https://img.shields.io/badge/Duration-2_Days-purple?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-28-orange?style=for-the-badge)
+![Duration](https://img.shields.io/badge/Duration-11_Days-purple?style=for-the-badge)
 
 </div>
 
@@ -21,14 +21,14 @@
 
 | Developer | This Week | Activity Level | Energy Level | Lines Added | Lines Removed |
 |-----------|-----------|----------------|--------------|-------------|---------------|
-| **Laher Maciel** | 25 commits | 👑 **DOMINANT** - Outstanding week (10127 lines) | 🚀🔥💯⚡🎯 | 8725 | 1402 |
+| **Laher Maciel** | 2 commits | 👑 **DOMINANT** - Outstanding week (10566 lines) | 🌱⚡⚡⚡⚡ | 9147 | 1419 |
 | **Kayki Rocha** | 0 commits | 📝 **PENDING** - No activity this week | 💤⚡⚡⚡⚡ | 0 | 0 |
 
 ### 🏁 Development Race
 
 | Developer | Commits | Code Changes | Activity Level | Energy Level |
 |-----------|---------|--------------|----------------|--------------|
-| **Laher Maciel** | 25 | +8725/-1402 (10127 total) | 👑 **DOMINANT** - Primary contributor (100%) | 🚀🔥💯⚡🎯 |
+| **Laher Maciel** | 28 | +9147/-1419 (10566 total) | 👑 **DOMINANT** - Primary contributor (100%) | 🚀🔥💯⚡🎯 |
 | **Kayki Rocha** | 0 | +0/-0 (0 total) | 📝 **PENDING** - Awaiting contribution | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `25` | Total number of commits |
-| **⏱️ Project Duration** | `2 days` | Days since first commit |
-| **➕ Lines Added** | `8725` | Total lines of code added |
-| **➖ Lines Removed** | `1402` | Total lines of code removed |
-| **🔄 Net Changes** | `7323` | Net code changes |
-| **⚡ Recent Activity** | `25 commits` | Commits in last 7 days |
+| **📊 Total Commits** | `28` | Total number of commits |
+| **⏱️ Project Duration** | `11 days` | Days since first commit |
+| **➕ Lines Added** | `9147` | Total lines of code added |
+| **➖ Lines Removed** | `1419` | Total lines of code removed |
+| **🔄 Net Changes** | `7728` | Net code changes |
+| **⚡ Recent Activity** | `2 commits` | Commits in last 7 days |
 
 </div>
 
@@ -50,8 +50,8 @@
 
 <div align="center">
 
-| **📅 Average Commits/Day** | `12` |
-| **📈 Development Trend** | 🚀 **BLAZING FAST** - You're coding machines! |
+| **📅 Average Commits/Day** | `2` |
+| **📈 Development Trend** | 🐌 **SLOW BURN** - Time to accelerate! |
 
 </div>
 
@@ -60,7 +60,7 @@
 
 <div align="center">
 
-🚀 **EXCEPTIONAL PERFORMANCE** - Outstanding dedication! You're setting the bar high!
+🐌 **MINIMAL ACTIVITY** - Every contribution counts! Increase your frequency!
 
 </div>
 
@@ -75,6 +75,9 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 9e3cb70 Add tutorial links for video resources
+🔹 7ce2ae4 Add initial project files including .cub maps, links, and images.
+🔹 73c611f Update PROJECT_ANALYTICS.md to reflect the latest commit statistics, including total commits, lines added, and lines removed, as well as the average commits per day.
 🔹 88d2396 Update PROJECT_ANALYTICS.md to reflect the latest auto-update timestamp.
 🔹 eca362f Update README.md and CONTRIBUTING.md to reflect changes in development workflow, including direct work on the main branch and updated commit processes; remove obsolete make targets and enhance analytics documentation with latest commit statistics.
 🔹 45b8af4 Refactor Makefile to remove analytics script calls and update submission process; enhance PROJECT_ANALYTICS.md with latest commit statistics and developer activity metrics.
@@ -82,16 +85,13 @@
 🔹 04eb216 Remove test script for team member detection and update PROJECT_ANALYTICS.md to reflect the latest commit statistics and developer activity metrics.
 🔹 ea50084 Update README.md and CONTRIBUTING.md to enhance development workflow: Streamlined steps for creating feature branches and submitting pull requests, clarified testing requirements, and added branch naming conventions for better contributor guidance.
 🔹 97f5d00 a
-🔹 7825e2d Update README.md and CONTRIBUTING.md to streamline development workflow: Simplified steps for committing changes and clarified the code review process, enhancing clarity for contributors.
-🔹 3bd6667 Update PROJECT_ANALYTICS.md.
-🔹 b751c82 Update CONTRIBUTING.md to clarify branch naming conventions: Simplified descriptions for branch types to enhance understanding of their purposes in the development workflow.
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      24 
-📄      14 project_extras/docs/PROJECT_ANALYTICS.md
+📄      27 
+📄      15 project_extras/docs/PROJECT_ANALYTICS.md
 📄       7 project_extras/scripts/update_analytics.sh
 📄       7 README.md
 📄       6 project_extras/docs/CONTRIBUTING.md
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Mon Sep 15 14:39:38 WEST 2025 | Auto-updated on build*
+*🔄 Last updated: Wed Sep 24 16:40:39 WEST 2025 | Auto-updated on build*
 
 </div>
 

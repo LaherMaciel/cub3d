@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   inits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 10:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/09/29 17:21:46 by lahermaciel      ###   ########.fr       */
+/*   Created: 2025/09/29 19:35:11 by lahermaciel       #+#    #+#             */
+/*   Updated: 2025/09/29 19:36:44 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
-
-static void	init_player(t_game *game)
-{
-	game->player_x = 22.0;
-	game->player_y = 12.0;
-	game->player_dir = 0.0;
-}
+#include "../../include/cub3d.h"
 
 static void	init_image(t_game *game)
 {
+	game->bpp = 0;
+	game->size_line = 0;
+	game->endian = 0;
 	game->image = mlx_new_image(game->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	if (!game->image)
 	{
@@ -47,15 +43,19 @@ void	init_game(t_game *game)
 		free(game->mlx);
 		exit(EXIT_FAILURE);
 	}
-	init_player(game);
 	init_image(game);
+	game->data_addr = mlx_get_data_addr(game->image, &game->bpp,
+			&game->size_line, &game->endian);
+	mlx_put_image_to_window(game->mlx, game->window, game->image, 0, 0);
 }
 
-int	main(void)
+void	init_player(t_player *player)
 {
-	t_game	game;
-
-	init_game(&game);
-	mlx_loop(game.mlx);
-	return (0);
+	player->player_x = WINDOW_WIDTH / 2;
+	player->player_y = WINDOW_HEIGHT / 2;
+	player->player_dir = 0.0;
+	player->key_up = false;
+	player->key_down = false;
+	player->key_left = false;
+	player->key_right = false;
 }

@@ -1,60 +1,128 @@
 NAME = cub3d
 
-# Source files (add your .c files here as you create them)
-SRCS_LIST = main.c
+# Source files organized by directories
+MAIN_C = main.c
 
-# Directories
+DRAWING_C = drawing2d.c
+
+INITS_C = inits.c
+
+MOVEMENT_C = movement.c
+
+PARSING_C = parsing.c
+
+RAYTRACING_C = raytracing.c
+
+UTILS_C = utils.c
+
+# Header files
+HEADER_LIST = cub3d.h
+HEADER_DIRECTORY = include/
+HEADERS = $(addprefix $(HEADER_DIRECTORY), $(HEADER_LIST))
+
+# Source directories
 SRCS_DIRECTORY = src/
+DRAWING_DIRECTORY = src/drawing/
+INITS_DIRECTORY = src/inits/
+MOVEMENT_DIRECTORY = src/movement/
+PARSING_DIRECTORY = src/parsing/
+RAYTRACING_DIRECTORY = src/raytracing/
+UTILS_DIRECTORY = src/utils/
 OBJECTS_DIRECTORY = objects/
 LIBFT_DIRECTORY = libraries/libft/
 MLX_DIRECTORY = libraries/minilibx-linux/
+
+# Source files with full paths
+MAIN_LIST = $(MAIN_C)
+MAIN = $(addprefix $(SRCS_DIRECTORY), $(MAIN_LIST))
+
+DRAWING_LIST = $(DRAWING_C)
+DRAWING = $(addprefix $(DRAWING_DIRECTORY), $(DRAWING_LIST))
+
+INITS_LIST = $(INITS_C)
+INITS = $(addprefix $(INITS_DIRECTORY), $(INITS_LIST))
+
+MOVEMENT_LIST = $(MOVEMENT_C)
+MOVEMENT = $(addprefix $(MOVEMENT_DIRECTORY), $(MOVEMENT_LIST))
+
+PARSING_LIST = $(PARSING_C)
+PARSING = $(addprefix $(PARSING_DIRECTORY), $(PARSING_LIST))
+
+RAYTRACING_LIST = $(RAYTRACING_C)
+RAYTRACING = $(addprefix $(RAYTRACING_DIRECTORY), $(RAYTRACING_LIST))
+
+UTILS_LIST = $(UTILS_C)
+UTILS = $(addprefix $(UTILS_DIRECTORY), $(UTILS_LIST))
+
+# All source files
+SRCS_LIST = $(MAIN) $(DRAWING) $(INITS) $(MOVEMENT) $(PARSING) $(RAYTRACING) $(UTILS)
+
+# Object files
+OBJECT_LIST = $(notdir $(SRCS_LIST:.c=.o))
+OBJECTS = $(addprefix $(OBJECTS_DIRECTORY), $(OBJECT_LIST))
 
 # Library files
 LIBFT = $(LIBFT_DIRECTORY)libft.a
 MLX = $(MLX_DIRECTORY)libmlx_Linux.a
 
-# Headers
-HEADER_LIST = cub3d.h
-HEADER_DIRECTORY = include/
-HEADERS = $(addprefix $(HEADER_DIRECTORY), $(HEADER_LIST))
-
-# Source and object files
-SRC = $(addprefix $(SRCS_DIRECTORY), $(SRCS_LIST))
-OBJECT_LIST = $(SRCS_LIST:.c=.o)
-OBJECTS = $(addprefix $(OBJECTS_DIRECTORY), $(OBJECT_LIST))
-
-# Compiler and flags
+# Compiler settings
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
-
-# Libraries and includes
-LIBS = -L$(LIBFT_DIRECTORY) -lft -L$(MLX_DIRECTORY) -lmlx_Linux -lXext -lX11 -lm
 INCLUDES = -I$(HEADER_DIRECTORY) -I$(LIBFT_DIRECTORY)include/ -I$(MLX_DIRECTORY)
+LIBS = -L$(LIBFT_DIRECTORY) -lft -L$(MLX_DIRECTORY) -lmlx_Linux -lXext -lX11 -lm
 
-# COLORS
+# Colors
 RED     = \033[0;31m
 GREEN   = \033[0;32m
 YELLOW  = \033[0;33m
+BLUE    = \033[0;34m
 RESET   = \033[0m
 
+# Main target
 $(NAME): $(LIBFT) $(MLX) $(OBJECTS_DIRECTORY) $(OBJECTS)
-	@if $(CC) $(CFLAGS) $(OBJECTS) $(INCLUDES) $(LIBS) -o $(NAME); \
-	then \
-		$(MAKE) -s norm; \
-		echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) created!"; \
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling files..."
+	@if $(CC) $(CFLAGS) $(OBJECTS) $(INCLUDES) $(LIBS) -o $(NAME); then \
+		echo "[" "$(GREEN)OK$(RESET)" "] | Compilation successful!"; \
+		make norm -s; \
+		echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) created successfully!"; \
 	else \
 		echo "[" "$(RED)Error$(RESET)" "] | An error occurred while creating $(NAME)."; \
 		make clean > /dev/null 2>&1; \
 		echo "[" "$(RED)Error$(RESET)" "] | All objects cleaned."; \
 	fi
 
+# Create objects directory structure
 $(OBJECTS_DIRECTORY):
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Creating objects directory..."
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Creating objects directory structure..."
 	@mkdir -p $(OBJECTS_DIRECTORY)
-	@echo "[" "$(GREEN)OK$(RESET)" "] | Objects directory ready!"
+	@mkdir -p $(OBJECTS_DIRECTORY)$(DRAWING_DIRECTORY)
+	@mkdir -p $(OBJECTS_DIRECTORY)$(INITS_DIRECTORY)
+	@mkdir -p $(OBJECTS_DIRECTORY)$(MOVEMENT_DIRECTORY)
+	@mkdir -p $(OBJECTS_DIRECTORY)$(PARSING_DIRECTORY)
+	@mkdir -p $(OBJECTS_DIRECTORY)$(RAYTRACING_DIRECTORY)
+	@mkdir -p $(OBJECTS_DIRECTORY)$(UTILS_DIRECTORY)
+	@echo "[" "$(GREEN)OK$(RESET)" "] | Objects directory structure ready!"
 
-$(OBJECTS_DIRECTORY)%.o : $(SRCS_DIRECTORY)%.c
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $<..."
+# Compile object files
+$(OBJECTS_DIRECTORY)%.o : $(SRCS_DIRECTORY)%.c $(HEADERS)
+	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
+
+$(OBJECTS_DIRECTORY)%.o : $(DRAWING_DIRECTORY)%.c $(HEADERS)
+	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
+
+$(OBJECTS_DIRECTORY)%.o : $(INITS_DIRECTORY)%.c $(HEADERS)
+	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
+
+$(OBJECTS_DIRECTORY)%.o : $(MOVEMENT_DIRECTORY)%.c $(HEADERS)
+	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
+
+$(OBJECTS_DIRECTORY)%.o : $(PARSING_DIRECTORY)%.c $(HEADERS)
+	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
+
+$(OBJECTS_DIRECTORY)%.o : $(RAYTRACING_DIRECTORY)%.c $(HEADERS)
+	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
+
+$(OBJECTS_DIRECTORY)%.o : $(UTILS_DIRECTORY)%.c $(HEADERS)
 	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
 
 $(LIBFT):
@@ -67,6 +135,9 @@ $(MLX):
 	@make -sC $(MLX_DIRECTORY) > /dev/null 2>&1
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Minilibx ready!"
 
+all: $(NAME)
+
+# Clean targets
 clean:
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing object files..."
 	@rm -rf $(OBJECTS_DIRECTORY)
@@ -78,48 +149,36 @@ clean:
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Object files removed."
 
 fclean: clean
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing binary files..."
-	@rm -rf .norminette.log
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing $(NAME)..."
 	@rm -rf $(NAME)
+	@rm -rf .norminette.log
 	@make -sC $(LIBFT_DIRECTORY) fclean > /dev/null 2>&1
 	@make -sC $(MLX_DIRECTORY) clean > /dev/null 2>&1
-	@echo "[" "$(GREEN)OK$(RESET)" "] | Binary file removed."
+	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) removed."
 
+# Norminette check
 norm:
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Norminetting..."
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Running norminette..."
 	@for lib in libraries/*/; do \
 		if [ "$$lib" != "libraries/minilibx-linux/" ]; then \
-			norminette $$lib >> .norminette.log 2>&1; \
+			norminette $$lib >> .norminette.log 2>&1 || true; \
 		fi; \
 	done
-	@norminette $(SRCS_DIRECTORY) $(HEADER_DIRECTORY) >> .norminette.log 2>&1
+	@norminette $(SRCS_DIRECTORY) $(HEADER_DIRECTORY) >> .norminette.log 2>&1 || true
 	@if grep -q "Error!" .norminette.log; then \
-		echo "[" "$(RED)!!$(RESET)" "] | Norminette found errors."; \
+		echo "[" "$(RED)!!$(RESET)" "] | Norminette found errors:"; \
 		grep "Error!" .norminette.log | awk '{print "[ " "$(RED)!!$(RESET)" " ] | " $$0}'; \
 	else \
 		echo "[" "$(GREEN)OK$(RESET)" "] | Norminette passed!"; \
 	fi
 
+# Rebuild target
 re: fclean
-	clear && make -s
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Rebuilding $(NAME)..."
+	@make -s
 
 run: $(NAME)
 	./$(NAME)
-
-# Professional targets
-all: $(NAME)
-
-help:
-	@echo "Available targets:"
-	@echo "  all        - Build the project (default)"
-	@echo "  clean      - Remove object files"
-	@echo "  fclean     - Remove all generated files"
-	@echo "  re         - Rebuild the project"
-	@echo "  run        - Build and run cub3d"
-	@echo "  norm       - Check code style with norminette"
-	@echo "  submit     - Prepare project for submission (removes analytics)"
-	@echo "  help       - Show this help message"
-
 
 submit:
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Preparing project for submission..."
@@ -127,5 +186,17 @@ submit:
 	@./project_extras/scripts/prepare_submission.sh
 	@echo "[" "$(GREEN)OK$(RESET)" "] | None mandatory files removed!"
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Project prepared for submission!"
+
+# Help target
+help:
+	@echo "Available targets:"
+	@echo "  $(NAME)     - Build the $(NAME) executable"
+	@echo "  clean       - Remove object files"
+	@echo "  fclean      - Remove object files and executable"
+	@echo "  re          - Rebuild everything"
+	@echo "  run         - Build and run cub3d"
+	@echo "  norm        - Run norminette check"
+	@echo "  submit      - Prepare project for submission"
+	@echo "  help        - Show this help message"
 
 .PHONY: all clean fclean re run norm submit help

@@ -6,13 +6,13 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:35:11 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/09/29 19:36:44 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/09/30 21:23:20 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-static void	init_image(t_game *game)
+void	init_image(t_game *game)
 {
 	game->bpp = 0;
 	game->size_line = 0;

@@ -4,8 +4,8 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-29-orange?style=for-the-badge)
-![Duration](https://img.shields.io/badge/Duration-16_Days-purple?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-30-orange?style=for-the-badge)
+![Duration](https://img.shields.io/badge/Duration-17_Days-purple?style=for-the-badge)
 
 </div>
 
@@ -21,14 +21,14 @@
 
 | Developer | This Week | Activity Level | Energy Level | Lines Added | Lines Removed |
 |-----------|-----------|----------------|--------------|-------------|---------------|
-| **Laher Maciel** | 3 commits | 👑 **DOMINANT** - Outstanding week (10604 lines) | ⚡⚡⚡⚡⚡ | 9166 | 1438 |
+| **Laher Maciel** | 4 commits | 👑 **DOMINANT** - Outstanding week (10924 lines) | 🔥⚡⚡⚡⚡ | 9461 | 1463 |
 | **Kayki Rocha** | 0 commits | 📝 **PENDING** - No activity this week | 💤⚡⚡⚡⚡ | 0 | 0 |
 
 ### 🏁 Development Race
 
 | Developer | Commits | Code Changes | Activity Level | Energy Level |
 |-----------|---------|--------------|----------------|--------------|
-| **Laher Maciel** | 29 | +9166/-1438 (10604 total) | 👑 **DOMINANT** - Primary contributor (100%) | 🚀🔥💯⚡🎯 |
+| **Laher Maciel** | 30 | +9461/-1463 (10924 total) | 👑 **DOMINANT** - Primary contributor (100%) | 🚀🔥💯⚡🎯 |
 | **Kayki Rocha** | 0 | +0/-0 (0 total) | 📝 **PENDING** - Awaiting contribution | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `29` | Total number of commits |
-| **⏱️ Project Duration** | `16 days` | Days since first commit |
-| **➕ Lines Added** | `9166` | Total lines of code added |
-| **➖ Lines Removed** | `1438` | Total lines of code removed |
-| **🔄 Net Changes** | `7728` | Net code changes |
-| **⚡ Recent Activity** | `3 commits` | Commits in last 7 days |
+| **📊 Total Commits** | `30` | Total number of commits |
+| **⏱️ Project Duration** | `17 days` | Days since first commit |
+| **➕ Lines Added** | `9461` | Total lines of code added |
+| **➖ Lines Removed** | `1463` | Total lines of code removed |
+| **🔄 Net Changes** | `7998` | Net code changes |
+| **⚡ Recent Activity** | `4 commits` | Commits in last 7 days |
 
 </div>
 
@@ -75,6 +75,7 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 e8e2219 Refactor game initialization and player movement; add drawing functions and analytics updates
 🔹 88ef629 Update PROJECT_ANALYTICS.md
 🔹 9e3cb70 Add tutorial links for video resources
 🔹 7ce2ae4 Add initial project files including .cub maps, links, and images.
@@ -84,20 +85,19 @@
 🔹 45b8af4 Refactor Makefile to remove analytics script calls and update submission process; enhance PROJECT_ANALYTICS.md with latest commit statistics and developer activity metrics.
 🔹 8efefff Update PROJECT_ANALYTICS.md to reflect the latest timestamp for auto-updates.
 🔹 04eb216 Remove test script for team member detection and update PROJECT_ANALYTICS.md to reflect the latest commit statistics and developer activity metrics.
-🔹 ea50084 Update README.md and CONTRIBUTING.md to enhance development workflow: Streamlined steps for creating feature branches and submitting pull requests, clarified testing requirements, and added branch naming conventions for better contributor guidance.
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      28 
-📄      16 project_extras/docs/PROJECT_ANALYTICS.md
+📄      29 
+📄      17 project_extras/docs/PROJECT_ANALYTICS.md
 📄       7 project_extras/scripts/update_analytics.sh
 📄       7 README.md
 📄       6 project_extras/docs/CONTRIBUTING.md
 📄       5 Makefile
 📄       3 test_team.sh
-📄       2 src/main.c
+📄       3 src/main.c
 ```
 
 ### 🎯 Next Milestones
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Mon Sep 29 20:07:11 WEST 2025 | Auto-updated on build*
+*🔄 Last updated: Tue Sep 30 22:09:23 WEST 2025 | Auto-updated on build*
 
 </div>
 

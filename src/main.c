@@ -6,56 +6,20 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 10:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/09/29 17:21:46 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/09/30 21:32:58 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-static void	init_player(t_game *game)
-{
-	game->player_x = 22.0;
-	game->player_y = 12.0;
-	game->player_dir = 0.0;
-}
-
-static void	init_image(t_game *game)
-{
-	game->image = mlx_new_image(game->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
-	if (!game->image)
-	{
-		ft_printf("Error creating image: %s\n", strerror(errno));
-		free(game->window);
-		free(game->mlx);
-		exit(EXIT_FAILURE);
-	}
-}
-
-void	init_game(t_game *game)
-{
-	game->mlx = mlx_init();
-	if (!game->mlx)
-	{
-		ft_printf("Error initializing MLX: %s\n", strerror(errno));
-		exit(EXIT_FAILURE);
-	}
-	game->window = mlx_new_window(game->mlx, WINDOW_WIDTH,
-			WINDOW_HEIGHT, "cub3d");
-	if (!game->window)
-	{
-		ft_printf("Error creating window: %s\n", strerror(errno));
-		free(game->mlx);
-		exit(EXIT_FAILURE);
-	}
-	init_player(game);
-	init_image(game);
-}
-
 int	main(void)
 {
-	t_game	game;
+	t_game		game;
+	t_player	player;
 
 	init_game(&game);
+	init_player(&player);
+	draw_square(&game, player.player_x, player.player_y, 10);
 	mlx_loop(game.mlx);
 	return (0);
 }

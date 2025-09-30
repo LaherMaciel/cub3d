@@ -35,6 +35,14 @@ get_recent_activity() {
     git log --since="7 days ago" --author="$author" --oneline | wc -l
 }
 
+# Get weekly code changes for each team member (last 7 days)
+get_weekly_stats() {
+    local author="$1"
+    local added=$(git log --since="7 days ago" --author="$author" --pretty=tformat: --numstat | awk '{add += $1} END {print add+0}')
+    local removed=$(git log --since="7 days ago" --author="$author" --pretty=tformat: --numstat | awk '{subs += $2} END {print subs+0}')
+    echo "$added $removed"
+}
+
 # Get lines of code statistics
 TOTAL_ADDED=$(git log --pretty=tformat: --numstat | awk '{add += $1} END {print add+0}')
 TOTAL_REMOVED=$(git log --pretty=tformat: --numstat | awk '{subs += $2} END {print subs+0}')
@@ -209,13 +217,13 @@ EOF
 # Add weekly performance for each team member
 for member in "${TEAM_MEMBERS[@]}"; do
     recent=$(get_recent_activity "$member")
-    stats=($(get_author_stats "$member"))
-    added=${stats[0]}
-    removed=${stats[1]}
+    weekly_stats=($(get_weekly_stats "$member"))
+    weekly_added=${weekly_stats[0]}
+    weekly_removed=${weekly_stats[1]}
     percent=$((recent * 100 / 7))
     
     cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
-| **$member** | $recent commits | $(create_weekly_activity_level $added $removed) | $(create_emoji_progress $percent) | $added | $removed |
+| **$member** | $recent commits | $(create_weekly_activity_level $weekly_added $weekly_removed) | $(create_emoji_progress $percent) | $weekly_added | $weekly_removed |
 EOF
 done
 

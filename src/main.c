@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 10:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/01 11:10:12 by karocha-         ###   ########.fr       */
+/*   Updated: 2025/10/01 21:37:58 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	main(void)
 	init_game();
 	init_player();
 	setup_hooks();
-	draw_square(player()->player_x, player()->player_y, 10);
 	mlx_loop(game()->mlx);
 	return (0);
 }

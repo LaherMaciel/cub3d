@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 10:27:48 by karocha-          #+#    #+#             */
-/*   Updated: 2025/10/01 11:14:25 by karocha-         ###   ########.fr       */
+/*   Updated: 2025/10/01 21:39:28 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,4 @@ int	close_program(void *param)
 	(void)param;
 	close_game();
 	return (0);
-}
-
-void	setup_hooks(void)
-{
-	mlx_hook(game()->window, 17, 0, close_program, NULL);
-	mlx_hook(game()->window, 2, 1L << 0, key_press, player());
-	mlx_hook(game()->window, 3, 1L << 1, key_release, player());
-	mlx_loop_hook(game()->mlx, draw_loop, NULL);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   drawing2d.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:39:10 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/01 10:55:20 by karocha-         ###   ########.fr       */
+/*   Updated: 2025/10/01 22:27:28 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,20 @@ void	put_pixel(int x, int y, int color)
 	game()->data_addr[i + 2] = (color >> 16) & 0xFF;
 }
 
+void	clear_screen(void)
+{
+	int	i;
+
+	i = 0;
+	while (i < WINDOW_WIDTH * WINDOW_HEIGHT * (game()->bpp / 8))
+	{
+		game()->data_addr[i] = 0;
+		game()->data_addr[i + 1] = 0;
+		game()->data_addr[i + 2] = 0;
+		i += game()->bpp / 8;
+	}
+}
+
 void	draw_square(int x, int y, int size)
 {
 	int	i;
@@ -36,11 +50,4 @@ void	draw_square(int x, int y, int size)
 		while (++j < size)
 			put_pixel(x + i, y + j, COLOR_GREEN);
 	}
-	mlx_put_image_to_window(game()->mlx, game()->window, game()->image, 0, 0);
-}
-
-int	draw_loop(void)
-{
-	mlx_put_image_to_window(game()->mlx, game()->window, game()->image, 0, 0);
-	return (0);
 }

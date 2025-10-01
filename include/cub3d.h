@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 01:27:56 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/01 11:13:42 by karocha-         ###   ########.fr       */
+/*   Updated: 2025/10/01 22:28:21 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 # define MAP_HEIGHT 24
 
 // Define player constants
-# define MOVE_SPEED 5.0
+# define MOVE_SPEED 2.4
 # define ROT_SPEED 0.1
 
 // Define colors (RGB values)
@@ -100,6 +100,7 @@ void		setup_hooks(void);
 //drawing functions
 int			draw_loop(void);
 void		put_pixel(int x, int y, int color);
+void		clear_screen(void);
 void		draw_square(int x, int y, int size);
 
 #endif

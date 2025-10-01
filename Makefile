@@ -3,9 +3,11 @@ NAME = cub3d
 # Source files organized by directories
 MAIN_C = main.c
 
-DRAWING_C = drawing2d.c
+DRAWING_C = drawing2d.c draw_loop.c
 
 INITS_C = inits.c
+
+LOOPS_AND_HOOKS_C = loop.c
 
 MOVEMENT_C = movement.c
 
@@ -24,6 +26,7 @@ HEADERS = $(addprefix $(HEADER_DIRECTORY), $(HEADER_LIST))
 SRCS_DIRECTORY = src/
 DRAWING_DIRECTORY = src/drawing/
 INITS_DIRECTORY = src/inits/
+LOOPS_AND_HOOKS_DIRECTORY = src/loop_and_hooks/
 MOVEMENT_DIRECTORY = src/movement/
 PARSING_DIRECTORY = src/parsing/
 RAYTRACING_DIRECTORY = src/raytracing/
@@ -42,6 +45,9 @@ DRAWING = $(addprefix $(DRAWING_DIRECTORY), $(DRAWING_LIST))
 INITS_LIST = $(INITS_C)
 INITS = $(addprefix $(INITS_DIRECTORY), $(INITS_LIST))
 
+LOOPS_AND_HOOKS_LIST = $(LOOPS_AND_HOOKS_C)
+LOOPS_AND_HOOKS = $(addprefix $(LOOPS_AND_HOOKS_DIRECTORY), $(LOOPS_AND_HOOKS_LIST))
+
 MOVEMENT_LIST = $(MOVEMENT_C)
 MOVEMENT = $(addprefix $(MOVEMENT_DIRECTORY), $(MOVEMENT_LIST))
 
@@ -55,7 +61,7 @@ UTILS_LIST = $(UTILS_C)
 UTILS = $(addprefix $(UTILS_DIRECTORY), $(UTILS_LIST))
 
 # All source files
-SRCS_LIST = $(MAIN) $(DRAWING) $(INITS) $(MOVEMENT) $(PARSING) $(RAYTRACING) $(UTILS)
+SRCS_LIST = $(MAIN) $(DRAWING) $(INITS) $(MOVEMENT) $(PARSING) $(RAYTRACING) $(UTILS) $(LOOPS_AND_HOOKS)
 
 # Object files
 OBJECT_LIST = $(notdir $(SRCS_LIST:.c=.o))
@@ -101,6 +107,7 @@ $(OBJECTS_DIRECTORY):
 	@mkdir -p $(OBJECTS_DIRECTORY)$(PARSING_DIRECTORY)
 	@mkdir -p $(OBJECTS_DIRECTORY)$(RAYTRACING_DIRECTORY)
 	@mkdir -p $(OBJECTS_DIRECTORY)$(UTILS_DIRECTORY)
+	@mkdir -p $(OBJECTS_DIRECTORY)$(LOOPS_AND_HOOKS_DIRECTORY)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Objects directory structure ready!"
 
 # Compile object files
@@ -123,6 +130,9 @@ $(OBJECTS_DIRECTORY)%.o : $(RAYTRACING_DIRECTORY)%.c $(HEADERS)
 	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
 
 $(OBJECTS_DIRECTORY)%.o : $(UTILS_DIRECTORY)%.c $(HEADERS)
+	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
+
+$(OBJECTS_DIRECTORY)%.o : $(LOOPS_AND_HOOKS_DIRECTORY)%.c $(HEADERS)
 	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
 
 $(LIBFT):

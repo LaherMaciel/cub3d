@@ -4,8 +4,8 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-31-orange?style=for-the-badge)
-![Duration](https://img.shields.io/badge/Duration-18_Days-purple?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-35-orange?style=for-the-badge)
+![Duration](https://img.shields.io/badge/Duration-19_Days-purple?style=for-the-badge)
 
 </div>
 
@@ -21,14 +21,14 @@
 
 | Developer | This Week | Activity Level | Energy Level | Lines Added | Lines Removed |
 |-----------|-----------|----------------|--------------|-------------|---------------|
-| **Laher Maciel** | 5 commits | 👑 **DOMINANT** - Outstanding week (1052 lines) | 🔥🔥🔥⚡⚡ | 876 | 176 |
+| **Laher Maciel** | 5 commits | 👑 **DOMINANT** - Outstanding week (9018 lines) | 🔥🔥🔥⚡⚡ | 8839 | 179 |
 | **Kayki Rocha** | 0 commits | 📝 **PENDING** - No activity this week | 💤⚡⚡⚡⚡ | 0 | 0 |
 
 ### 🏁 Development Race
 
 | Developer | Commits | Code Changes | Activity Level | Energy Level |
 |-----------|---------|--------------|----------------|--------------|
-| **Laher Maciel** | 31 | +9617/-1594 (11211 total) | 👑 **DOMINANT** - Primary contributor (100%) | 🚀🔥💯⚡🎯 |
+| **Laher Maciel** | 34 | +18005/-1617 (19622 total) | 👑 **DOMINANT** - Primary contributor (99%) | 🚀🔥💯⚡🎯 |
 | **Kayki Rocha** | 0 | +0/-0 (0 total) | 📝 **PENDING** - Awaiting contribution | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `31` | Total number of commits |
-| **⏱️ Project Duration** | `18 days` | Days since first commit |
-| **➕ Lines Added** | `9617` | Total lines of code added |
-| **➖ Lines Removed** | `1594` | Total lines of code removed |
-| **🔄 Net Changes** | `8023` | Net code changes |
-| **⚡ Recent Activity** | `5 commits` | Commits in last 7 days |
+| **📊 Total Commits** | `35` | Total number of commits |
+| **⏱️ Project Duration** | `19 days` | Days since first commit |
+| **➕ Lines Added** | `18162` | Total lines of code added |
+| **➖ Lines Removed** | `1691` | Total lines of code removed |
+| **🔄 Net Changes** | `16471` | Net code changes |
+| **⚡ Recent Activity** | `6 commits` | Commits in last 7 days |
 
 </div>
 
@@ -60,7 +60,7 @@
 
 <div align="center">
 
-📈 **CONSISTENT EFFORT** - Steady progress! Push for more commits!
+⚡ **STRONG ACTIVITY** - Good pace! Maintain this steady progress!
 
 </div>
 
@@ -75,29 +75,29 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 91e4988 added exit and hooks and corrected structs
+🔹 d2e4c71 Added the minilibx to the project.
+🔹 cd4dc6a .
+🔹 cfa1b4e .
 🔹 63c8a7d Refactor Makefile to organize source files by directories, enhance object file compilation, and improve project structure;
 🔹 e8e2219 Refactor game initialization and player movement; add drawing functions and analytics updates
 🔹 88ef629 Update PROJECT_ANALYTICS.md
 🔹 9e3cb70 Add tutorial links for video resources
 🔹 7ce2ae4 Add initial project files including .cub maps, links, and images.
 🔹 73c611f Update PROJECT_ANALYTICS.md to reflect the latest commit statistics, including total commits, lines added, and lines removed, as well as the average commits per day.
-🔹 88d2396 Update PROJECT_ANALYTICS.md to reflect the latest auto-update timestamp.
-🔹 eca362f Update README.md and CONTRIBUTING.md to reflect changes in development workflow, including direct work on the main branch and updated commit processes; remove obsolete make targets and enhance analytics documentation with latest commit statistics.
-🔹 45b8af4 Refactor Makefile to remove analytics script calls and update submission process; enhance PROJECT_ANALYTICS.md with latest commit statistics and developer activity metrics.
-🔹 8efefff Update PROJECT_ANALYTICS.md to reflect the latest timestamp for auto-updates.
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      30 
-📄      18 project_extras/docs/PROJECT_ANALYTICS.md
-📄       7 project_extras/scripts/update_analytics.sh
+📄      34 
+📄      20 project_extras/docs/PROJECT_ANALYTICS.md
+📄       8 project_extras/scripts/update_analytics.sh
 📄       7 README.md
 📄       6 project_extras/docs/CONTRIBUTING.md
 📄       6 Makefile
-📄       4 src/main.c
-📄       3 test_team.sh
+📄       5 src/main.c
+📄       4 include/cub3d.h
 ```
 
 ### 🎯 Next Milestones
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Tue Sep 30 22:16:48 WEST 2025 | Auto-updated on build*
+*🔄 Last updated: Wed Oct  1 23:05:33 WEST 2025 | Auto-updated on build*
 
 </div>
 

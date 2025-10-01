@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:35:11 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/01 10:56:04 by karocha-         ###   ########.fr       */
+/*   Updated: 2025/10/01 22:18:25 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,6 @@ void	init_player(void)
 	player()->key_down = false;
 	player()->key_left = false;
 	player()->key_right = false;
+	player()->key_rot_left = false;
+	player()->key_rot_right = false;
 }

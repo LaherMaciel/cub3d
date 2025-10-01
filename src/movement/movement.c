@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
+/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:37:22 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/09/30 21:42:39 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/01 10:30:48 by karocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,34 @@
 int	key_press(int keycode, t_player *player)
 {
 	ft_printf("key_press: %d\n", keycode);
-	if (keycode == 65307)		exit(EXIT_SUCCESS);
-	else if (keycode == 119)		player->key_up = true;
-	else if (keycode == 115)		player->key_down = true;
-	else if (keycode == 97)		player->key_left = true;
-	else if (keycode == 100)		player->key_right = true;
+	if (keycode == 65307)
+		exit(EXIT_SUCCESS);
+	else if (keycode == 119)
+		player->key_up = true;
+	else if (keycode == 115)
+		player->key_down = true;
+	else if (keycode == 97)
+		player->key_left = true;
+	else if (keycode == 100)
+		player->key_right = true;
+	else if (keycode == 65307)
+		exit(EXIT_SUCCESS);
 	return (0);
 }
 
 int	key_release(int keycode, t_player *player)
 {
 	ft_printf("key_release: %d\n", keycode);
-	if (keycode == 65307)		exit(EXIT_SUCCESS);
-	else if (keycode == 119)		player->key_up = false;
-	else if (keycode == 115)		player->key_down = false;
-	else if (keycode == 97)		player->key_left = false;
-	else if (keycode == 100)		player->key_right = false;
+	if (keycode == 65307)
+		exit(EXIT_SUCCESS);
+	else if (keycode == 119)
+		player->key_up = false;
+	else if (keycode == 115)
+		player->key_down = false;
+	else if (keycode == 97)
+		player->key_left = false;
+	else if (keycode == 100)
+		player->key_right = false;
 	return (0);
 }
 

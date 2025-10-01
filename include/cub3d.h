@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
+/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 01:27:56 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/09/29 19:39:36 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/01 11:13:42 by karocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,30 @@ typedef struct s_player
 	bool	key_rot_right;
 }				t_player;
 
-void	init_image(t_game *game);
-void	init_game(t_game *game);
-void	init_player(t_player *player);
-int		key_press(int keycode, t_player *player);
-int		key_release(int keycode, t_player *player);
-void	move_player_2d(t_player *player);
-void	move_player_3d(t_player *player);
-int		draw_loop(t_game *game);
-void	put_pixel(t_game *game, int x, int y, int color);
-void	draw_square(t_game *game, int x, int y, int size);
+//init structs
+t_game		*game(void);
+t_player	*player(void);
+
+//close game
+int			close_program(void *param);
+
+//init functions
+void		init_image(void);
+void		init_game(void);
+void		init_player(void);
+
+//movement functions
+int			key_press(int keycode, t_player *player);
+int			key_release(int keycode, t_player *player);
+void		move_player_2d(t_player *player);
+void		move_player_3d(t_player *player);
+
+//hooks
+void		setup_hooks(void);
+
+//drawing functions
+int			draw_loop(void);
+void		put_pixel(int x, int y, int color);
+void		draw_square(int x, int y, int size);
 
 #endif

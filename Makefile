@@ -179,9 +179,10 @@ fclean: clean
 norm:
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Running norminette..."
 	@for lib in libraries/*/; do \
-		if [[ "$$lib" != *"minilibx"* ]]; then \
-			norminette $$lib >> .norminette.log 2>&1 || true; \
-		fi; \
+		case "$$lib" in \
+			*minilibx*) ;; \
+			*) norminette $$lib >> .norminette.log 2>&1 || true ;; \
+		esac; \
 	done
 	@norminette $(SRCS_DIRECTORY) $(HEADER_DIRECTORY) >> .norminette.log 2>&1 || true
 	@if grep -q "Error!" .norminette.log; then \

@@ -4,7 +4,7 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-36-orange?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-37-orange?style=for-the-badge)
 ![Duration](https://img.shields.io/badge/Duration-19_Days-purple?style=for-the-badge)
 
 </div>
@@ -28,7 +28,7 @@
 
 | Developer | Commits | Code Changes | Activity Level | Energy Level |
 |-----------|---------|--------------|----------------|--------------|
-| **Laher Maciel** | 35 | +32136/-1673 (33809 total) | 👑 **DOMINANT** - Primary contributor (99%) | 🚀🔥💯⚡🎯 |
+| **Laher Maciel** | 35 | +32136/-1673 (33809 total) | 👑 **DOMINANT** - Primary contributor (98%) | 🚀🔥💯⚡🎯 |
 | **Kayki Rocha** | 0 | +0/-0 (0 total) | 📝 **PENDING** - Awaiting contribution | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `36` | Total number of commits |
+| **📊 Total Commits** | `37` | Total number of commits |
 | **⏱️ Project Duration** | `19 days` | Days since first commit |
-| **➕ Lines Added** | `32293` | Total lines of code added |
-| **➖ Lines Removed** | `1747` | Total lines of code removed |
-| **🔄 Net Changes** | `30546` | Net code changes |
-| **⚡ Recent Activity** | `7 commits` | Commits in last 7 days |
+| **➕ Lines Added** | `32504` | Total lines of code added |
+| **➖ Lines Removed** | `1786` | Total lines of code removed |
+| **🔄 Net Changes** | `30718` | Net code changes |
+| **⚡ Recent Activity** | `8 commits` | Commits in last 7 days |
 
 </div>
 
@@ -75,6 +75,7 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 c7dca2a Just changed so that I can also work with it also in ach linux.
 🔹 2450dba Implement drawing loop functionality, enhance player movement controls.
 🔹 91e4988 added exit and hooks and corrected structs
 🔹 d2e4c71 Added the minilibx to the project.
@@ -84,20 +85,19 @@
 🔹 e8e2219 Refactor game initialization and player movement; add drawing functions and analytics updates
 🔹 88ef629 Update PROJECT_ANALYTICS.md
 🔹 9e3cb70 Add tutorial links for video resources
-🔹 7ce2ae4 Add initial project files including .cub maps, links, and images.
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      35 
-📄      21 project_extras/docs/PROJECT_ANALYTICS.md
-📄       8 project_extras/scripts/update_analytics.sh
+📄      36 
+📄      22 project_extras/docs/PROJECT_ANALYTICS.md
+📄       9 project_extras/scripts/update_analytics.sh
+📄       8 Makefile
 📄       7 README.md
-📄       7 Makefile
 📄       6 src/main.c
 📄       6 project_extras/docs/CONTRIBUTING.md
-📄       5 include/cub3d.h
+📄       6 include/cub3d.h
 ```
 
 ### 🎯 Next Milestones
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Thu Oct  2 01:11:22 AM WEST 2025 | Auto-updated on build*
+*🔄 Last updated: Thu Oct  2 06:08:17 PM WEST 2025 | Auto-updated on build*
 
 </div>
 

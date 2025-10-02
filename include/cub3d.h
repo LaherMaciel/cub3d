@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 01:27:56 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/01 22:28:21 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/02 00:44:33 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ t_game		*game(void);
 t_player	*player(void);
 
 //close game
-int			close_program(void *param);
+int			close_program(void);
 
 //init functions
 void		init_image(void);

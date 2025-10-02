@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 10:27:48 by karocha-          #+#    #+#             */
-/*   Updated: 2025/10/01 21:39:28 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/02 00:31:00 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ static void	close_game(void)
 	exit(EXIT_SUCCESS);
 }
 
-int	close_program(void *param)
+int	close_program(void)
 {
-	(void)param;
 	close_game();
 	return (0);
 }

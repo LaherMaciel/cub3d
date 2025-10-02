@@ -69,13 +69,13 @@ OBJECTS = $(addprefix $(OBJECTS_DIRECTORY), $(OBJECT_LIST))
 
 # Library files
 LIBFT = $(LIBFT_DIRECTORY)libft.a
-MLX = $(MLX_DIRECTORY)libmlx_Linux.a
+MLX = $(MLX_DIRECTORY)libmlx.a
 
 # Compiler settings
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -g -Wno-cast-function-type
 INCLUDES = -I$(HEADER_DIRECTORY) -I$(LIBFT_DIRECTORY)include/ -I$(MLX_DIRECTORY)
-LIBS = -L$(LIBFT_DIRECTORY) -lft -L$(MLX_DIRECTORY) -lmlx_Linux -lXext -lX11 -lm
+LIBS = -L$(LIBFT_DIRECTORY) -lft $(MLX) -lX11 -lXext -lm -lz
 
 # Colors
 RED     = \033[0;31m
@@ -140,10 +140,21 @@ $(LIBFT):
 	@make -sC $(LIBFT_DIRECTORY) > /dev/null 2>&1
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Libft ready!"
 
+
 $(MLX):
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling minilibx..."
-	@make -sC $(MLX_DIRECTORY) > /dev/null 2>&1
-	@echo "[" "$(GREEN)OK$(RESET)" "] | Minilibx ready!"
+	@if [ ! -f $(MLX) ]; then \
+		echo "[" "$(YELLOW)..$(RESET)" "] | Compiling minilibx..."; \
+		cd $(MLX_DIRECTORY) && bash configure > /dev/null 2>&1 || ( \
+			echo "[" "$(YELLOW)..$(RESET)" "] | Standard compilation failed, using clang..."; \
+			mkdir -p obj; \
+			for file in *.c; do clang -O3 -I/usr/include -c "$$file" -o "obj/$${file%.c}.o" > /dev/null 2>&1 || true; done; \
+			ar -r libmlx.a obj/*.o > /dev/null 2>&1 || true; \
+			ranlib libmlx.a > /dev/null 2>&1 || true; \
+		); \
+		echo "[" "$(GREEN)OK$(RESET)" "] | Minilibx ready!"; \
+	else \
+		echo "[" "$(GREEN)OK$(RESET)" "] | Minilibx already compiled!"; \
+	fi
 
 all: $(NAME)
 
@@ -152,7 +163,7 @@ clean:
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing object files..."
 	@rm -rf $(OBJECTS_DIRECTORY)
 	@make -sC $(LIBFT_DIRECTORY) clean > /dev/null 2>&1
-	@make -sC $(MLX_DIRECTORY) clean > /dev/null 2>&1
+	@rm -rf $(MLX_DIRECTORY)obj/ $(MLX_DIRECTORY)libmlx.a $(MLX_DIRECTORY)libmlx_Linux.a
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Updating Project analytics..."
 	@./project_extras/scripts/update_analytics.sh
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Analytics updated!"
@@ -161,9 +172,7 @@ clean:
 fclean: clean
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing $(NAME)..."
 	@rm -rf $(NAME)
-	@rm -rf .norminette.log
-	@make -sC $(LIBFT_DIRECTORY) fclean > /dev/null 2>&1
-	@make -sC $(MLX_DIRECTORY) clean > /dev/null 2>&1
+	@rm -rf $(MLX)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) removed."
 
 # Norminette check
@@ -209,4 +218,4 @@ help:
 	@echo "  submit      - Prepare project for submission"
 	@echo "  help        - Show this help message"
 
-.PHONY: all clean fclean re run norm submit help
+.PHONY: all clean fclean re run norm submit help $(MLX)

@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:37:22 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/01 22:22:42 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/02 00:46:06 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int	key_press(int keycode, t_player *player)
 		player->key_rot_left = true;
 	else if (keycode == 65363)
 		player->key_rot_right = true;
-	else if (keycode == 65307)
-		exit(EXIT_SUCCESS);
 	return (0);
 }
 
@@ -51,8 +49,6 @@ int	key_release(int keycode, t_player *player)
 		player->key_rot_left = false;
 	else if (keycode == 65363)
 		player->key_rot_right = false;
-	else if (keycode == 65307)
-		exit(EXIT_SUCCESS);
 	return (0);
 }
 

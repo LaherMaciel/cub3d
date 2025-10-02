@@ -4,7 +4,7 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-35-orange?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-36-orange?style=for-the-badge)
 ![Duration](https://img.shields.io/badge/Duration-19_Days-purple?style=for-the-badge)
 
 </div>
@@ -21,14 +21,14 @@
 
 | Developer | This Week | Activity Level | Energy Level | Lines Added | Lines Removed |
 |-----------|-----------|----------------|--------------|-------------|---------------|
-| **Laher Maciel** | 5 commits | 👑 **DOMINANT** - Outstanding week (9018 lines) | 🔥🔥🔥⚡⚡ | 8839 | 179 |
+| **Laher Maciel** | 6 commits | 👑 **DOMINANT** - Outstanding week (23205 lines) | 🔥🔥🔥🔥⚡ | 22970 | 235 |
 | **Kayki Rocha** | 0 commits | 📝 **PENDING** - No activity this week | 💤⚡⚡⚡⚡ | 0 | 0 |
 
 ### 🏁 Development Race
 
 | Developer | Commits | Code Changes | Activity Level | Energy Level |
 |-----------|---------|--------------|----------------|--------------|
-| **Laher Maciel** | 34 | +18005/-1617 (19622 total) | 👑 **DOMINANT** - Primary contributor (99%) | 🚀🔥💯⚡🎯 |
+| **Laher Maciel** | 35 | +32136/-1673 (33809 total) | 👑 **DOMINANT** - Primary contributor (99%) | 🚀🔥💯⚡🎯 |
 | **Kayki Rocha** | 0 | +0/-0 (0 total) | 📝 **PENDING** - Awaiting contribution | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `35` | Total number of commits |
+| **📊 Total Commits** | `36` | Total number of commits |
 | **⏱️ Project Duration** | `19 days` | Days since first commit |
-| **➕ Lines Added** | `18162` | Total lines of code added |
-| **➖ Lines Removed** | `1691` | Total lines of code removed |
-| **🔄 Net Changes** | `16471` | Net code changes |
-| **⚡ Recent Activity** | `6 commits` | Commits in last 7 days |
+| **➕ Lines Added** | `32293` | Total lines of code added |
+| **➖ Lines Removed** | `1747` | Total lines of code removed |
+| **🔄 Net Changes** | `30546` | Net code changes |
+| **⚡ Recent Activity** | `7 commits` | Commits in last 7 days |
 
 </div>
 
@@ -75,6 +75,7 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 2450dba Implement drawing loop functionality, enhance player movement controls.
 🔹 91e4988 added exit and hooks and corrected structs
 🔹 d2e4c71 Added the minilibx to the project.
 🔹 cd4dc6a .
@@ -84,20 +85,19 @@
 🔹 88ef629 Update PROJECT_ANALYTICS.md
 🔹 9e3cb70 Add tutorial links for video resources
 🔹 7ce2ae4 Add initial project files including .cub maps, links, and images.
-🔹 73c611f Update PROJECT_ANALYTICS.md to reflect the latest commit statistics, including total commits, lines added, and lines removed, as well as the average commits per day.
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      34 
-📄      20 project_extras/docs/PROJECT_ANALYTICS.md
+📄      35 
+📄      21 project_extras/docs/PROJECT_ANALYTICS.md
 📄       8 project_extras/scripts/update_analytics.sh
 📄       7 README.md
+📄       7 Makefile
+📄       6 src/main.c
 📄       6 project_extras/docs/CONTRIBUTING.md
-📄       6 Makefile
-📄       5 src/main.c
-📄       4 include/cub3d.h
+📄       5 include/cub3d.h
 ```
 
 ### 🎯 Next Milestones
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Wed Oct  1 23:05:33 WEST 2025 | Auto-updated on build*
+*🔄 Last updated: Thu Oct  2 01:11:22 AM WEST 2025 | Auto-updated on build*
 
 </div>
 

@@ -4,7 +4,7 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-40-orange?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-41-orange?style=for-the-badge)
 ![Duration](https://img.shields.io/badge/Duration-27_Days-purple?style=for-the-badge)
 
 </div>
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `40` | Total number of commits |
+| **📊 Total Commits** | `41` | Total number of commits |
 | **⏱️ Project Duration** | `27 days` | Days since first commit |
-| **➕ Lines Added** | `32761` | Total lines of code added |
-| **➖ Lines Removed** | `1849` | Total lines of code removed |
+| **➕ Lines Added** | `32775` | Total lines of code added |
+| **➖ Lines Removed** | `1863` | Total lines of code removed |
 | **🔄 Net Changes** | `30912` | Net code changes |
-| **⚡ Recent Activity** | `1 commits` | Commits in last 7 days |
+| **⚡ Recent Activity** | `2 commits` | Commits in last 7 days |
 
 </div>
 
@@ -75,6 +75,7 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 c5dcdeb .
 🔹 1b4875a Refactor Makefile to include new source files, implement linked list for map handling, and update drawing functions to use circles instead of squares.
 🔹 ff3c01e .
 🔹 2b08426 .
@@ -84,19 +85,18 @@
 🔹 d2e4c71 Added the minilibx to the project.
 🔹 cd4dc6a .
 🔹 cfa1b4e .
-🔹 63c8a7d Refactor Makefile to organize source files by directories, enhance object file compilation, and improve project structure;
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      39 
-📄      25 project_extras/docs/PROJECT_ANALYTICS.md
+📄      40 
+📄      26 project_extras/docs/PROJECT_ANALYTICS.md
 📄      11 Makefile
 📄       9 project_extras/scripts/update_analytics.sh
 📄       7 src/main.c
-📄       7 README.md
 📄       7 include/cub3d.h
+📄       7 README.md
 📄       6 src/movement/movement.c
 ```
 
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Fri Oct 10 05:43:05 PM WEST 2025 | Auto-updated on build*
+*🔄 Last updated: Fri Oct 10 17:46:24 WEST 2025 | Auto-updated on build*
 
 </div>
 

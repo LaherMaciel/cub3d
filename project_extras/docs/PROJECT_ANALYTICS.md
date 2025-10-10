@@ -4,7 +4,7 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-39-orange?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-40-orange?style=for-the-badge)
 ![Duration](https://img.shields.io/badge/Duration-27_Days-purple?style=for-the-badge)
 
 </div>
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `39` | Total number of commits |
+| **📊 Total Commits** | `40` | Total number of commits |
 | **⏱️ Project Duration** | `27 days` | Days since first commit |
-| **➕ Lines Added** | `32536` | Total lines of code added |
-| **➖ Lines Removed** | `1817` | Total lines of code removed |
-| **🔄 Net Changes** | `30719` | Net code changes |
-| **⚡ Recent Activity** | `0 commits` | Commits in last 7 days |
+| **➕ Lines Added** | `32761` | Total lines of code added |
+| **➖ Lines Removed** | `1849` | Total lines of code removed |
+| **🔄 Net Changes** | `30912` | Net code changes |
+| **⚡ Recent Activity** | `1 commits` | Commits in last 7 days |
 
 </div>
 
@@ -60,7 +60,7 @@
 
 <div align="center">
 
-💤 **INACTIVE PERIOD** - Time to re-engage! Let's get back to coding! ⏰
+🐌 **MINIMAL ACTIVITY** - Every contribution counts! Increase your frequency!
 
 </div>
 
@@ -75,6 +75,7 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 1b4875a Refactor Makefile to include new source files, implement linked list for map handling, and update drawing functions to use circles instead of squares.
 🔹 ff3c01e .
 🔹 2b08426 .
 🔹 c7dca2a Just changed so that I can also work with it also in ach linux.
@@ -84,20 +85,19 @@
 🔹 cd4dc6a .
 🔹 cfa1b4e .
 🔹 63c8a7d Refactor Makefile to organize source files by directories, enhance object file compilation, and improve project structure;
-🔹 e8e2219 Refactor game initialization and player movement; add drawing functions and analytics updates
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      38 
-📄      24 project_extras/docs/PROJECT_ANALYTICS.md
-📄      10 Makefile
+📄      39 
+📄      25 project_extras/docs/PROJECT_ANALYTICS.md
+📄      11 Makefile
 📄       9 project_extras/scripts/update_analytics.sh
+📄       7 src/main.c
 📄       7 README.md
+📄       7 include/cub3d.h
 📄       6 src/movement/movement.c
-📄       6 src/main.c
-📄       6 project_extras/docs/CONTRIBUTING.md
 ```
 
 ### 🎯 Next Milestones
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Fri Oct 10 05:22:51 PM WEST 2025 | Auto-updated on build*
+*🔄 Last updated: Fri Oct 10 05:43:05 PM WEST 2025 | Auto-updated on build*
 
 </div>
 

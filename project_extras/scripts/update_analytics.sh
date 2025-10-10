@@ -156,13 +156,13 @@ get_motivational_message() {
 
 # Generate professional competition message based on code changes
 get_competition_message() {
-    local team_members=("$@")
     local max_changes=0
-    local leader=""
+    local leader_idx=0
     local total_changes=0
     
     # Find the leader based on code changes
-    for member in "${team_members[@]}"; do
+    for i in "${!TEAM_MEMBERS[@]}"; do
+        local member="${TEAM_MEMBERS[$i]}"
         local stats=($(get_author_stats "$member"))
         local added=${stats[0]}
         local removed=${stats[1]}
@@ -171,21 +171,27 @@ get_competition_message() {
         
         if [ "$net_changes" -gt "$max_changes" ]; then
             max_changes=$net_changes
-            leader="$member"
+            leader_idx=$i
         fi
     done
     
-    if [ ${#team_members[@]} -eq 1 ]; then
+    local leader_name="${DISPLAY_NAMES[$leader_idx]}"
+    
+    if [ ${#TEAM_MEMBERS[@]} -eq 1 ]; then
         echo "👤 **SOLO DEVELOPER** - You're handling this project independently! Great work!"
     elif [ "$max_changes" -gt "$((total_changes / 2))" ]; then
-        echo "🏆 **$leader is LEADING** - Strong code contribution! Others, time to step up! 🎯"
+        echo "🏆 **$leader_name is LEADING** - Strong code contribution! Others, time to step up! 🎯"
     else
         echo "🤝 **BALANCED TEAMWORK** - Excellent collaboration! Keep the momentum! 👥"
     fi
 }
 
-# Get team members - always include both team members
-TEAM_MEMBERS=("Laher Maciel" "Kayki Rocha")
+# Get team members - use partial names for flexible matching
+# This allows matching different variations of the same person's git author name
+# Laher: matches "Laher Maciel" and "Laher Payot Maciel"
+# UnderOfAll: matches Kayki's GitHub username
+TEAM_MEMBERS=("Laher" "UnderOfAll")
+DISPLAY_NAMES=("Laher Maciel" "Kayki Rocha")
 
 # Create the analytics content
 cat > "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
@@ -215,7 +221,9 @@ $ANALYTICS_SECTION
 EOF
 
 # Add weekly performance for each team member
-for member in "${TEAM_MEMBERS[@]}"; do
+for i in "${!TEAM_MEMBERS[@]}"; do
+    member="${TEAM_MEMBERS[$i]}"
+    display_name="${DISPLAY_NAMES[$i]}"
     recent=$(get_recent_activity "$member")
     weekly_stats=($(get_weekly_stats "$member"))
     weekly_added=${weekly_stats[0]}
@@ -223,7 +231,7 @@ for member in "${TEAM_MEMBERS[@]}"; do
     percent=$((recent * 100 / 7))
     
     cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
-| **$member** | $recent commits | $(create_weekly_activity_level $weekly_added $weekly_removed) | $(create_emoji_progress $percent) | $weekly_added | $weekly_removed |
+| **$display_name** | $recent commits | $(create_weekly_activity_level $weekly_added $weekly_removed) | $(create_emoji_progress $percent) | $weekly_added | $weekly_removed |
 EOF
 done
 
@@ -236,7 +244,9 @@ cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
 EOF
 
 # Add team members dynamically
-for member in "${TEAM_MEMBERS[@]}"; do
+for i in "${!TEAM_MEMBERS[@]}"; do
+    member="${TEAM_MEMBERS[$i]}"
+    display_name="${DISPLAY_NAMES[$i]}"
     commits=$(get_author_commits "$member")
     stats=($(get_author_stats "$member"))
     added=${stats[0]}
@@ -253,7 +263,7 @@ for member in "${TEAM_MEMBERS[@]}"; do
     fi
     
     cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
-| **$member** | $commits | +$added/-$removed ($total_changes total) | $(create_activity_level $added $TOTAL_ADDED $removed) | $(create_emoji_progress $change_percent) |
+| **$display_name** | $commits | +$added/-$removed ($total_changes total) | $(create_activity_level $added $TOTAL_ADDED $removed) | $(create_emoji_progress $change_percent) |
 EOF
 done
 
@@ -306,7 +316,7 @@ $(get_motivational_message $RECENT_COMMITS)
 
 <div align="center">
 
-$(get_competition_message "${TEAM_MEMBERS[@]}")
+$(get_competition_message)
 
 </div>
 
@@ -347,9 +357,9 @@ $(git log --pretty=format: --name-only | sort | uniq -c | sort -rn | head -8 | s
 EOF
 
 # Add team members dynamically
-for member in "${TEAM_MEMBERS[@]}"; do
+for display_name in "${DISPLAY_NAMES[@]}"; do
     cat >> "project_extras/docs/PROJECT_ANALYTICS.md" << EOF
-- **$member** - Active contributor
+- **$display_name** - Active contributor
 EOF
 done
 

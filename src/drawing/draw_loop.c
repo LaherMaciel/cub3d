@@ -16,7 +16,7 @@ int	draw_loop(void)
 {
 	clear_screen();
 	move_player_2d(player());
-	draw_square(player()->player_x, player()->player_y, 10);
+	draw_circle(player()->player_x, player()->player_y, 10);
 	mlx_put_image_to_window(game()->mlx, game()->window, game()->image, 0, 0);
 	return (0);
 }

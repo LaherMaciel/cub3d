@@ -38,16 +38,27 @@ void	clear_screen(void)
 	}
 }
 
-void	draw_square(int x, int y, int size)
+void	draw_circle(int x, int y, int size)
 {
+	int	radius;
 	int	i;
 	int	j;
+	int	dx;
+	int	dy;
 
-	i = -1;
-	while (++i < size)
+	radius = size / 2;
+	i = -radius;
+	while (i <= radius)
 	{
-		j = -1;
-		while (++j < size)
-			put_pixel(x + i, y + j, COLOR_GREEN);
+		j = -radius;
+		while (j <= radius)
+		{
+			dx = i;
+			dy = j;
+			if (dx * dx + dy * dy <= radius * radius)
+				put_pixel(x + i, y + j, COLOR_GREEN);
+			j++;
+		}
+		i++;
 	}
 }

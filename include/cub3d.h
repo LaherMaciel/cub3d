@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 01:27:56 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/02 00:44:33 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/10 17:08:41 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,12 @@
 # define COLOR_BLACK 0x000000
 # define COLOR_YELLOW 0xFFFF00
 
+typedef struct s_map
+{
+	char			*content;
+	struct s_map	*next;
+}				t_map;
+
 typedef struct s_game
 {
 	void	*mlx;
@@ -57,7 +63,7 @@ typedef struct s_game
 	int		bpp;
 	int		size_line;
 	int		endian;
-	int		map[MAP_WIDTH][MAP_HEIGHT];
+	char	**map;
 	double	player_x;
 	double	player_y;
 	double	player_dir; // Angle in radians
@@ -87,6 +93,16 @@ int			close_program(void);
 void		init_image(void);
 void		init_game(void);
 void		init_player(void);
+void		init_map(char *filename);
+void		convert_linked_list_to_array(t_map *head);
+
+//linked list functions
+int			ft_lstsize2(t_map *lst);
+t_map		*ft_lstlast2(t_map *lst);
+void		ft_lstdelone2(t_map *lst, void (*del)(void*));
+void		ft_lstclear2(t_map **lst, void (*del)(void*));
+void		ft_lstadd_back2(t_map **lst, t_map *new_node);
+t_map		*ft_lstnew2(void *content);
 
 //movement functions
 int			key_press(int keycode, t_player *player);
@@ -101,6 +117,6 @@ void		setup_hooks(void);
 int			draw_loop(void);
 void		put_pixel(int x, int y, int color);
 void		clear_screen(void);
-void		draw_square(int x, int y, int size);
+void		draw_circle(int x, int y, int size);
 
 #endif

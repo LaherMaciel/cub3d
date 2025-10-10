@@ -5,7 +5,7 @@ MAIN_C = main.c
 
 DRAWING_C = drawing2d.c draw_loop.c
 
-INITS_C = inits.c
+INITS_C = inits.c get_map.c
 
 LOOPS_AND_HOOKS_C = loop.c
 
@@ -15,7 +15,7 @@ PARSING_C = parsing.c
 
 RAYTRACING_C = raytracing.c
 
-UTILS_C = utils.c
+UTILS_C = utils.c link_list.c
 
 # Header files
 HEADER_LIST = cub3d.h

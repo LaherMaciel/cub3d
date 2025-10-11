@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 01:27:56 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/10 17:08:41 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/11 14:57:48 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,15 @@
 # define COLOR_BLACK 0x000000
 # define COLOR_YELLOW 0xFFFF00
 
+// Define Keycodes
+# define KEY_ESC 65307
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+# define KEY_LEFT 65361
+# define KEY_RIGHT 65363
+
 typedef struct s_map
 {
 	char			*content;
@@ -67,6 +76,9 @@ typedef struct s_game
 	double	player_x;
 	double	player_y;
 	double	player_dir; // Angle in radians
+	int		window_width;
+	int		window_height;
+	bool	is_fullscreen;
 }				t_game;
 
 typedef struct s_player
@@ -118,5 +130,10 @@ int			draw_loop(void);
 void		put_pixel(int x, int y, int color);
 void		clear_screen(void);
 void		draw_circle(int x, int y, int size);
+
+//window functions
+void		update_window_size(void);
+int			handle_window_resize(int event, void *param);
+void		toggle_fullscreen(void);
 
 #endif

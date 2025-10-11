@@ -1,50 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   link_list.c                                        :+:      :+:    :+:   */
+/*   link_list_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 17:00:21 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/11 15:16:55 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/11 14:52:51 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-void	ft_lstdelone2(t_map *lst, void (*del)(void*))
+int	ft_lstsize2(t_map *lst)
 {
-	if (!lst)
-		return ;
-	del(lst->content);
-	free(lst);
-}
+	int	i;
 
-void	ft_lstclear2(t_map **lst, void (*del)(void*))
-{
-	t_map	*temp;
-
-	if (!*lst)
-		return ;
-	while (*lst)
+	i = 0;
+	while (lst)
 	{
-		temp = (*lst)->next;
-		ft_lstdelone2(*lst, del);
-		*lst = temp;
+		lst = lst->next;
+		i++;
 	}
-	*lst = NULL;
-}
-
-t_map	*ft_lstnew2(void *content)
-{
-	t_map	*new_list;
-
-	new_list = malloc(sizeof(t_map));
-	if (!new_list)
-		return (NULL);
-	new_list->content = content;
-	new_list->next = NULL;
-	return (new_list);
+	return (i);
 }
 
 t_map	*ft_lstlast2(t_map *lst)
@@ -56,30 +34,25 @@ t_map	*ft_lstlast2(t_map *lst)
 	return (lst);
 }
 
-void	ft_lstadd_back2(t_map **lst, t_map *new)
+void	ft_lstadd_back2(t_map **lst, t_map *new_node)
 {
-	t_map	*last;
+	t_map	*temp;
 
-	if (!lst || !new)
+	if (!new_node)
 		return ;
 	if (!*lst)
 	{
-		*lst = new;
+		*lst = new_node;
 		return ;
 	}
-	last = ft_lstlast2(*lst);
-	last->next = new;
+	temp = ft_lstlast2(*lst);
+	temp->next = new_node;
 }
 
-int	ft_lstsize2(t_map *lst)
+void	ft_lstdelone2(t_map *lst, void (*del)(void*))
 {
-	int	size;
-
-	size = 0;
-	while (lst)
-	{
-		size++;
-		lst = lst->next;
-	}
-	return (size);
+	if (!lst)
+		return ;
+	del(lst->content);
+	free(lst);
 }

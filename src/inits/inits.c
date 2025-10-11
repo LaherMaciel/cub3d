@@ -43,6 +43,9 @@ void	init_game(void)
 		free(game()->mlx);
 		exit(EXIT_FAILURE);
 	}
+	game()->window_width = WINDOW_WIDTH;
+	game()->window_height = WINDOW_HEIGHT;
+	game()->is_fullscreen = false;
 	init_image();
 	game()->data_addr = mlx_get_data_addr(game()->image, &game()->bpp,
 		&game()->size_line, &game()->endian);
@@ -51,8 +54,8 @@ void	init_game(void)
 
 void	init_player(void)
 {
-	player()->player_x = WINDOW_WIDTH / 2;
-	player()->player_y = WINDOW_HEIGHT / 2;
+	player()->player_x = game()->window_width / 2;
+	player()->player_y = game()->window_height / 2;
 	player()->player_dir = 0.0;
 	player()->key_up = false;
 	player()->key_down = false;

@@ -163,7 +163,7 @@ clean:
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing object files..."
 	@rm -rf $(OBJECTS_DIRECTORY)
 	@make -sC $(LIBFT_DIRECTORY) clean > /dev/null 2>&1
-	@rm -rf $(MLX_DIRECTORY)obj/ $(MLX_DIRECTORY)libmlx.a $(MLX_DIRECTORY)libmlx_Linux.a
+	@rm -rf $(MLX_DIRECTORY)obj/
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Updating Project analytics..."
 	@./project_extras/scripts/update_analytics.sh
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Analytics updated!"
@@ -173,11 +173,13 @@ fclean: clean
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing $(NAME)..."
 	@rm -rf $(NAME)
 	@rm -rf $(MLX)
+	@make -sC $(LIBFT_DIRECTORY) fclean > /dev/null 2>&1
 	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) removed."
 
 # Norminette check
 norm:
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Running norminette..."
+	@rm -f .norminette.log
 	@for lib in libraries/*/; do \
 		case "$$lib" in \
 			*minilibx*) ;; \

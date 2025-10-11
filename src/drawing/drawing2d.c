@@ -16,7 +16,8 @@ void	put_pixel(int x, int y, int color)
 {
 	int	i;
 
-	if (x < 0 || x >= WINDOW_WIDTH || y < 0 || y >= WINDOW_HEIGHT)
+	if (x < 0 || x >= game()->window_width || y < 0
+		|| y >= game()->window_height)
 		return ;
 	i = y * game()->size_line + x * (game()->bpp / 8);
 	game()->data_addr[i] = color & 0xFF;
@@ -29,7 +30,7 @@ void	clear_screen(void)
 	int	i;
 
 	i = 0;
-	while (i < WINDOW_WIDTH * WINDOW_HEIGHT * (game()->bpp / 8))
+	while (i < game()->window_width * game()->window_height * (game()->bpp / 8))
 	{
 		game()->data_addr[i] = 0;
 		game()->data_addr[i + 1] = 0;

@@ -6,51 +6,25 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:18:25 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/11 14:54:18 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/15 13:55:00 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-static void	read_map_lines(int fd, t_map **head)
-{
-	t_map	*temp;
-	char	*line;
-
-	line = get_next_line(fd);
-	while (line)
-	{
-		temp = ft_lstnew2(line);
-		if (!temp)
-		{
-			ft_printf("Error: Memory allocation failed\n");
-			ft_lstclear2(head, free);
-			close(fd);
-			exit(EXIT_FAILURE);
-		}
-		ft_lstadd_back2(head, temp);
-		line = get_next_line(fd);
-	}
-}
-
 void	init_map(char *filename)
 {
-	int		fd;
-	t_map	*head;
-
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
+	if (parse_cub_file(filename) != 0)
 	{
-		ft_printf("Error opening map file: %s\n", strerror(errno));
-		free(game()->window);
-		free(game()->mlx);
+		ft_printf("Error parsing map file\n");
+		cleanup_parsing();
+		close_program();
 		exit(EXIT_FAILURE);
 	}
-	head = NULL;
-	read_map_lines(fd, &head);
-	close(fd);
-	convert_linked_list_to_array(head);
-	ft_lstclear2(&head, free);
+	ft_printf("Map loaded successfully!\n");
+	ft_printf("Map dimensions: %dx%d\n", game()->map_width, game()->map_height);
+	ft_printf("Player position: (%.1f, %.1f) facing %c\n",
+		game()->player_x, game()->player_y, game()->player_orientation);
 }
 
 void	convert_linked_list_to_array(t_map *head)

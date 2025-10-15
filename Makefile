@@ -3,19 +3,19 @@ NAME = cub3d
 # Source files organized by directories
 MAIN_C = main.c
 
-DRAWING_C = drawing2d.c draw_loop.c
+DRAWING_C = drawing2d.c draw_loop.c draw_grid.c
 
 INITS_C = inits.c get_map.c
 
 LOOPS_AND_HOOKS_C = loop.c
 
-MOVEMENT_C = movement.c
+MOVEMENT_C = movement.c movement_helpers.c
 
 PARSING_C = parsing.c
 
 RAYTRACING_C = raytracing.c
 
-UTILS_C = utils.c link_list.c
+UTILS_C = utils.c link_list.c link_list_utils.c
 
 # Header files
 HEADER_LIST = cub3d.h

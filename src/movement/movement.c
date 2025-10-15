@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:37:22 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/11 14:57:37 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/15 13:55:00 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	key_press(int keycode, t_player *player)
 
 int	key_release(int keycode, t_player *player)
 {
+	ft_printf("Key press = %i\n", keycode);
 	if (keycode == KEY_ESC)
 		exit(EXIT_SUCCESS);
 	else if (keycode == KEY_W)
@@ -50,16 +51,21 @@ int	key_release(int keycode, t_player *player)
 	return (0);
 }
 
-void	move_player_2d(t_player *player)
+bool	is_valid_position(double x, double y)
 {
-	if (player->key_up && (player->player_y > 10))
-		player->player_y -= MOVE_SPEED;
-	if (player->key_down && (player->player_y < game()->window_height - 20))
-		player->player_y += MOVE_SPEED;
-	if (player->key_left && (player->player_x > 10))
-		player->player_x -= MOVE_SPEED;
-	if (player->key_right && (player->player_x < game()->window_width - 20))
-		player->player_x += MOVE_SPEED;
+	int	map_x;
+	int	map_y;
+
+	if (!game()->map)
+		return (false);
+	map_x = (int)x;
+	map_y = (int)y;
+	if (map_x < 0 || map_x >= game()->map_width || map_y < 0
+		|| map_y >= game()->map_height)
+		return (false);
+	if (game()->map[map_y][map_x] == '1')
+		return (false);
+	return (true);
 }
 
 /* void	move_player_3d(t_player *player)

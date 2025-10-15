@@ -4,8 +4,8 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-43-orange?style=for-the-badge)
-![Duration](https://img.shields.io/badge/Duration-28_Days-purple?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-44-orange?style=for-the-badge)
+![Duration](https://img.shields.io/badge/Duration-32_Days-purple?style=for-the-badge)
 
 </div>
 
@@ -21,14 +21,14 @@
 
 | Developer | This Week | Activity Level | Energy Level | Lines Added | Lines Removed |
 |-----------|-----------|----------------|--------------|-------------|---------------|
-| **Laher Maciel** | 4 commits | 🏆 **EXCEPTIONAL** - Major progress (371 lines) | 🔥⚡⚡⚡⚡ | 287 | 84 |
+| **Laher Maciel** | 5 commits | 👑 **DOMINANT** - Outstanding week (687 lines) | 🔥🔥🔥⚡⚡ | 511 | 176 |
 | **Kayki Rocha** | 0 commits | 📝 **PENDING** - No activity this week | 💤⚡⚡⚡⚡ | 0 | 0 |
 
 ### 🏁 Development Race
 
 | Developer | Commits | Code Changes | Activity Level | Energy Level |
 |-----------|---------|--------------|----------------|--------------|
-| **Laher Maciel** | 42 | +32666/-1827 (34493 total) | 👑 **DOMINANT** - Primary contributor (99%) | 🚀🔥💯⚡🎯 |
+| **Laher Maciel** | 43 | +32890/-1919 (34809 total) | 👑 **DOMINANT** - Primary contributor (99%) | 🚀🔥💯⚡🎯 |
 | **Kayki Rocha** | 1 | +157/-74 (231 total) | 🔧 **INITIAL** - Early contribution (0%) | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `43` | Total number of commits |
-| **⏱️ Project Duration** | `28 days` | Days since first commit |
-| **➕ Lines Added** | `32823` | Total lines of code added |
-| **➖ Lines Removed** | `1901` | Total lines of code removed |
-| **🔄 Net Changes** | `30922` | Net code changes |
-| **⚡ Recent Activity** | `4 commits` | Commits in last 7 days |
+| **📊 Total Commits** | `44` | Total number of commits |
+| **⏱️ Project Duration** | `32 days` | Days since first commit |
+| **➕ Lines Added** | `33047` | Total lines of code added |
+| **➖ Lines Removed** | `1993` | Total lines of code removed |
+| **🔄 Net Changes** | `31054` | Net code changes |
+| **⚡ Recent Activity** | `5 commits` | Commits in last 7 days |
 
 </div>
 
@@ -75,6 +75,7 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 89c7515 Add linked list utility functions and window management for dynamic resizing.
 🔹 2a8d2a1 Update project analytics: increment commit count to 42, adjust developer activity metrics, and enhance team member identification in analytics script.
 🔹 e04ea31 .
 🔹 c5dcdeb .
@@ -84,20 +85,19 @@
 🔹 c7dca2a Just changed so that I can also work with it also in ach linux.
 🔹 2450dba Implement drawing loop functionality, enhance player movement controls.
 🔹 91e4988 added exit and hooks and corrected structs
-🔹 d2e4c71 Added the minilibx to the project.
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      42 
-📄      28 project_extras/docs/PROJECT_ANALYTICS.md
-📄      11 Makefile
+📄      43 
+📄      29 project_extras/docs/PROJECT_ANALYTICS.md
+📄      12 Makefile
 📄      10 project_extras/scripts/update_analytics.sh
+📄       8 include/cub3d.h
+📄       7 src/movement/movement.c
 📄       7 src/main.c
-📄       7 include/cub3d.h
 📄       7 README.md
-📄       6 src/movement/movement.c
 ```
 
 ### 🎯 Next Milestones
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Sat Oct 11 15:59:34 WEST 2025 | Auto-updated on build*
+*🔄 Last updated: Wed Oct 15 14:18:39 WEST 2025 | Auto-updated on build*
 
 </div>
 

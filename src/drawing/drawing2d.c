@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:39:10 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/01 22:27:28 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/15 13:55:00 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,27 +39,63 @@ void	clear_screen(void)
 	}
 }
 
-void	draw_circle(int x, int y, int size)
+static void	draw_map_cell(int x, int y, int cell_size, char cell_type)
 {
-	int	radius;
+	int	k;
+	int	l;
+
+	k = 0;
+	while (k < cell_size)
+	{
+		l = 0;
+		while (l < cell_size)
+		{
+			if (cell_type == '1')
+				put_pixel(x + l, y + k, COLOR_BLUE);
+			else
+				put_pixel(x + l, y + k, COLOR_BLACK);
+			l++;
+		}
+		k++;
+	}
+}
+
+static void	draw_map_rows(int cell_size, int start_x, int start_y)
+{
 	int	i;
 	int	j;
-	int	dx;
-	int	dy;
+	int	x;
+	int	y;
 
-	radius = size / 2;
-	i = -radius;
-	while (i <= radius)
+	i = 0;
+	while (i < game()->map_height)
 	{
-		j = -radius;
-		while (j <= radius)
+		j = 0;
+		while (j < game()->map_width)
 		{
-			dx = i;
-			dy = j;
-			if (dx * dx + dy * dy <= radius * radius)
-				put_pixel(x + i, y + j, COLOR_GREEN);
+			x = start_x + j * cell_size;
+			y = start_y + i * cell_size;
+			if (game()->map[i][j] == '1' || game()->map[i][j] == '0'
+				|| game()->map[i][j] == ' ')
+				draw_map_cell(x, y, cell_size, game()->map[i][j]);
 			j++;
 		}
 		i++;
 	}
+}
+
+void	draw_map_2d(void)
+{
+	int	cell_size;
+	int	start_x;
+	int	start_y;
+
+	if (!game()->map)
+		return ;
+	cell_size = 20;
+	start_x = 50;
+	start_y = 50;
+	draw_map_rows(cell_size, start_x, start_y);
+	draw_map_grid();
+	draw_player_position();
 }

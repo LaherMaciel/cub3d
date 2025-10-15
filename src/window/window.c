@@ -6,12 +6,12 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 00:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/01/15 00:00:00 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/15 12:16:30 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
-
+/* 
 void	update_window_size(void)
 {
 	int	screen_width;
@@ -44,3 +44,4 @@ int	handle_window_resize(int event, void *param)
 	}
 	return (0);
 }
+ */

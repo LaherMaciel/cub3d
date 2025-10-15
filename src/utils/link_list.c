@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 17:00:21 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/11 15:16:55 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/15 13:55:00 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,17 +69,4 @@ void	ft_lstadd_back2(t_map **lst, t_map *new)
 	}
 	last = ft_lstlast2(*lst);
 	last->next = new;
-}
-
-int	ft_lstsize2(t_map *lst)
-{
-	int	size;
-
-	size = 0;
-	while (lst)
-	{
-		size++;
-		lst = lst->next;
-	}
-	return (size);
 }

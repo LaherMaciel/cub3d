@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 01:27:56 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/11 14:57:48 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/15 13:42:22 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,22 +63,44 @@ typedef struct s_map
 	struct s_map	*next;
 }				t_map;
 
+typedef struct s_textures
+{
+	char	*no_path;	// North texture path
+	char	*so_path;	// South texture path
+	char	*we_path;	// West texture path
+	char	*ea_path;	// East texture path
+	char	*roof_path;	// Roof texture path (bonus)
+	char	*floor_path;	// Floor texture path (bonus)
+	char	*weapon_path;	// Weapon texture path (bonus)
+}				t_textures;
+
+typedef struct s_colors
+{
+	int	floor_rgb;		// Floor color as RGB integer
+	int	ceiling_rgb;	// Ceiling color as RGB integer
+}				t_colors;
+
 typedef struct s_game
 {
-	void	*mlx;
-	void	*window;
-	void	*image;
-	char	*data_addr;
-	int		bpp;
-	int		size_line;
-	int		endian;
-	char	**map;
-	double	player_x;
-	double	player_y;
-	double	player_dir; // Angle in radians
-	int		window_width;
-	int		window_height;
-	bool	is_fullscreen;
+	void		*mlx;
+	void		*window;
+	void		*image;
+	char		*data_addr;
+	int			bpp;
+	int			size_line;
+	int			endian;
+	char		**map;
+	int			map_width;
+	int			map_height;
+	double		player_x;
+	double		player_y;
+	double		player_dir; // Angle in radians
+	char		player_orientation; // N, S, E, W
+	int			window_width;
+	int			window_height;
+	bool		is_fullscreen;
+	t_textures	textures;
+	t_colors	colors;
 }				t_game;
 
 typedef struct s_player
@@ -108,6 +130,21 @@ void		init_player(void);
 void		init_map(char *filename);
 void		convert_linked_list_to_array(t_map *head);
 
+//parsing functions
+int			parse_cub_file(char *filename);
+int			parse_configuration(char **lines, int *line_index);
+int			parse_map(char **lines, int line_index);
+int			validate_map(void);
+int			parse_texture_line(char *line, char **texture_path);
+int			parse_color_line(char *line, int *color);
+int			convert_rgb_to_int(int r, int g, int b);
+bool		is_map_line(char *line);
+int			count_map_lines(char **lines, int start_index);
+void		extract_map(char **lines, int start_index, int map_height);
+int			validate_map_closed(void);
+int			validate_player_position(void);
+void		cleanup_parsing(void);
+
 //linked list functions
 int			ft_lstsize2(t_map *lst);
 t_map		*ft_lstlast2(t_map *lst);
@@ -121,6 +158,7 @@ int			key_press(int keycode, t_player *player);
 int			key_release(int keycode, t_player *player);
 void		move_player_2d(t_player *player);
 void		move_player_3d(t_player *player);
+bool		is_valid_position(double x, double y);
 
 //hooks
 void		setup_hooks(void);
@@ -130,6 +168,9 @@ int			draw_loop(void);
 void		put_pixel(int x, int y, int color);
 void		clear_screen(void);
 void		draw_circle(int x, int y, int size);
+void		draw_map_2d(void);
+void		draw_map_grid(void);
+void		draw_player_position(void);
 
 //window functions
 void		update_window_size(void);

@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:35:11 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/10 16:38:41 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/15 13:55:00 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,6 @@ void	init_game(void)
 
 void	init_player(void)
 {
-	player()->player_x = game()->window_width / 2;
-	player()->player_y = game()->window_height / 2;
-	player()->player_dir = 0.0;
 	player()->key_up = false;
 	player()->key_down = false;
 	player()->key_left = false;

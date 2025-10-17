@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_map.c                                          :+:      :+:    :+:   */
+/*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 16:18:25 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/17 13:08:01 by lahermaciel      ###   ########.fr       */
+/*   Created: 2025/10/17 13:00:00 by lahermaciel       #+#    #+#             */
+/*   Updated: 2025/10/17 13:29:30 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-void	init_map(char *filename)
+void	setup_window_hooks(void)
 {
-	if (parse_cub_file(filename) != 0)
-	{
-		ft_printf("Error parsing map file\n");
-		cleanup_parsing();
-		close_program();
-		exit(EXIT_FAILURE);
-	}
-	ft_printf("Map loaded successfully!\n");
-	ft_printf("Map dimensions: %dx%d\n", game()->map_width, game()->map_height);
-	ft_printf("Player position: (%.1f, %.1f) facing %c\n",
-		game()->player_x, game()->player_y, game()->player_orientation);
+	mlx_hook(game()->window, 17, 0, close_program, NULL);
+	mlx_hook(game()->window, 2, 1L << 0, (int (*)())key_press, player());
+	mlx_hook(game()->window, 3, 1L << 1, (int (*)())key_release, player());
 }

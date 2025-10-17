@@ -4,8 +4,8 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-44-orange?style=for-the-badge)
-![Duration](https://img.shields.io/badge/Duration-32_Days-purple?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-46-orange?style=for-the-badge)
+![Duration](https://img.shields.io/badge/Duration-34_Days-purple?style=for-the-badge)
 
 </div>
 
@@ -21,14 +21,14 @@
 
 | Developer | This Week | Activity Level | Energy Level | Lines Added | Lines Removed |
 |-----------|-----------|----------------|--------------|-------------|---------------|
-| **Laher Maciel** | 5 commits | 👑 **DOMINANT** - Outstanding week (687 lines) | 🔥🔥🔥⚡⚡ | 511 | 176 |
+| **Laher Maciel** | 7 commits | 👑 **DOMINANT** - Outstanding week (1638 lines) | 🚀🔥💯⚡🎯 | 1305 | 333 |
 | **Kayki Rocha** | 0 commits | 📝 **PENDING** - No activity this week | 💤⚡⚡⚡⚡ | 0 | 0 |
 
 ### 🏁 Development Race
 
 | Developer | Commits | Code Changes | Activity Level | Energy Level |
 |-----------|---------|--------------|----------------|--------------|
-| **Laher Maciel** | 43 | +32890/-1919 (34809 total) | 👑 **DOMINANT** - Primary contributor (99%) | 🚀🔥💯⚡🎯 |
+| **Laher Maciel** | 45 | +33684/-2076 (35760 total) | 👑 **DOMINANT** - Primary contributor (99%) | 🚀🔥💯⚡🎯 |
 | **Kayki Rocha** | 1 | +157/-74 (231 total) | 🔧 **INITIAL** - Early contribution (0%) | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `44` | Total number of commits |
-| **⏱️ Project Duration** | `32 days` | Days since first commit |
-| **➕ Lines Added** | `33047` | Total lines of code added |
-| **➖ Lines Removed** | `1993` | Total lines of code removed |
-| **🔄 Net Changes** | `31054` | Net code changes |
-| **⚡ Recent Activity** | `5 commits` | Commits in last 7 days |
+| **📊 Total Commits** | `46` | Total number of commits |
+| **⏱️ Project Duration** | `34 days` | Days since first commit |
+| **➕ Lines Added** | `33841` | Total lines of code added |
+| **➖ Lines Removed** | `2150` | Total lines of code removed |
+| **🔄 Net Changes** | `31691` | Net code changes |
+| **⚡ Recent Activity** | `7 commits` | Commits in last 7 days |
 
 </div>
 
@@ -60,7 +60,7 @@
 
 <div align="center">
 
-📈 **CONSISTENT EFFORT** - Steady progress! Push for more commits!
+⚡ **STRONG ACTIVITY** - Good pace! Maintain this steady progress!
 
 </div>
 
@@ -75,6 +75,8 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 bee514c Update file headers in drawing2d.c and parsing.c to reflect the latest modification timestamp.
+🔹 8c5a528 Enhance game functionality by adding grid drawing, player position visualization, and movement helper functions. Update Makefile to include new source files and improve parsing logic for map and configuration.
 🔹 89c7515 Add linked list utility functions and window management for dynamic resizing.
 🔹 2a8d2a1 Update project analytics: increment commit count to 42, adjust developer activity metrics, and enhance team member identification in analytics script.
 🔹 e04ea31 .
@@ -83,21 +85,19 @@
 🔹 ff3c01e .
 🔹 2b08426 .
 🔹 c7dca2a Just changed so that I can also work with it also in ach linux.
-🔹 2450dba Implement drawing loop functionality, enhance player movement controls.
-🔹 91e4988 added exit and hooks and corrected structs
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      43 
-📄      29 project_extras/docs/PROJECT_ANALYTICS.md
-📄      12 Makefile
+📄      45 
+📄      30 project_extras/docs/PROJECT_ANALYTICS.md
+📄      13 Makefile
 📄      10 project_extras/scripts/update_analytics.sh
-📄       8 include/cub3d.h
-📄       7 src/movement/movement.c
+📄       9 include/cub3d.h
+📄       8 src/movement/movement.c
+📄       8 src/drawing/drawing2d.c
 📄       7 src/main.c
-📄       7 README.md
 ```
 
 ### 🎯 Next Milestones
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Wed Oct 15 14:18:39 WEST 2025 | Auto-updated on build*
+*🔄 Last updated: Fri Oct 17 13:31:08 WEST 2025 | Auto-updated on build*
 
 </div>
 

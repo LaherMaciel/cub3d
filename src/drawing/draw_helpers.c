@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_grid.c                                        :+:      :+:    :+:   */
+/*   draw_helpers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 14:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/15 13:55:00 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/17 13:08:01 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-void	draw_circle(int x, int y, int size)
+static void	draw_circle(int x, int y, int size)
 {
 	int	radius;
 	int	i;

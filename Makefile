@@ -3,7 +3,7 @@ NAME = cub3d
 # Source files organized by directories
 MAIN_C = main.c
 
-DRAWING_C = drawing2d.c draw_loop.c draw_grid.c
+DRAWING_C = drawing2d.c draw_loop.c draw_helpers.c
 
 INITS_C = inits.c get_map.c
 
@@ -11,11 +11,15 @@ LOOPS_AND_HOOKS_C = loop.c
 
 MOVEMENT_C = movement.c movement_helpers.c
 
-PARSING_C = parsing.c
+PARSING_C = parsing.c parse_map.c parse_utils.c parsing_config.c parsing_colors.c parsing_textures.c parsing_validate_map.c parsing_validate_helpers.c
+
+FREE_C = memory_cleanup.c
 
 RAYTRACING_C = raytracing.c
 
-UTILS_C = utils.c link_list.c link_list_utils.c
+UTILS_C = utils.c
+
+WINDOW_C = window_init.c window_management.c
 
 # Header files
 HEADER_LIST = cub3d.h
@@ -30,7 +34,9 @@ LOOPS_AND_HOOKS_DIRECTORY = src/loop_and_hooks/
 MOVEMENT_DIRECTORY = src/movement/
 PARSING_DIRECTORY = src/parsing/
 RAYTRACING_DIRECTORY = src/raytracing/
+FREE_DIRECTORY = src/free/
 UTILS_DIRECTORY = src/utils/
+WINDOW_DIRECTORY = src/window/
 OBJECTS_DIRECTORY = objects/
 LIBFT_DIRECTORY = libraries/libft/
 MLX_DIRECTORY = libraries/minilibx-linux/
@@ -54,14 +60,20 @@ MOVEMENT = $(addprefix $(MOVEMENT_DIRECTORY), $(MOVEMENT_LIST))
 PARSING_LIST = $(PARSING_C)
 PARSING = $(addprefix $(PARSING_DIRECTORY), $(PARSING_LIST))
 
+FREE_LIST = $(FREE_C)
+FREE = $(addprefix $(FREE_DIRECTORY), $(FREE_LIST))
+
 RAYTRACING_LIST = $(RAYTRACING_C)
 RAYTRACING = $(addprefix $(RAYTRACING_DIRECTORY), $(RAYTRACING_LIST))
 
 UTILS_LIST = $(UTILS_C)
 UTILS = $(addprefix $(UTILS_DIRECTORY), $(UTILS_LIST))
 
+WINDOW_LIST = $(WINDOW_C)
+WINDOW = $(addprefix $(WINDOW_DIRECTORY), $(WINDOW_LIST))
+
 # All source files
-SRCS_LIST = $(MAIN) $(DRAWING) $(INITS) $(MOVEMENT) $(PARSING) $(RAYTRACING) $(UTILS) $(LOOPS_AND_HOOKS)
+SRCS_LIST = $(MAIN) $(DRAWING) $(INITS) $(MOVEMENT) $(PARSING) $(RAYTRACING) $(FREE) $(UTILS) $(WINDOW) $(LOOPS_AND_HOOKS)
 
 # Object files
 OBJECT_LIST = $(notdir $(SRCS_LIST:.c=.o))
@@ -106,7 +118,9 @@ $(OBJECTS_DIRECTORY):
 	@mkdir -p $(OBJECTS_DIRECTORY)$(MOVEMENT_DIRECTORY)
 	@mkdir -p $(OBJECTS_DIRECTORY)$(PARSING_DIRECTORY)
 	@mkdir -p $(OBJECTS_DIRECTORY)$(RAYTRACING_DIRECTORY)
+	@mkdir -p $(OBJECTS_DIRECTORY)$(FREE_DIRECTORY)
 	@mkdir -p $(OBJECTS_DIRECTORY)$(UTILS_DIRECTORY)
+	@mkdir -p $(OBJECTS_DIRECTORY)$(WINDOW_DIRECTORY)
 	@mkdir -p $(OBJECTS_DIRECTORY)$(LOOPS_AND_HOOKS_DIRECTORY)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Objects directory structure ready!"
 
@@ -129,7 +143,13 @@ $(OBJECTS_DIRECTORY)%.o : $(PARSING_DIRECTORY)%.c $(HEADERS)
 $(OBJECTS_DIRECTORY)%.o : $(RAYTRACING_DIRECTORY)%.c $(HEADERS)
 	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
 
+$(OBJECTS_DIRECTORY)%.o : $(FREE_DIRECTORY)%.c $(HEADERS)
+	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
+
 $(OBJECTS_DIRECTORY)%.o : $(UTILS_DIRECTORY)%.c $(HEADERS)
+	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
+
+$(OBJECTS_DIRECTORY)%.o : $(WINDOW_DIRECTORY)%.c $(HEADERS)
 	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
 
 $(OBJECTS_DIRECTORY)%.o : $(LOOPS_AND_HOOKS_DIRECTORY)%.c $(HEADERS)

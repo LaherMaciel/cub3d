@@ -6,11 +6,26 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:35:11 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/15 13:55:00 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/17 13:29:30 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
+
+void	init_window(void)
+{
+	game()->window = mlx_new_window(game()->mlx, WINDOW_WIDTH,
+		WINDOW_HEIGHT, "cub3d");
+	if (!game()->window)
+	{
+		ft_printf("Error creating window: %s\n", strerror(errno));
+		free(game()->mlx);
+		exit(EXIT_FAILURE);
+	}
+	game()->window_width = WINDOW_WIDTH;
+	game()->window_height = WINDOW_HEIGHT;
+	game()->is_fullscreen = false;
+}
 
 void	init_image(void)
 {
@@ -21,7 +36,7 @@ void	init_image(void)
 	if (!game()->image)
 	{
 		ft_printf("Error creating image: %s\n", strerror(errno));
-		free(game()->window);
+		mlx_destroy_window(game()->mlx, game()->window);
 		free(game()->mlx);
 		exit(EXIT_FAILURE);
 	}
@@ -35,17 +50,7 @@ void	init_game(void)
 		ft_printf("Error initializing MLX: %s\n", strerror(errno));
 		exit(EXIT_FAILURE);
 	}
-	game()->window = mlx_new_window(game()->mlx, WINDOW_WIDTH,
-		WINDOW_HEIGHT, "cub3d");
-	if (!game()->window)
-	{
-		ft_printf("Error creating window: %s\n", strerror(errno));
-		free(game()->mlx);
-		exit(EXIT_FAILURE);
-	}
-	game()->window_width = WINDOW_WIDTH;
-	game()->window_height = WINDOW_HEIGHT;
-	game()->is_fullscreen = false;
+	init_window();
 	init_image();
 	game()->data_addr = mlx_get_data_addr(game()->image, &game()->bpp,
 		&game()->size_line, &game()->endian);
@@ -60,4 +65,23 @@ void	init_player(void)
 	player()->key_right = false;
 	player()->key_rot_left = false;
 	player()->key_rot_right = false;
+}
+
+void	init_config_parsing(void)
+{
+	game()->textures.no_path = NULL;
+	game()->textures.so_path = NULL;
+	game()->textures.we_path = NULL;
+	game()->textures.ea_path = NULL;
+	game()->textures.roof_path = NULL;
+	game()->textures.floor_path = NULL;
+	game()->textures.weapon_path = NULL;
+	game()->colors.floor_rgb = 0;
+	game()->colors.ceiling_rgb = 0;
+	game()->map = NULL;
+	game()->map_width = 0;
+	game()->map_height = 0;
+	game()->player_x = 0.0;
+	game()->player_y = 0.0;
+	game()->player_orientation = '\0';
 }

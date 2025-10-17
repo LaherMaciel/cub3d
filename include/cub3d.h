@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 01:27:56 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/15 13:42:22 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/10/17 13:29:30 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,20 +129,23 @@ void		init_game(void);
 void		init_player(void);
 void		init_map(char *filename);
 void		convert_linked_list_to_array(t_map *head);
+void		init_config_parsing(void);
 
 //parsing functions
 int			parse_cub_file(char *filename);
 int			parse_configuration(char **lines, int *line_index);
 int			parse_map(char **lines, int line_index);
 int			validate_map(void);
-int			parse_texture_line(char *line, char **texture_path);
-int			parse_color_line(char *line, int *color);
-int			convert_rgb_to_int(int r, int g, int b);
-bool		is_map_line(char *line);
-int			count_map_lines(char **lines, int start_index);
-void		extract_map(char **lines, int start_index, int map_height);
 int			validate_map_closed(void);
 int			validate_player_position(void);
+int			convert_rgb_to_int(int r, int g, int b);
+bool		is_map_line(char *line);
+int			parse_texture_line(char *line, char **texture_path);
+int			parse_north_south_textures(char *line, int *config_count);
+int			parse_west_east_textures(char *line, int *config_count);
+int			parse_color_config(char *line, int *config_count);
+int			parse_bonus_config(char *line);
+void		set_player_direction(char orientation);
 void		cleanup_parsing(void);
 
 //linked list functions
@@ -167,12 +170,12 @@ void		setup_hooks(void);
 int			draw_loop(void);
 void		put_pixel(int x, int y, int color);
 void		clear_screen(void);
-void		draw_circle(int x, int y, int size);
 void		draw_map_2d(void);
 void		draw_map_grid(void);
 void		draw_player_position(void);
 
 //window functions
+void		setup_window_hooks(void);
 void		update_window_size(void);
 int			handle_window_resize(int event, void *param);
 void		toggle_fullscreen(void);

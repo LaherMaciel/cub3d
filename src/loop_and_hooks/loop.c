@@ -14,8 +14,6 @@
 
 void	setup_hooks(void)
 {
-	mlx_hook(game()->window, 17, 0, close_program, NULL);
-	mlx_hook(game()->window, 2, 1L << 0, (int (*)())key_press, player());
-	mlx_hook(game()->window, 3, 1L << 1, (int (*)())key_release, player());
+	setup_window_hooks();
 	mlx_loop_hook(game()->mlx, draw_loop, NULL);
 }

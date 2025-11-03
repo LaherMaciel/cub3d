@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
+/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 14:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/17 13:33:38 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/11/03 21:12:57 by karocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,16 @@ static int	read_file_lines(char *filename, char ***lines, int *line_count)
 	while (line != NULL)
 	{
 		*lines = ft_realloc(*lines, *line_count * sizeof(char *),
-				(*line_count + 1) * sizeof (char*));
+				(*line_count + 2) * sizeof(char*));
 		(*lines)[*line_count] = line;
 		(*line_count)++;
+		(*lines)[*line_count] = NULL;
 		line = get_next_line(fd);
 	}
 	close(fd);
 	if (!*lines)
 		return (ft_putstr_fd("Error\nEmpty file\n", 2), 1);
+	(*lines)[*line_count] = NULL;
 	return (0);
 }
 

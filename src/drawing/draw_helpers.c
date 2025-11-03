@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_helpers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
+/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 14:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/17 13:08:01 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/11/03 20:23:53 by karocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,29 +75,17 @@ static void	draw_vertical_grid_lines(int cell_size, int start_x, int start_y)
 
 void	draw_map_grid(void)
 {
-	int	cell_size;
-	int	start_x;
-	int	start_y;
 
-	cell_size = 20;
-	start_x = 50;
-	start_y = 50;
-	draw_horizontal_grid_lines(cell_size, start_x, start_y);
-	draw_vertical_grid_lines(cell_size, start_x, start_y);
+	draw_horizontal_grid_lines(BLOCK, START_X, START_Y);
+	draw_vertical_grid_lines(BLOCK, START_X, START_Y);
 }
 
 void	draw_player_position(void)
 {
-	int	cell_size;
-	int	start_x;
-	int	start_y;
 	int	player_x;
 	int	player_y;
 
-	cell_size = 20;
-	start_x = 50;
-	start_y = 50;
-	player_x = start_x + (int)(game()->player_x * cell_size);
-	player_y = start_y + (int)(game()->player_y * cell_size);
+	player_x = START_X + (int)(game()->player_x * BLOCK);
+	player_y = START_Y + (int)(game()->player_y * BLOCK);
 	draw_circle(player_x, player_y, 8);
 }

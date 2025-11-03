@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   drawing2d.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
+/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:39:10 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/17 13:08:01 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/11/03 21:49:07 by karocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,16 +86,9 @@ static void	draw_map_rows(int cell_size, int start_x, int start_y)
 
 void	draw_map_2d(void)
 {
-	int	cell_size;
-	int	start_x;
-	int	start_y;
-
 	if (!game()->map)
 		return ;
-	cell_size = 20;
-	start_x = 50;
-	start_y = 50;
-	draw_map_rows(cell_size, start_x, start_y);
-	draw_map_grid();
+	draw_map_rows(BLOCK, START_X, START_Y);
+	//draw_map_grid();
 	draw_player_position();
 }

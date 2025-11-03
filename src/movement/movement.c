@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
+/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:37:22 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/17 12:09:12 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/11/03 21:01:34 by karocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,13 @@ bool	is_valid_position(double x, double y)
 	}
 	if (player->key_left)
 	{
-		player->player_x += MOVE_SPEED * cos(player->player_dir - M_PI / 2);
-		player->player_y += MOVE_SPEED * sin(player->player_dir - M_PI / 2);
+		player->player_x += MOVE_SPEED * cos(player->player_dir - PI / 2);
+		player->player_y += MOVE_SPEED * sin(player->player_dir - PI / 2);
 	}
 	if (player->key_right)
 	{
-		player->player_x += MOVE_SPEED * cos(player->player_dir + M_PI / 2);
-		player->player_y += MOVE_SPEED * sin(player->player_dir + M_PI / 2);
+		player->player_x += MOVE_SPEED * cos(player->player_dir + PI / 2);
+		player->player_y += MOVE_SPEED * sin(player->player_dir + PI / 2);
 	}
 	if (player->key_rot_left)
 		player->player_dir -= ROT_SPEED;

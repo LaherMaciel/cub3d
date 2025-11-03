@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
+/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 01:27:56 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/17 13:33:38 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/11/03 23:30:04 by karocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@
 // Libft includes
 # include "../libraries/libft/include/libft.h"
 
+# define PI 3.14159265359
+
+
 // Define window dimensions
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
@@ -35,10 +38,13 @@
 // Define map constants
 # define MAP_WIDTH 24
 # define MAP_HEIGHT 24
+# define BLOCK 20
+# define START_X 25
+# define START_Y 25
 
 // Define player constants
-# define MOVE_SPEED 2.4
-# define ROT_SPEED 0.1
+# define MOVE_SPEED 0.05
+# define ROT_SPEED 0.05
 
 // Define colors (RGB values)
 # define COLOR_RED 0xFF0000
@@ -179,5 +185,9 @@ void		setup_window_hooks(void);
 void		update_window_size(void);
 int			handle_window_resize(int event, void *param);
 void		toggle_fullscreen(void);
+
+//raycasting
+bool		touch(float px, float py);
+void		fov(void);
 
 #endif

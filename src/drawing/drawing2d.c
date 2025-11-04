@@ -6,7 +6,7 @@
 /*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:39:10 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/03 21:49:07 by karocha-         ###   ########.fr       */
+/*   Updated: 2025/11/04 10:14:45 by karocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	clear_screen(void)
 	}
 }
 
-static void	draw_map_cell(int x, int y, int cell_size, char cell_type)
+/* static void	draw_map_cell(int x, int y, int cell_size, char cell_type)
 {
 	int	k;
 	int	l;
@@ -89,6 +89,6 @@ void	draw_map_2d(void)
 	if (!game()->map)
 		return ;
 	draw_map_rows(BLOCK, START_X, START_Y);
-	//draw_map_grid();
+	draw_map_grid();
 	draw_player_position();
-}
+} */

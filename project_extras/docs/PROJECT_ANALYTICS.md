@@ -4,7 +4,7 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-48-orange?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-49-orange?style=for-the-badge)
 ![Duration](https://img.shields.io/badge/Duration-52_Days-purple?style=for-the-badge)
 
 </div>
@@ -22,14 +22,14 @@
 | Developer | This Week | Activity Level | Energy Level | Lines Added | Lines Removed |
 |-----------|-----------|----------------|--------------|-------------|---------------|
 | **Laher Maciel** | 0 commits | 📝 **PENDING** - No activity this week | 💤⚡⚡⚡⚡ | 0 | 0 |
-| **Kayki Rocha** | 0 commits | 📝 **PENDING** - No activity this week | 💤⚡⚡⚡⚡ | 0 | 0 |
+| **Kayki Rocha** | 1 commits | 🏆 **EXCEPTIONAL** - Major progress (322 lines) | 🌱⚡⚡⚡⚡ | 223 | 99 |
 
 ### 🏁 Development Race
 
 | Developer | Commits | Code Changes | Activity Level | Energy Level |
 |-----------|---------|--------------|----------------|--------------|
-| **Laher Maciel** | 47 | +34451/-2673 (37124 total) | 👑 **DOMINANT** - Primary contributor (99%) | 🚀🔥💯⚡🎯 |
-| **Kayki Rocha** | 1 | +157/-74 (231 total) | 🔧 **INITIAL** - Early contribution (0%) | 💤⚡⚡⚡⚡ |
+| **Laher Maciel** | 47 | +34451/-2673 (37124 total) | 👑 **DOMINANT** - Primary contributor (98%) | 🚀🔥💯⚡🎯 |
+| **Kayki Rocha** | 2 | +380/-173 (553 total) | 🔧 **INITIAL** - Early contribution (1%) | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
 
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `48` | Total number of commits |
+| **📊 Total Commits** | `49` | Total number of commits |
 | **⏱️ Project Duration** | `52 days` | Days since first commit |
-| **➕ Lines Added** | `34608` | Total lines of code added |
-| **➖ Lines Removed** | `2747` | Total lines of code removed |
-| **🔄 Net Changes** | `31861` | Net code changes |
-| **⚡ Recent Activity** | `0 commits` | Commits in last 7 days |
+| **➕ Lines Added** | `34831` | Total lines of code added |
+| **➖ Lines Removed** | `2846` | Total lines of code removed |
+| **🔄 Net Changes** | `31985` | Net code changes |
+| **⚡ Recent Activity** | `1 commits` | Commits in last 7 days |
 
 </div>
 
@@ -60,7 +60,7 @@
 
 <div align="center">
 
-💤 **INACTIVE PERIOD** - Time to re-engage! Let's get back to coding! ⏰
+🐌 **MINIMAL ACTIVITY** - Every contribution counts! Increase your frequency!
 
 </div>
 
@@ -75,6 +75,7 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 a57e8c8 need to sleep, most of it is done, just correct few bugs and norminette
 🔹 98f6672 Update file headers in cub3d.h and parsing.c to reflect the latest modification timestamp.
 🔹 e380f94 Refactor Makefile to include new source files for parsing, memory cleanup, and window management. Implement drawing helpers for grid and player visualization, and enhance configuration parsing logic.
 🔹 bee514c Update file headers in drawing2d.c and parsing.c to reflect the latest modification timestamp.
@@ -84,19 +85,18 @@
 🔹 e04ea31 .
 🔹 c5dcdeb .
 🔹 1b4875a Refactor Makefile to include new source files, implement linked list for map handling, and update drawing functions to use circles instead of squares.
-🔹 ff3c01e .
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      47 
-📄      31 project_extras/docs/PROJECT_ANALYTICS.md
+📄      48 
+📄      32 project_extras/docs/PROJECT_ANALYTICS.md
 📄      14 Makefile
-📄      11 include/cub3d.h
+📄      12 include/cub3d.h
+📄      10 src/movement/movement.c
+📄      10 src/drawing/drawing2d.c
 📄      10 project_extras/scripts/update_analytics.sh
-📄       9 src/movement/movement.c
-📄       9 src/drawing/drawing2d.c
 📄       8 src/inits/inits.c
 ```
 
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Mon Nov  3 23:31:15 WET 2025 | Auto-updated on build*
+*🔄 Last updated: Tue Nov  4 10:40:21 WET 2025 | Auto-updated on build*
 
 </div>
 

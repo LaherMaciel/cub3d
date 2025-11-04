@@ -6,7 +6,7 @@
 /*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 01:27:56 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/03 23:30:04 by karocha-         ###   ########.fr       */
+/*   Updated: 2025/11/04 10:39:03 by karocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
 
 # define PI 3.14159265359
 
-
 // Define window dimensions
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
@@ -38,7 +37,7 @@
 // Define map constants
 # define MAP_WIDTH 24
 # define MAP_HEIGHT 24
-# define BLOCK 20
+# define BLOCK 10
 # define START_X 25
 # define START_Y 25
 
@@ -46,13 +45,59 @@
 # define MOVE_SPEED 0.05
 # define ROT_SPEED 0.05
 
-// Define colors (RGB values)
-# define COLOR_RED 0xFF0000
-# define COLOR_GREEN 0x00FF00
-# define COLOR_BLUE 0x0000FF
-# define COLOR_WHITE 0xFFFFFF
-# define COLOR_BLACK 0x000000
-# define COLOR_YELLOW 0xFFFF00
+/* ==== PRIMARY COLORS ==== */
+# define COLOR_RED         0xFF0000
+# define COLOR_RED_LIGHT   0xFF6666
+# define COLOR_RED_DARK    0x800000
+
+# define COLOR_GREEN       0x00FF00
+# define COLOR_GREEN_LIGHT 0x66FF66
+# define COLOR_GREEN_DARK  0x008000
+
+# define COLOR_BLUE        0x0000FF
+# define COLOR_BLUE_LIGHT  0x6666FF
+# define COLOR_BLUE_DARK   0x000080
+
+/* ==== NEUTRALS ==== */
+# define COLOR_WHITE       0xFFFFFF
+# define COLOR_WHITE_DARK  0xC0C0C0
+
+# define COLOR_BLACK       0x000000
+# define COLOR_BLACK_LIGHT 0x404040
+# define COLOR_BLACK_DARK  0x000000
+
+# define COLOR_GRAY        0x808080
+# define COLOR_GRAY_LIGHT  0xA9A9A9
+# define COLOR_GRAY_DARK   0x505050
+
+/* ==== EXTRA COLORS ==== */
+# define COLOR_YELLOW       0xFFFF00
+# define COLOR_YELLOW_LIGHT 0xFFFF80
+# define COLOR_YELLOW_DARK  0x808000
+
+# define COLOR_CYAN         0x00FFFF
+# define COLOR_CYAN_LIGHT   0x80FFFF
+# define COLOR_CYAN_DARK    0x008080
+
+# define COLOR_MAGENTA       0xFF00FF
+# define COLOR_MAGENTA_LIGHT 0xFF80FF
+# define COLOR_MAGENTA_DARK  0x800080
+
+# define COLOR_ORANGE       0xFFA500
+# define COLOR_ORANGE_LIGHT 0xFFBF66
+# define COLOR_ORANGE_DARK  0x804000
+
+# define COLOR_PURPLE       0x800080
+# define COLOR_PURPLE_LIGHT 11691775
+# define COLOR_PURPLE_DARK  0x400040
+
+# define COLOR_PINK         0xFFC0CB
+# define COLOR_PINK_LIGHT   0xFFD6DC
+# define COLOR_PINK_DARK    0xFF8DA1
+
+# define COLOR_BROWN        0x8B4513
+# define COLOR_BROWN_LIGHT  0xCD853F
+# define COLOR_BROWN_DARK   0x5C3317
 
 // Define Keycodes
 # define KEY_ESC 65307
@@ -62,6 +107,7 @@
 # define KEY_D 100
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
+# define KEY_SHIFT 65505
 
 typedef struct s_map
 {
@@ -120,6 +166,7 @@ typedef struct s_player
 	bool	key_right;
 	bool	key_rot_left;
 	bool	key_rot_right;
+	bool	key_shift;
 }				t_player;
 
 //init structs
@@ -187,7 +234,9 @@ int			handle_window_resize(int event, void *param);
 void		toggle_fullscreen(void);
 
 //raycasting
-bool		touch(float px, float py);
+bool		is_wall(int x, int y);
 void		fov(void);
+void		draw_player_on_minimap(void);
+void		draw_minimap_square(int start_x, int start_y, int size, int color);
 
 #endif

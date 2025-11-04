@@ -6,13 +6,99 @@
 /*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 14:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/03 20:23:53 by karocha-         ###   ########.fr       */
+/*   Updated: 2025/11/04 10:13:19 by karocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-static void	draw_circle(int x, int y, int size)
+/*
+** Draw a filled square on the minimap
+** Used for drawing walls and player
+*/
+void	draw_minimap_square(int start_x, int start_y, int size, int color)
+{
+	int	x;
+	int	y;
+
+	y = start_y;
+	while (y < start_y + size)
+	{
+		x = start_x;
+		while (x < start_x + size)
+		{
+			if (x >= 0 && x < WINDOW_WIDTH && y >= 0 && y < WINDOW_HEIGHT)
+				put_pixel(x, y, color);
+			x++;
+		}
+		y++;
+	}
+}
+
+/*
+** Draw ray from player to wall on minimap
+*/
+static void	draw_ray_line(float ray_angle)
+{
+	float	ray_x;
+	float	ray_y;
+
+	ray_x = game()->player_x;
+	ray_y = game()->player_y;
+	while (!is_wall((int)ray_x, (int)ray_y))
+	{
+		put_pixel(START_X + (int)(ray_x * BLOCK),
+			START_Y + (int)(ray_y * BLOCK), COLOR_RED);
+		ray_x += cos(ray_angle) * 0.05;
+		ray_y += sin(ray_angle) * 0.05;
+	}
+}
+
+static void	draw_fov_rays(void)
+{
+	float	fov_start;
+	float	step;
+	float	ray_angle;
+	float	i;
+
+	fov_start = game()->player_dir - (PI / 6);
+	step = (PI / 3) / 60;
+	i = 0;
+	while (i < 60)
+	{
+		ray_angle = fov_start + (step * i);
+		draw_ray_line(ray_angle);
+		i += 0.2;
+	}
+}
+
+/*
+** Draw player square on minimap
+*/
+static void	draw_player_square(void)
+{
+	int	player_x;
+	int	player_y;
+	int	player_size;
+
+	player_size = BLOCK / 2;
+	player_x = START_X + (int)(game()->player_x * BLOCK);
+	player_x -= player_size / 2;
+	player_y = START_Y + (int)(game()->player_y * BLOCK);
+	player_y -= player_size / 2;
+	draw_minimap_square(player_x, player_y, player_size, COLOR_GREEN);
+}
+
+/*
+** Draw player and direction ray on minimap
+*/
+void	draw_player_on_minimap(void)
+{
+	draw_fov_rays();
+	draw_player_square();
+}
+
+/* static void	draw_circle(int x, int y, int size)
 {
 	int	radius;
 	int	i;
@@ -88,4 +174,4 @@ void	draw_player_position(void)
 	player_x = START_X + (int)(game()->player_x * BLOCK);
 	player_y = START_Y + (int)(game()->player_y * BLOCK);
 	draw_circle(player_x, player_y, 8);
-}
+} */

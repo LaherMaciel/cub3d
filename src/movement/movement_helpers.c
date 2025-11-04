@@ -6,7 +6,7 @@
 /*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 14:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/03 21:52:21 by karocha-         ###   ########.fr       */
+/*   Updated: 2025/11/04 10:37:39 by karocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@ static void	move_up(t_player *player)
 {
 	double	new_x;
 	double	new_y;
+	int		sprint;
 
-	(void)player;
-	new_x = game()->player_x + MOVE_SPEED * cos(game()->player_dir);
-	new_y = game()->player_y + MOVE_SPEED * sin(game()->player_dir);
+	sprint = 1;
+	if (player->key_shift)
+		sprint = 2;
+	new_x = game()->player_x + (MOVE_SPEED * sprint) * cos(game()->player_dir);
+	new_y = game()->player_y + (MOVE_SPEED * sprint) * sin(game()->player_dir);
 	if (is_valid_position(new_x, new_y))
 	{
 		game()->player_x = new_x;
@@ -31,10 +34,13 @@ static void	move_down(t_player *player)
 {
 	double	new_x;
 	double	new_y;
+	int		sprint;
 
-	(void)player;
-	new_x = game()->player_x - MOVE_SPEED * cos(game()->player_dir);
-	new_y = game()->player_y - MOVE_SPEED * sin(game()->player_dir);
+	sprint = 1;
+	if (player->key_shift)
+		sprint = 2;
+	new_x = game()->player_x - (MOVE_SPEED * sprint) * cos(game()->player_dir);
+	new_y = game()->player_y - (MOVE_SPEED * sprint) * sin(game()->player_dir);
 	if (is_valid_position(new_x, new_y))
 	{
 		game()->player_x = new_x;
@@ -46,11 +52,14 @@ static void	move_left(t_player *player)
 {
 	double	new_x;
 	double	new_y;
+	int		sprint;
 
-	(void)player;
-	new_x = game()->player_x + MOVE_SPEED * cos(game()->player_dir
+	sprint = 1;
+	if (player->key_shift)
+		sprint = 2;
+	new_x = game()->player_x + (MOVE_SPEED * sprint) * cos(game()->player_dir
 			- PI / 2);
-	new_y = game()->player_y + MOVE_SPEED * sin(game()->player_dir
+	new_y = game()->player_y + (MOVE_SPEED * sprint) * sin(game()->player_dir
 			- PI / 2);
 	if (is_valid_position(new_x, new_y))
 	{
@@ -63,11 +72,14 @@ static void	move_right(t_player *player)
 {
 	double	new_x;
 	double	new_y;
+	int		sprint;
 
-	(void)player;
-	new_x = game()->player_x + MOVE_SPEED * cos(game()->player_dir
+	sprint = 1;
+	if (player->key_shift)
+		sprint = 2;
+	new_x = game()->player_x + (MOVE_SPEED * sprint) * cos(game()->player_dir
 			+ PI / 2);
-	new_y = game()->player_y + MOVE_SPEED * sin(game()->player_dir
+	new_y = game()->player_y + (MOVE_SPEED * sprint) * sin(game()->player_dir
 			+ PI / 2);
 	if (is_valid_position(new_x, new_y))
 	{

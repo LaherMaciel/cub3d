@@ -6,7 +6,7 @@
 /*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:37:22 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/03 21:01:34 by karocha-         ###   ########.fr       */
+/*   Updated: 2025/11/04 10:21:02 by karocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	key_press(int keycode, t_player *player)
 		player->key_rot_left = true;
 	else if (keycode == KEY_RIGHT)
 		player->key_rot_right = true;
+	else if (keycode == KEY_SHIFT)
+		player->key_shift = true;
 	return (0);
 }
 
@@ -48,6 +50,8 @@ int	key_release(int keycode, t_player *player)
 		player->key_rot_left = false;
 	else if (keycode == KEY_RIGHT)
 		player->key_rot_right = false;
+	else if (keycode == KEY_SHIFT)
+		player->key_shift = false;
 	return (0);
 }
 

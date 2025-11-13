@@ -36,7 +36,8 @@ void	draw_minimap_square(int start_x, int start_y, int size, int color)
 }
 
 /*
-** Draw ray from player to wall on minimap
+** Draws a single ray line from player position to wall on minimap
+** Used for visualizing field of view
 */
 static void	draw_ray_line(float ray_angle)
 {
@@ -54,6 +55,8 @@ static void	draw_ray_line(float ray_angle)
 	}
 }
 
+// Draws multiple rays representing the field of view
+// Casts 60 rays across a 60-degree FOV
 static void	draw_fov_rays(void)
 {
 	float	fov_start;
@@ -72,9 +75,8 @@ static void	draw_fov_rays(void)
 	}
 }
 
-/*
-** Draw player square on minimap
-*/
+// Draws the player as a square on the minimap
+// Positioned at player coordinates with visual representation
 static void	draw_player_square(void)
 {
 	int	player_x;
@@ -91,6 +93,7 @@ static void	draw_player_square(void)
 
 /*
 ** Draw player and direction ray on minimap
+** Shows player position and field of view rays
 */
 void	draw_player_on_minimap(void)
 {

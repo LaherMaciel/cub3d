@@ -12,6 +12,8 @@
 
 #include "../../include/cub3d.h"
 
+// Sets up MLX window event hooks
+// Handles window close, key press, and key release events
 void	setup_window_hooks(void)
 {
 	mlx_hook(game()->window, 17, 0, close_program, NULL);

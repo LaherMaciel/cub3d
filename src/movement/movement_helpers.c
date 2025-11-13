@@ -12,6 +12,8 @@
 
 #include "../../include/cub3d.h"
 
+// Moves player forward in the current direction
+// Supports sprint mode (shift key)
 static void	move_up(t_player *player)
 {
 	double	new_x;
@@ -30,6 +32,8 @@ static void	move_up(t_player *player)
 	}
 }
 
+// Moves player backward (opposite of current direction)
+// Supports sprint mode (shift key)
 static void	move_down(t_player *player)
 {
 	double	new_x;
@@ -48,6 +52,8 @@ static void	move_down(t_player *player)
 	}
 }
 
+// Moves player left (perpendicular to current direction)
+// Supports sprint mode (shift key)
 static void	move_left(t_player *player)
 {
 	double	new_x;
@@ -68,6 +74,8 @@ static void	move_left(t_player *player)
 	}
 }
 
+// Moves player right (perpendicular to current direction)
+// Supports sprint mode (shift key)
 static void	move_right(t_player *player)
 {
 	double	new_x;
@@ -88,6 +96,8 @@ static void	move_right(t_player *player)
 	}
 }
 
+// Main movement function - processes all player movement and rotation
+// Called every frame in the game loop
 void	move_player_2d(t_player *player)
 {
 	if (player->key_up)

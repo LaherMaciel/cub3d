@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   inits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:35:11 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/04 10:29:27 by karocha-         ###   ########.fr       */
+/*   Updated: 2025/11/13 14:33:48 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
+// Initializes the MLX window with default dimensions
+// Exits on error
 void	init_window(void)
 {
 	game()->window = mlx_new_window(game()->mlx, WINDOW_WIDTH,
@@ -27,6 +29,8 @@ void	init_window(void)
 	game()->is_fullscreen = false;
 }
 
+// Initializes the MLX image buffer for rendering
+// Exits on error
 void	init_image(void)
 {
 	game()->bpp = 0;
@@ -42,6 +46,8 @@ void	init_image(void)
 	}
 }
 
+// Initializes the MLX library, window, and image buffer
+// Sets up the data address for pixel manipulation
 void	init_game(void)
 {
 	game()->mlx = mlx_init();
@@ -57,6 +63,7 @@ void	init_game(void)
 	mlx_put_image_to_window(game()->mlx, game()->window, game()->image, 0, 0);
 }
 
+// Initializes player input state (all keys released)
 void	init_player(void)
 {
 	player()->key_up = false;
@@ -68,6 +75,8 @@ void	init_player(void)
 	player()->key_shift = false;
 }
 
+// Initializes all configuration variables to default values
+// Called before parsing to ensure clean state
 void	init_config_parsing(void)
 {
 	game()->textures.no_path = NULL;
@@ -76,7 +85,6 @@ void	init_config_parsing(void)
 	game()->textures.ea_path = NULL;
 	game()->textures.roof_path = NULL;
 	game()->textures.floor_path = NULL;
-	game()->textures.weapon_path = NULL;
 	game()->colors.floor_rgb = 0;
 	game()->colors.ceiling_rgb = 0;
 	game()->map = NULL;

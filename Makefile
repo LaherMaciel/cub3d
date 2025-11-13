@@ -97,8 +97,26 @@ BLUE    = \033[0;34m
 RESET   = \033[0m
 
 # Main target
-$(NAME): $(LIBFT) $(MLX) $(OBJECTS_DIRECTORY) $(OBJECTS)
+$(NAME): $(LIBFT) $(MLX) $(OBJECTS)
+	@if [ ! -f $(MLX) ]; then \
+		echo "[" "$(YELLOW)..$(RESET)" "] | Compiling minilibx..."; \
+		echo "[" "$(GREEN)OK$(RESET)" "] | Minilibx ready!"; \
+	else \
+		echo "[" "$(GREEN)OK$(RESET)" "] | Minilibx already compiled!"; \
+	fi
+	@if [ -f $(LIBFT) ]; then \
+		LIBFT_TIME=$$(stat -c %Y $(LIBFT) 2>/dev/null || stat -f %m $(LIBFT) 2>/dev/null || echo 0); \
+		CURRENT_TIME=$$(date +%s 2>/dev/null || echo 0); \
+		if [ $$LIBFT_TIME -gt 0 ] && [ $$CURRENT_TIME -gt 0 ] && [ $$((CURRENT_TIME - LIBFT_TIME)) -gt 3 ]; then \
+			echo "[" "$(GREEN)OK$(RESET)" "] | Libft already compiled!"; \
+		fi \
+	fi
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling files..."
+	@if [ ! -d $(OBJECTS_DIRECTORY) ] || [ -z "$$(find $(OBJECTS_DIRECTORY) -name '*.o' 2>/dev/null | head -1)" ]; then \
+		echo "[" "$(YELLOW)..$(RESET)" "] | Creating objects directory structure..."; \
+		mkdir -p $(OBJECTS_DIRECTORY)$(DRAWING_DIRECTORY) $(OBJECTS_DIRECTORY)$(INITS_DIRECTORY) $(OBJECTS_DIRECTORY)$(MOVEMENT_DIRECTORY) $(OBJECTS_DIRECTORY)$(PARSING_DIRECTORY) $(OBJECTS_DIRECTORY)$(RAYTRACING_DIRECTORY) $(OBJECTS_DIRECTORY)$(FREE_DIRECTORY) $(OBJECTS_DIRECTORY)$(UTILS_DIRECTORY) $(OBJECTS_DIRECTORY)$(WINDOW_DIRECTORY) $(OBJECTS_DIRECTORY)$(LOOPS_AND_HOOKS_DIRECTORY); \
+		echo "[" "$(GREEN)OK$(RESET)" "] | Objects directory structure ready!"; \
+	fi
 	@if $(CC) $(CFLAGS) $(OBJECTS) $(INCLUDES) $(LIBS) -o $(NAME); then \
 		echo "[" "$(GREEN)OK$(RESET)" "] | Compilation successful!"; \
 		make norm -s; \
@@ -111,7 +129,6 @@ $(NAME): $(LIBFT) $(MLX) $(OBJECTS_DIRECTORY) $(OBJECTS)
 
 # Create objects directory structure
 $(OBJECTS_DIRECTORY):
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Creating objects directory structure..."
 	@mkdir -p $(OBJECTS_DIRECTORY)
 	@mkdir -p $(OBJECTS_DIRECTORY)$(DRAWING_DIRECTORY)
 	@mkdir -p $(OBJECTS_DIRECTORY)$(INITS_DIRECTORY)
@@ -122,58 +139,64 @@ $(OBJECTS_DIRECTORY):
 	@mkdir -p $(OBJECTS_DIRECTORY)$(UTILS_DIRECTORY)
 	@mkdir -p $(OBJECTS_DIRECTORY)$(WINDOW_DIRECTORY)
 	@mkdir -p $(OBJECTS_DIRECTORY)$(LOOPS_AND_HOOKS_DIRECTORY)
-	@echo "[" "$(GREEN)OK$(RESET)" "] | Objects directory structure ready!"
 
 # Compile object files
 $(OBJECTS_DIRECTORY)%.o : $(SRCS_DIRECTORY)%.c $(HEADERS)
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
 
 $(OBJECTS_DIRECTORY)%.o : $(DRAWING_DIRECTORY)%.c $(HEADERS)
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
 
 $(OBJECTS_DIRECTORY)%.o : $(INITS_DIRECTORY)%.c $(HEADERS)
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
 
 $(OBJECTS_DIRECTORY)%.o : $(MOVEMENT_DIRECTORY)%.c $(HEADERS)
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
 
 $(OBJECTS_DIRECTORY)%.o : $(PARSING_DIRECTORY)%.c $(HEADERS)
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
 
 $(OBJECTS_DIRECTORY)%.o : $(RAYTRACING_DIRECTORY)%.c $(HEADERS)
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
 
 $(OBJECTS_DIRECTORY)%.o : $(FREE_DIRECTORY)%.c $(HEADERS)
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
 
 $(OBJECTS_DIRECTORY)%.o : $(UTILS_DIRECTORY)%.c $(HEADERS)
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
 
 $(OBJECTS_DIRECTORY)%.o : $(WINDOW_DIRECTORY)%.c $(HEADERS)
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
 
 $(OBJECTS_DIRECTORY)%.o : $(LOOPS_AND_HOOKS_DIRECTORY)%.c $(HEADERS)
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
 
 $(LIBFT):
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling libft..."
-	@make -sC $(LIBFT_DIRECTORY) > /dev/null 2>&1
-	@echo "[" "$(GREEN)OK$(RESET)" "] | Libft ready!"
+	@if [ ! -f $(LIBFT) ]; then \
+		echo "[" "$(YELLOW)..$(RESET)" "] | Compiling libft..."; \
+		make -sC $(LIBFT_DIRECTORY) > /dev/null 2>&1; \
+		echo "[" "$(GREEN)OK$(RESET)" "] | Libft ready!"; \
+	fi
 
 
 $(MLX):
 	@if [ ! -f $(MLX) ]; then \
-		echo "[" "$(YELLOW)..$(RESET)" "] | Compiling minilibx..."; \
 		cd $(MLX_DIRECTORY) && bash configure > /dev/null 2>&1 || ( \
-			echo "[" "$(YELLOW)..$(RESET)" "] | Standard compilation failed, using clang..."; \
 			mkdir -p obj; \
 			for file in *.c; do clang -O3 -I/usr/include -c "$$file" -o "obj/$${file%.c}.o" > /dev/null 2>&1 || true; done; \
 			ar -r libmlx.a obj/*.o > /dev/null 2>&1 || true; \
 			ranlib libmlx.a > /dev/null 2>&1 || true; \
 		); \
-		echo "[" "$(GREEN)OK$(RESET)" "] | Minilibx ready!"; \
-	else \
-		echo "[" "$(GREEN)OK$(RESET)" "] | Minilibx already compiled!"; \
 	fi
 
 all: $(NAME)
@@ -192,9 +215,14 @@ clean:
 fclean: clean
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing $(NAME)..."
 	@rm -rf $(NAME)
-	@rm -rf $(MLX)
 	@make -sC $(LIBFT_DIRECTORY) fclean > /dev/null 2>&1
 	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) removed."
+
+clean_mlx:
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing minilibx..."
+	@rm -rf $(MLX_DIRECTORY)obj/
+	@rm -rf $(MLX_DIRECTORY)libmlx.a
+	@echo "[" "$(GREEN)OK$(RESET)" "] | Minilibx removed."
 
 # Norminette check
 norm:

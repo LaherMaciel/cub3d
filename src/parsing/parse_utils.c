@@ -12,11 +12,15 @@
 
 #include "../../include/cub3d.h"
 
+// Converts RGB values to a single integer color value
+// Format: (R << 16) | (G << 8) | B
 int	convert_rgb_to_int(int r, int g, int b)
 {
 	return ((r << 16) | (g << 8) | b);
 }
 
+// Checks if a line contains only valid map characters
+// Valid characters: 0, 1, N, S, E, W, space
 bool	is_map_line(char *line)
 {
 	int	i;
@@ -33,6 +37,8 @@ bool	is_map_line(char *line)
 	return (true);
 }
 
+// Sets player direction angle based on orientation character
+// N = -PI/2, S = PI/2, E = 0, W = PI
 void	set_player_direction(char orientation)
 {
 	if (orientation == 'N')

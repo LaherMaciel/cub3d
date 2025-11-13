@@ -12,6 +12,8 @@
 
 #include "../../include/cub3d.h"
 
+// Writes a pixel to the image buffer at specified coordinates
+// Handles bounds checking and color format conversion
 void	put_pixel(int x, int y, int color)
 {
 	int	i;
@@ -25,6 +27,7 @@ void	put_pixel(int x, int y, int color)
 	game()->data_addr[i + 2] = (color >> 16) & 0xFF;
 }
 
+// Clears the entire screen by setting all pixels to black
 void	clear_screen(void)
 {
 	int	i;

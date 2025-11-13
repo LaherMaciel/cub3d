@@ -12,6 +12,9 @@
 
 #include "../../include/cub3d.h"
 
+// Main map validation function
+// Validates map closure and player position
+// Returns 0 on success, 1 on error
 int	validate_map(void)
 {
 	if (validate_map_closed() != 0)

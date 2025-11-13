@@ -42,6 +42,9 @@ void	draw_minimap(void)
 	draw_player_on_minimap();
 }
 
+// Main drawing loop function called every frame by MLX
+// Clears screen, updates player movement, renders FOV, and draws minimap
+// Returns 0 on success
 int	draw_loop(void)
 {
 	clear_screen();

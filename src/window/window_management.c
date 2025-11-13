@@ -12,6 +12,8 @@
 
 #include "../../include/cub3d.h"
 
+// Updates window size based on screen dimensions
+// Uses screen size if larger than default, otherwise uses default
 void	update_window_size(void)
 {
 	int	screen_width;
@@ -30,6 +32,8 @@ void	update_window_size(void)
 	}
 }
 
+// Handles window resize events
+// Recreates image buffer when window is resized
 int	handle_window_resize(int event, void *param)
 {
 	(void)param;
@@ -45,6 +49,8 @@ int	handle_window_resize(int event, void *param)
 	return (0);
 }
 
+// Toggles between windowed and fullscreen mode
+// Recreates window and image buffer accordingly
 void	toggle_fullscreen(void)
 {
 	if (game()->is_fullscreen)

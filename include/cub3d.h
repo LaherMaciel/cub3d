@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 01:27:56 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/04 10:39:03 by karocha-         ###   ########.fr       */
+/*   Updated: 2025/11/13 14:41:36 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,24 @@ typedef struct s_textures
 	char	*ea_path;	// East texture path
 	char	*roof_path;	// Roof texture path (bonus)
 	char	*floor_path;	// Floor texture path (bonus)
-	char	*weapon_path;	// Weapon texture path (bonus)
+	void	*no_img;
+	void	*so_img;
+	void	*we_img;
+	void	*ea_img;
+	void	*roof_img;
+	void	*floor_img;
+	int		no_width;
+	int		no_height;
+	int		so_width;
+	int		so_height;
+	int		we_width;
+	int		we_height;
+	int		ea_width;
+	int		ea_height;
+	int		roof_width;
+	int		roof_height;
+	int		floor_width;
+	int		floor_height;
 }				t_textures;
 
 typedef struct s_colors
@@ -193,13 +210,14 @@ int			validate_map_closed(void);
 int			validate_player_position(void);
 int			convert_rgb_to_int(int r, int g, int b);
 bool		is_map_line(char *line);
-int			parse_texture_line(char *line, char **texture_path);
-int			parse_north_south_textures(char *line, int *config_count);
-int			parse_west_east_textures(char *line, int *config_count);
+int			parse_texture_line(char *line, char **texture_path,
+				char *texture_name);
+int			parse_mandatory_textures(char *line, int *config_count);
 int			parse_color_config(char *line, int *config_count);
 int			parse_bonus_config(char *line);
 void		set_player_direction(char orientation);
-void		cleanup_parsing(void);
+void		free_all(void);
+void		error_exit(char *message, int code);
 
 //linked list functions
 int			ft_lstsize2(t_map *lst);
@@ -238,5 +256,8 @@ bool		is_wall(int x, int y);
 void		fov(void);
 void		draw_player_on_minimap(void);
 void		draw_minimap_square(int start_x, int start_y, int size, int color);
+
+//Utils functions
+void		get_textures(void);
 
 #endif

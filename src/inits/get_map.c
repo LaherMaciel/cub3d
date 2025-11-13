@@ -6,21 +6,19 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:18:25 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/17 13:08:01 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/11/13 14:33:48 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
+// Main map initialization function
+// Parses the .cub file and loads textures
 void	init_map(char *filename)
 {
-	if (parse_cub_file(filename) != 0)
-	{
-		ft_printf("Error parsing map file\n");
-		cleanup_parsing();
-		close_program();
-		exit(EXIT_FAILURE);
-	}
+	ft_printf("Loading map: %s...\n", filename);
+	parse_cub_file(filename);
+	get_textures();
 	ft_printf("Map loaded successfully!\n");
 	ft_printf("Map dimensions: %dx%d\n", game()->map_width, game()->map_height);
 	ft_printf("Player position: (%.1f, %.1f) facing %c\n",

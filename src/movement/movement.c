@@ -12,6 +12,9 @@
 
 #include "../../include/cub3d.h"
 
+// Handles key press events
+// Sets corresponding player key flags to true
+// Returns 0 on success
 int	key_press(int keycode, t_player *player)
 {
 	if (keycode == KEY_ESC)
@@ -33,9 +36,11 @@ int	key_press(int keycode, t_player *player)
 	return (0);
 }
 
+// Handles key release events
+// Sets corresponding player key flags to false
+// Returns 0 on success
 int	key_release(int keycode, t_player *player)
 {
-	ft_printf("Key press = %i\n", keycode);
 	if (keycode == KEY_ESC)
 		exit(EXIT_SUCCESS);
 	else if (keycode == KEY_W)
@@ -55,6 +60,8 @@ int	key_release(int keycode, t_player *player)
 	return (0);
 }
 
+// Checks if a position is valid for player movement
+// Returns false if out of bounds or colliding with a wall
 bool	is_valid_position(double x, double y)
 {
 	int	map_x;

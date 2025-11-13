@@ -12,6 +12,7 @@
 
 #include "../../include/cub3d.h"
 
+// Sets up all MLX hooks: window events and main loop
 void	setup_hooks(void)
 {
 	setup_window_hooks();

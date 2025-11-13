@@ -6,72 +6,130 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 13:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/10/17 13:16:16 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/11/13 14:31:20 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
+// Frees all texture path strings allocated during parsing
 static void	free_textures(void)
 {
-	if (game()->textures.no_path)
-		free(game()->textures.no_path);
-	if (game()->textures.so_path)
-		free(game()->textures.so_path);
-	if (game()->textures.we_path)
-		free(game()->textures.we_path);
-	if (game()->textures.ea_path)
-		free(game()->textures.ea_path);
-	if (game()->textures.roof_path)
-		free(game()->textures.roof_path);
-	if (game()->textures.floor_path)
-		free(game()->textures.floor_path);
-	if (game()->textures.weapon_path)
-		free(game()->textures.weapon_path);
+	t_game	*g;
+
+	g = game();
+	if (!g)
+		return ;
+	if (g->textures.no_path)
+		free(g->textures.no_path);
+	if (g->textures.so_path)
+		free(g->textures.so_path);
+	if (g->textures.we_path)
+		free(g->textures.we_path);
+	if (g->textures.ea_path)
+		free(g->textures.ea_path);
+	if (g->textures.roof_path)
+		free(g->textures.roof_path);
+	if (g->textures.floor_path)
+		free(g->textures.floor_path);
+	g->textures.no_path = NULL;
+	g->textures.so_path = NULL;
+	g->textures.we_path = NULL;
+	g->textures.ea_path = NULL;
+	g->textures.roof_path = NULL;
+	g->textures.floor_path = NULL;
 }
 
+// Frees the map array and all its lines
 static void	free_map(void)
 {
-	int	i;
+	int		i;
+	t_game	*g;
 
-	if (game()->map)
+	g = game();
+	if (g->map)
 	{
 		i = 0;
-		while (i < game()->map_height)
+		while (i < g->map_height)
 		{
-			if (game()->map[i])
-				free(game()->map[i]);
+			if (g->map[i])
+			{
+				free(g->map[i]);
+				g->map[i] = NULL;
+			}
 			i++;
 		}
-		free(game()->map);
+		free(g->map);
+		g->map = NULL;
 	}
 }
 
-void	cleanup_parsing(void)
+// Frees all allocated resources: texture images, texture paths, and map
+// Safe to call multiple times (idempotent)
+void	free_all(void)
 {
+	t_game	*g;
+
+	g = game();
+	if (g == NULL)
+		return ;
+	if (g && g->mlx)
+	{
+		if (g->textures.no_img)
+			mlx_destroy_image(g->mlx, g->textures.no_img);
+		if (g->textures.so_img)
+			mlx_destroy_image(g->mlx, g->textures.so_img);
+		if (g->textures.we_img)
+			mlx_destroy_image(g->mlx, g->textures.we_img);
+		if (g->textures.ea_img)
+			mlx_destroy_image(g->mlx, g->textures.ea_img);
+		if (g->textures.roof_img)
+			mlx_destroy_image(g->mlx, g->textures.roof_img);
+		if (g->textures.floor_img)
+			mlx_destroy_image(g->mlx, g->textures.floor_img);
+	}
 	free_textures();
 	free_map();
 }
 
-static void	close_game(void)
+// Called when the window is closed
+// Performs cleanup and exits the program
+int	close_program(void)
 {
-	if (game() == NULL)
+	t_game	*g;
+
+	free_all();
+	g = game();
+	if (g == NULL)
 		exit(EXIT_SUCCESS);
-	if (game()->image)
+	if (g->image)
+		mlx_destroy_image(g->mlx, g->image);
+	if (g->window)
+		mlx_destroy_window(g->mlx, g->window);
+	if (g->mlx)
+	{
+		mlx_destroy_display(g->mlx);
+		free(g->mlx);
+	}
+	exit(EXIT_SUCCESS);
+}
+
+// Prints the error message (if provided) and exits the program
+// freeing all needed resources. If message is NULL or empty,
+// only cleanup is performed (useful when error already printed)
+void	error_exit(char *message, int code)
+{
+	if (message != NULL && ft_strlen(message) > 0)
+		ft_putstr_fd(message, 2);
+	free_all();
+	if (game()->image && game()->mlx)
 		mlx_destroy_image(game()->mlx, game()->image);
-	if (game()->window)
+	if (game()->window && game()->mlx)
 		mlx_destroy_window(game()->mlx, game()->window);
 	if (game()->mlx)
 	{
 		mlx_destroy_display(game()->mlx);
 		free(game()->mlx);
 	}
-	exit(EXIT_SUCCESS);
-}
-
-int	close_program(void)
-{
-	cleanup_parsing();
-	close_game();
-	return (0);
+	exit(code);
 }

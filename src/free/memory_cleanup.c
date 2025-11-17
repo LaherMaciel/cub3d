@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 13:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/13 14:31:20 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/11/17 12:44:32 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,24 @@ static void	free_textures(void)
 	g = game();
 	if (!g)
 		return ;
-	if (g->textures.no_path)
-		free(g->textures.no_path);
-	if (g->textures.so_path)
-		free(g->textures.so_path);
-	if (g->textures.we_path)
-		free(g->textures.we_path);
-	if (g->textures.ea_path)
-		free(g->textures.ea_path);
-	if (g->textures.roof_path)
-		free(g->textures.roof_path);
-	if (g->textures.floor_path)
-		free(g->textures.floor_path);
-	g->textures.no_path = NULL;
-	g->textures.so_path = NULL;
-	g->textures.we_path = NULL;
-	g->textures.ea_path = NULL;
-	g->textures.roof_path = NULL;
-	g->textures.floor_path = NULL;
+	if (g->textures.north.path)
+		free(g->textures.north.path);
+	if (g->textures.south.path)
+		free(g->textures.south.path);
+	if (g->textures.west.path)
+		free(g->textures.west.path);
+	if (g->textures.east.path)
+		free(g->textures.east.path);
+	if (g->textures.roof.path)
+		free(g->textures.roof.path);
+	if (g->textures.floor.path)
+		free(g->textures.floor.path);
+	g->textures.north.path = NULL;
+	g->textures.south.path = NULL;
+	g->textures.west.path = NULL;
+	g->textures.east.path = NULL;
+	g->textures.roof.path = NULL;
+	g->textures.floor.path = NULL;
 }
 
 // Frees the map array and all its lines
@@ -75,18 +75,18 @@ void	free_all(void)
 		return ;
 	if (g && g->mlx)
 	{
-		if (g->textures.no_img)
-			mlx_destroy_image(g->mlx, g->textures.no_img);
-		if (g->textures.so_img)
-			mlx_destroy_image(g->mlx, g->textures.so_img);
-		if (g->textures.we_img)
-			mlx_destroy_image(g->mlx, g->textures.we_img);
-		if (g->textures.ea_img)
-			mlx_destroy_image(g->mlx, g->textures.ea_img);
-		if (g->textures.roof_img)
-			mlx_destroy_image(g->mlx, g->textures.roof_img);
-		if (g->textures.floor_img)
-			mlx_destroy_image(g->mlx, g->textures.floor_img);
+		if (g->textures.north.img)
+			mlx_destroy_image(g->mlx, g->textures.north.img);
+		if (g->textures.south.img)
+			mlx_destroy_image(g->mlx, g->textures.south.img);
+		if (g->textures.west.img)
+			mlx_destroy_image(g->mlx, g->textures.west.img);
+		if (g->textures.east.img)
+			mlx_destroy_image(g->mlx, g->textures.east.img);
+		if (g->textures.roof.img)
+			mlx_destroy_image(g->mlx, g->textures.roof.img);
+		if (g->textures.floor.img)
+			mlx_destroy_image(g->mlx, g->textures.floor.img);
 	}
 	free_textures();
 	free_map();

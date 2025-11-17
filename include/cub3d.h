@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 01:27:56 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/13 14:41:36 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/11/17 12:39:34 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,32 +115,26 @@ typedef struct s_map
 	struct s_map	*next;
 }				t_map;
 
+typedef struct s_tex
+{
+	char	*path;
+	void	*img;
+	char	*addr;
+	int		width;
+	int		height;
+	int		bpp;
+	int		size_line;
+	int		endian;
+}				t_tex;
+
 typedef struct s_textures
 {
-	char	*no_path;	// North texture path
-	char	*so_path;	// South texture path
-	char	*we_path;	// West texture path
-	char	*ea_path;	// East texture path
-	char	*roof_path;	// Roof texture path (bonus)
-	char	*floor_path;	// Floor texture path (bonus)
-	void	*no_img;
-	void	*so_img;
-	void	*we_img;
-	void	*ea_img;
-	void	*roof_img;
-	void	*floor_img;
-	int		no_width;
-	int		no_height;
-	int		so_width;
-	int		so_height;
-	int		we_width;
-	int		we_height;
-	int		ea_width;
-	int		ea_height;
-	int		roof_width;
-	int		roof_height;
-	int		floor_width;
-	int		floor_height;
+	t_tex	north;
+	t_tex	south;
+	t_tex	west;
+	t_tex	east;
+	t_tex	roof;
+	t_tex	floor;
 }				t_textures;
 
 typedef struct s_colors

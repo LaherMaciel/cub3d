@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:35:11 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/13 14:33:48 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/11/17 12:40:22 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,12 @@ void	init_player(void)
 // Called before parsing to ensure clean state
 void	init_config_parsing(void)
 {
-	game()->textures.no_path = NULL;
-	game()->textures.so_path = NULL;
-	game()->textures.we_path = NULL;
-	game()->textures.ea_path = NULL;
-	game()->textures.roof_path = NULL;
-	game()->textures.floor_path = NULL;
+	game()->textures.north.path = NULL;
+	game()->textures.south.path = NULL;
+	game()->textures.west.path = NULL;
+	game()->textures.east.path = NULL;
+	game()->textures.roof.path = NULL;
+	game()->textures.floor.path = NULL;
 	game()->colors.floor_rgb = 0;
 	game()->colors.ceiling_rgb = 0;
 	game()->map = NULL;

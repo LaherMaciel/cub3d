@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 14:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/13 14:31:20 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/11/17 12:41:30 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,16 +77,16 @@ int	parse_texture_line(char *line, char **texture_path, char *texture_name)
 int	parse_mandatory_textures(char *line, int *config_count)
 {
 	if (ft_strncmp(line, "NO ", 3) == 0 && parse_texture_line(line,
-			&game()->textures.no_path, "North") == 0)
+			&game()->textures.north.path, "North") == 0)
 		return ((*config_count)++, 1);
 	if (ft_strncmp(line, "SO ", 3) == 0 && parse_texture_line(line,
-			&game()->textures.so_path, "South") == 0)
+			&game()->textures.south.path, "South") == 0)
 		return ((*config_count)++, 1);
 	if (ft_strncmp(line, "WE ", 3) == 0 && parse_texture_line(line,
-			&game()->textures.we_path, "West") == 0)
+			&game()->textures.west.path, "West") == 0)
 		return ((*config_count)++, 1);
 	if (ft_strncmp(line, "EA ", 3) == 0 && parse_texture_line(line,
-			&game()->textures.ea_path, "East") == 0)
+			&game()->textures.east.path, "East") == 0)
 		return ((*config_count)++, 1);
 	if (ft_strncmp(line, "NO ", 3) == 0 || ft_strncmp(line, "SO ", 3) == 0
 		|| ft_strncmp(line, "WE ", 3) == 0 || ft_strncmp(line, "EA ", 3) == 0)
@@ -100,12 +100,12 @@ int	parse_bonus_config(char *line)
 {
 	if (ft_strncmp(line, "ROOF ", 5) == 0)
 	{
-		if (parse_texture_line(line, &game()->textures.roof_path, "Roof") != 0)
+		if (parse_texture_line(line, &game()->textures.roof.path, "Roof") != 0)
 			return (1);
 	}
 	else if (ft_strncmp(line, "FLOOR ", 6) == 0)
 	{
-		if (parse_texture_line(line, &game()->textures.floor_path,
+		if (parse_texture_line(line, &game()->textures.floor.path,
 				"Floor") != 0)
 			return (1);
 	}

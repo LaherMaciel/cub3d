@@ -4,8 +4,8 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-50-orange?style=for-the-badge)
-![Duration](https://img.shields.io/badge/Duration-61_Days-purple?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-51-orange?style=for-the-badge)
+![Duration](https://img.shields.io/badge/Duration-65_Days-purple?style=for-the-badge)
 
 </div>
 
@@ -21,15 +21,15 @@
 
 | Developer | This Week | Activity Level | Energy Level | Lines Added | Lines Removed |
 |-----------|-----------|----------------|--------------|-------------|---------------|
-| **Laher Maciel** | 0 commits | 📝 **PENDING** - No activity this week | 💤⚡⚡⚡⚡ | 0 | 0 |
+| **Laher Maciel** | 1 commits | 👑 **DOMINANT** - Outstanding week (5058 lines) | 🌱⚡⚡⚡⚡ | 4830 | 228 |
 | **Kayki Rocha** | 0 commits | 📝 **PENDING** - No activity this week | 💤⚡⚡⚡⚡ | 0 | 0 |
 
 ### 🏁 Development Race
 
 | Developer | Commits | Code Changes | Activity Level | Energy Level |
 |-----------|---------|--------------|----------------|--------------|
-| **Laher Maciel** | 47 | +34451/-2673 (37124 total) | 👑 **DOMINANT** - Primary contributor (97%) | 🚀🔥💯⚡🎯 |
-| **Kayki Rocha** | 3 | +705/-296 (1001 total) | 🔧 **INITIAL** - Early contribution (2%) | 💤⚡⚡⚡⚡ |
+| **Laher Maciel** | 48 | +39281/-2901 (42182 total) | 👑 **DOMINANT** - Primary contributor (98%) | 🚀🔥💯⚡🎯 |
+| **Kayki Rocha** | 3 | +705/-296 (1001 total) | 🔧 **INITIAL** - Early contribution (1%) | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
 
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `50` | Total number of commits |
-| **⏱️ Project Duration** | `61 days` | Days since first commit |
-| **➕ Lines Added** | `35156` | Total lines of code added |
-| **➖ Lines Removed** | `2969` | Total lines of code removed |
-| **🔄 Net Changes** | `32187` | Net code changes |
-| **⚡ Recent Activity** | `0 commits` | Commits in last 7 days |
+| **📊 Total Commits** | `51` | Total number of commits |
+| **⏱️ Project Duration** | `65 days` | Days since first commit |
+| **➕ Lines Added** | `39986` | Total lines of code added |
+| **➖ Lines Removed** | `3197` | Total lines of code removed |
+| **🔄 Net Changes** | `36789` | Net code changes |
+| **⚡ Recent Activity** | `1 commits` | Commits in last 7 days |
 
 </div>
 
@@ -60,7 +60,7 @@
 
 <div align="center">
 
-💤 **INACTIVE PERIOD** - Time to re-engage! Let's get back to coding! ⏰
+🐌 **MINIMAL ACTIVITY** - Every contribution counts! Increase your frequency!
 
 </div>
 
@@ -75,6 +75,7 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 42abd5e Refactor texture handling and improve map parsing logic. Update Makefile to include new texture files and enhance error handling in parsing functions. Add utility functions for texture loading and player movement. Update file headers to reflect recent changes. Note: The Makefile is kinda working weirdly, but will fix that.
 🔹 4f0fc5e nearly finalized, just put the textures as will and its good to go, also we got sprint with shift
 🔹 a57e8c8 need to sleep, most of it is done, just correct few bugs and norminette
 🔹 98f6672 Update file headers in cub3d.h and parsing.c to reflect the latest modification timestamp.
@@ -84,20 +85,19 @@
 🔹 89c7515 Add linked list utility functions and window management for dynamic resizing.
 🔹 2a8d2a1 Update project analytics: increment commit count to 42, adjust developer activity metrics, and enhance team member identification in analytics script.
 🔹 e04ea31 .
-🔹 c5dcdeb .
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      49 
-📄      33 project_extras/docs/PROJECT_ANALYTICS.md
-📄      14 Makefile
-📄      13 include/cub3d.h
-📄      11 src/movement/movement.c
-📄      11 src/drawing/drawing2d.c
+📄      50 
+📄      34 project_extras/docs/PROJECT_ANALYTICS.md
+📄      15 Makefile
+📄      14 include/cub3d.h
+📄      12 src/movement/movement.c
+📄      12 src/drawing/drawing2d.c
+📄      10 src/inits/inits.c
 📄      10 project_extras/scripts/update_analytics.sh
-📄       9 src/inits/inits.c
 ```
 
 ### 🎯 Next Milestones
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Thu Nov 13 15:48:26 WET 2025 | Auto-updated on build*
+*🔄 Last updated: Mon Nov 17 12:58:40 WET 2025 | Auto-updated on build*
 
 </div>
 

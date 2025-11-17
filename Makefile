@@ -17,7 +17,7 @@ FREE_C = memory_cleanup.c
 
 RAYTRACING_C = raytracing.c
 
-UTILS_C = utils.c
+UTILS_C = utils.c textures.c
 
 WINDOW_C = window_init.c window_management.c
 

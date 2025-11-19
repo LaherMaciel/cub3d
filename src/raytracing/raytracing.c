@@ -6,7 +6,7 @@
 /*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 13:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/04 10:07:33 by karocha-         ###   ########.fr       */
+/*   Updated: 2025/11/18 11:07:20 by karocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,59 +36,65 @@ bool	is_wall(int x, int y)
 ** Cast one ray and return the distance to the wall
 ** This is your ORIGINAL simple approach but with ONE key fix
 */
-static float	cast_single_ray(float ray_angle)
+static t_raycast cast_single_ray(float angle)
 {
-	float	ray_x;
-	float	ray_y;
-	float	step_x;
-	float	step_y;
-	float	distance;
+	t_raycast ray;
+	float dx = cos(angle);
+	float dy = sin(angle);
 
-	ray_x = game()->player_x;
-	ray_y = game()->player_y;
-	step_x = cos(ray_angle) * 0.005;
-	step_y = sin(ray_angle) * 0.005;
-	distance = 0;
-	while (!is_wall((int)ray_x, (int)ray_y))
+	float rx = game()->player_x;
+	float ry = game()->player_y;
+
+	float dist = 0.0f;
+	float step = 0.01f;
+
+	int prev_x = (int)rx;
+	int prev_y = (int)ry;
+
+	while (!is_wall((int)rx, (int)ry) && dist < 100)
 	{
-		ray_x += step_x;
-		ray_y += step_y;
-		distance += 0.005;
-		if (distance > 100)
-			break ;
+		rx += dx * step;
+		ry += dy * step;
+		dist += step;
+
+		int cell_x = (int)rx;
+		int cell_y = (int)ry;
+
+		if (cell_x != prev_x)
+			ray.side = 0;     // vertical wall
+		if (cell_y != prev_y)
+			ray.side = 1;     // horizontal wall
+
+		prev_x = cell_x;
+		prev_y = cell_y;
 	}
-	return (distance);
+
+	ray.dist  = dist;
+	ray.hit_x = rx;
+	ray.hit_y = ry;
+	ray.dx    = dx;
+	ray.dy    = dy;
+	return ray;
 }
 
-/*
-** Draw one vertical line (one column of the screen)
-*/
-static void	draw_column(int x, float distance)
+
+
+static int get_texture_x(t_tex *t, t_raycast *ray)
 {
-	float	wall_height;
-	int		wall_top;
-	int		wall_bottom;
-	int		y;
+	float fx;
 
-	wall_height = WINDOW_HEIGHT / distance;
-	wall_top = (WINDOW_HEIGHT / 2) - (wall_height / 2);
-	wall_bottom = (WINDOW_HEIGHT / 2) + (wall_height / 2);
-	if (wall_top < 0)
-		wall_top = 0;
-	if (wall_bottom > WINDOW_HEIGHT)
-		wall_bottom = WINDOW_HEIGHT;
-	y = 0;
-	while (y < wall_top)
-		put_pixel(x, y++, COLOR_CYAN_LIGHT);
-	while (y < wall_bottom)
-		put_pixel(x, y++, COLOR_PURPLE_LIGHT);
-	while (y < WINDOW_HEIGHT)
-		put_pixel(x, y++, COLOR_YELLOW_DARK);
-}
+	if (ray->side == 0)   // vertical wall → use Y hit
+		fx = ray->hit_y - floorf(ray->hit_y);
+	else                  // horizontal wall → use X hit
+		fx = ray->hit_x - floorf(ray->hit_x);
+
+	return (int)(fx * t->width);
+}	
+
 
 /*
 ** THE MAGIC FUNCTION - Fixes fisheye
-** 
+**
 ** What's happening:
 ** - Imagine you're looking straight ahead
 ** - A ray going left at 30° travels FURTHER to hit the wall
@@ -103,9 +109,84 @@ static float	fix_fisheye(float distance, float ray_angle)
 	return (distance * cos(angle_diff));
 }
 
+static unsigned int	get_texture_color(t_tex *tex, int x, int y)
+{
+	char	*pixel;
+
+	if (x < 0)
+		x = 0;
+	if (x >= tex->width)
+		x = tex->width - 1;
+	if (y < 0)
+		y = 0;
+	if (y >= tex->height)
+		y = tex->height - 1;
+
+	pixel = tex->addr + (y * tex->size_line + x * (tex->bpp / 8));
+	return (*(unsigned int *)pixel);
+}
+
+static t_tex *select_wall_texture(t_raycast *ray)
+{
+	if (ray->side == 0)
+	{
+		if (ray->dx > 0)
+			return &game()->textures.east;
+		else
+			return &game()->textures.west;
+	}
+	else
+	{
+		if (ray->dy > 0)
+			return &game()->textures.south;
+		else
+			return &game()->textures.north;
+	}
+}
+
+/*
+** Draw one vertical line (one column of the screen)
+*/
+static void	draw_textured_column(int x, float dist, t_raycast *ray)
+{
+	t_tex	*tex = select_wall_texture(ray);
+	float	wall_h = WINDOW_HEIGHT / dist;
+	int		top = WINDOW_HEIGHT / 2 - wall_h / 2;
+	int		bot = WINDOW_HEIGHT / 2 + wall_h / 2;
+	int		y;
+	int		tex_x = get_texture_x(tex, ray);
+	float	step = (float)tex->height / wall_h;
+	float	tex_y_f;
+
+	tex_y_f = 0.0f;
+	if (top < 0)
+	{
+		tex_y_f = -top * step;
+		top = 0;
+	}
+	if (bot > WINDOW_HEIGHT)
+		bot = WINDOW_HEIGHT;
+
+	y = 0;
+	while (y < top)
+		put_pixel(x, y++, game()->colors.ceiling_rgb);
+
+	while (y < bot)
+	{
+		int tex_y = (int)tex_y_f;
+		unsigned int color = get_texture_color(tex, tex_x, tex_y);
+		put_pixel(x, y, color);
+		tex_y_f += step;
+		y++;
+	}
+
+	while (y < WINDOW_HEIGHT)
+		put_pixel(x, y++, game()->colors.floor_rgb);
+}
+
 /*
 ** Main function - cast all rays across the screen
-** 
+**
 ** Step by step:
 ** 1. Loop through each column of the screen (left to right)
 ** 2. Calculate the angle for that column's ray
@@ -115,11 +196,11 @@ static float	fix_fisheye(float distance, float ray_angle)
 */
 void	fov(void)
 {
-	int		x;
-	float	ray_angle;
-	float	raw_distance;
-	float	fixed_distance;
-	float	angle_per_pixel;
+	int			x;
+	float		ray_angle;
+	t_raycast	ray;
+	float		fixed_distance;
+	float		angle_per_pixel;
 
 	angle_per_pixel = (PI / 3.0) / (float)WINDOW_WIDTH;
 	x = 0;
@@ -127,11 +208,11 @@ void	fov(void)
 	{
 		ray_angle = (game()->player_dir - (PI / 6))
 			+ (angle_per_pixel * (float)x);
-		raw_distance = cast_single_ray(ray_angle);
-		fixed_distance = fix_fisheye(raw_distance, ray_angle);
-		if (fixed_distance < 0.1)
-			fixed_distance = 0.1;
-		draw_column(x, fixed_distance);
+		ray = cast_single_ray(ray_angle);
+		fixed_distance = fix_fisheye(ray.dist, ray_angle);
+		if (fixed_distance < 0.05f)
+			fixed_distance = 0.05f;
+		draw_textured_column(x, fixed_distance, &ray);
 		x++;
 	}
 }

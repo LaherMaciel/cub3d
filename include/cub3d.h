@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
+/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 01:27:56 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/17 12:39:34 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/11/18 10:50:38 by karocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,16 @@ typedef struct s_textures
 	t_tex	roof;
 	t_tex	floor;
 }				t_textures;
+
+typedef struct s_raycast
+{
+	float	dist;
+	float	hit_x;
+	float	hit_y;
+	int		side;
+	float	dx;
+	float	dy;
+}				t_raycast;
 
 typedef struct s_colors
 {

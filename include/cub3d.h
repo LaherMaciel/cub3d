@@ -258,6 +258,10 @@ void		toggle_fullscreen(void);
 //raycasting
 bool		is_wall(int x, int y);
 void		fov(void);
+void		draw_wall_pixels(int x, t_tex *tex, t_raycast *ray, float wall_h);
+t_tex		*select_wall_texture(t_raycast *ray);
+void		init_ray_vars(float angle, float *vars);
+void		update_ray_side(t_raycast *ray, float rx, float ry, int *prev);
 void		draw_player_on_minimap(void);
 void		draw_minimap_square(int start_x, int start_y, int size, int color);
 

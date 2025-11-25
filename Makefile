@@ -15,7 +15,7 @@ PARSING_C = parsing.c parse_map.c parse_utils.c parsing_config.c parsing_colors.
 
 FREE_C = memory_cleanup.c
 
-RAYTRACING_C = raytracing.c
+RAYTRACING_C = raytracing.c raytracing_helpers.c
 
 UTILS_C = utils.c textures.c
 

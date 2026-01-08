@@ -16,8 +16,8 @@
 // Supports sprint mode (shift key)
 static void	move_up(t_player *player)
 {
-	double	new_x;
-	double	new_y;
+	float	new_x;
+	float	new_y;
 	int		sprint;
 
 	sprint = 1;
@@ -36,8 +36,8 @@ static void	move_up(t_player *player)
 // Supports sprint mode (shift key)
 static void	move_down(t_player *player)
 {
-	double	new_x;
-	double	new_y;
+	float	new_x;
+	float	new_y;
 	int		sprint;
 
 	sprint = 1;
@@ -56,8 +56,8 @@ static void	move_down(t_player *player)
 // Supports sprint mode (shift key)
 static void	move_left(t_player *player)
 {
-	double	new_x;
-	double	new_y;
+	float	new_x;
+	float	new_y;
 	int		sprint;
 
 	sprint = 1;
@@ -78,8 +78,8 @@ static void	move_left(t_player *player)
 // Supports sprint mode (shift key)
 static void	move_right(t_player *player)
 {
-	double	new_x;
-	double	new_y;
+	float	new_x;
+	float	new_y;
 	int		sprint;
 
 	sprint = 1;

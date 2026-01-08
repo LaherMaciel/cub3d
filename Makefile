@@ -85,7 +85,7 @@ MLX = $(MLX_DIRECTORY)libmlx.a
 
 # Compiler settings
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g -Wno-cast-function-type
+CFLAGS = -Wall -Werror -Wextra -g
 INCLUDES = -I$(HEADER_DIRECTORY) -I$(LIBFT_DIRECTORY)include/ -I$(MLX_DIRECTORY)
 LIBS = -L$(LIBFT_DIRECTORY) -lft $(MLX) -lX11 -lXext -lm -lz
 

@@ -236,7 +236,7 @@ int			key_press(int keycode, t_player *player);
 int			key_release(int keycode, t_player *player);
 void		move_player_2d(t_player *player);
 void		move_player_3d(t_player *player);
-bool		is_valid_position(double x, double y);
+bool		is_valid_position(float x, float y);
 
 //hooks
 void		setup_hooks(void);

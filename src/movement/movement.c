@@ -62,7 +62,7 @@ int	key_release(int keycode, t_player *player)
 
 // Checks if a position is valid for player movement
 // Returns false if out of bounds or colliding with a wall
-bool	is_valid_position(double x, double y)
+bool	is_valid_position(float x, float y)
 {
 	int	map_x;
 	int	map_y;
@@ -71,11 +71,56 @@ bool	is_valid_position(double x, double y)
 		return (false);
 	map_x = (int)x;
 	map_y = (int)y;
+	printf("\n\nmap_x: %d, map_y: %d\n", map_x, map_y);
+	printf("Position (%.2f, %.2f)	", x, y);
 	if (map_x < 0 || map_x >= game()->map_width || map_y < 0
 		|| map_y >= game()->map_height)
+	{
+		printf("1Position is out of bounds\n");
+		printf("False\n\n");
 		return (false);
+	}
 	if (game()->map[map_y][map_x] == '1')
+	{
+		if (x < game()->player_x && x >= map_x + 0.8)
+		{
+			if (game()->map[map_y][(int)game()->player_x] != '1')
+				game()->player_y = y;
+			printf("1 X Colliding with wall moving only Y\n");
+			printf("False\n\n");
+			return (false);
+		}
+		if (x < game()->player_x && x <= map_x + 0.2)
+		{
+			if (game()->map[map_y][(int)game()->player_x] != '1')
+				game()->player_y = y;
+			printf("2 X Colliding with wall moving only Y\n");
+			printf("False\n\n");
+			return (false);
+		}
+		if (y < game()->player_y && y >= map_y + 0.8)
+		{
+			if (game()->map[(int)game()->player_y][map_x] != '1')
+				game()->player_x = x;
+			printf("1 Y Colliding with wall moving only X\n");
+			printf("False\n\n");
+			return (false);
+		}
+		if (y < game()->player_y && y <= map_y + 0.2)
+		{
+			if (game()->map[(int)game()->player_y][map_x] != '1')
+				game()->player_x = x;
+			printf("2 Y Colliding with wall moving only X\n");
+			printf("False\n\n");
+			return (false);
+		}
+		printf("x(%) < game()->player_x && x >= map_x + 0.8\n", x, game()->player_x,
+			map_x + 0.8);
+		printf("2 Position is out of bounds\n");
+		printf("False\n\n");
 		return (false);
+	}
+	printf("\nTrue\n\n");
 	return (true);
 }
 

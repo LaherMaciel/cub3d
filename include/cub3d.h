@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 01:27:56 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/18 10:50:38 by karocha-         ###   ########.fr       */
+/*   Updated: 2026/01/09 22:46:27 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,6 +237,7 @@ int			key_release(int keycode, t_player *player);
 void		move_player_2d(t_player *player);
 void		move_player_3d(t_player *player);
 bool		is_valid_position(float x, float y);
+void		move_to_new_x(float new_x, float new_y);
 
 //hooks
 void		setup_hooks(void);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement_helpers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 14:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/04 10:37:39 by karocha-         ###   ########.fr       */
+/*   Updated: 2026/01/09 22:46:59 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,7 @@ static void	move_right(t_player *player)
 			+ PI / 2);
 	new_y = game()->player_y + (MOVE_SPEED * sprint) * sin(game()->player_dir
 			+ PI / 2);
-	if (is_valid_position(new_x, new_y))
-	{
-		game()->player_x = new_x;
-		game()->player_y = new_y;
-	}
+	move_to_new_x(new_x, new_y);
 }
 
 // Main movement function - processes all player movement and rotation

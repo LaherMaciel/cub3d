@@ -9,7 +9,7 @@ INITS_C = inits.c get_map.c
 
 LOOPS_AND_HOOKS_C = loop.c
 
-MOVEMENT_C = movement.c movement_helpers.c
+MOVEMENT_C = movement.c movement_helpers.c move_to_x.c
 
 PARSING_C = parsing.c parse_map.c parse_utils.c parsing_config.c parsing_colors.c parsing_textures.c parsing_validate_map.c parsing_validate_helpers.c
 

@@ -4,8 +4,8 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-55-orange?style=for-the-badge)
-![Duration](https://img.shields.io/badge/Duration-117_Days-purple?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-56-orange?style=for-the-badge)
+![Duration](https://img.shields.io/badge/Duration-119_Days-purple?style=for-the-badge)
 
 </div>
 
@@ -21,14 +21,14 @@
 
 | Developer | This Week | Activity Level | Energy Level | Lines Added | Lines Removed |
 |-----------|-----------|----------------|--------------|-------------|---------------|
-| **Laher Maciel** | 1 commits | 🚀 **ACTIVE** - Good pace (67 lines) | 🌱⚡⚡⚡⚡ | 56 | 11 |
+| **Laher Maciel** | 2 commits | 💪 **INTENSIVE** - Strong work (109 lines) | 🌱⚡⚡⚡⚡ | 77 | 32 |
 | **Kayki Rocha** | 0 commits | 📝 **PENDING** - No activity this week | 💤⚡⚡⚡⚡ | 0 | 0 |
 
 ### 🏁 Development Race
 
 | Developer | Commits | Code Changes | Activity Level | Energy Level |
 |-----------|---------|--------------|----------------|--------------|
-| **Laher Maciel** | 51 | +39694/-3161 (42855 total) | 👑 **DOMINANT** - Primary contributor (97%) | 🚀🔥💯⚡🎯 |
+| **Laher Maciel** | 52 | +39715/-3182 (42897 total) | 👑 **DOMINANT** - Primary contributor (97%) | 🚀🔥💯⚡🎯 |
 | **Kayki Rocha** | 4 | +853/-353 (1206 total) | 🔧 **INITIAL** - Early contribution (2%) | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `55` | Total number of commits |
-| **⏱️ Project Duration** | `117 days` | Days since first commit |
-| **➕ Lines Added** | `40547` | Total lines of code added |
-| **➖ Lines Removed** | `3514` | Total lines of code removed |
+| **📊 Total Commits** | `56` | Total number of commits |
+| **⏱️ Project Duration** | `119 days` | Days since first commit |
+| **➕ Lines Added** | `40568` | Total lines of code added |
+| **➖ Lines Removed** | `3535` | Total lines of code removed |
 | **🔄 Net Changes** | `37033` | Net code changes |
-| **⚡ Recent Activity** | `1 commits` | Commits in last 7 days |
+| **⚡ Recent Activity** | `2 commits` | Commits in last 7 days |
 
 </div>
 
@@ -75,6 +75,7 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 d6c6f9a .
 🔹 c672fc8 need to improve a few things about the player's movement. It's weird and unreliable at the moment.
 🔹 8dd5f28 Enhance raytracing functionality by adding helper functions for wall rendering and ray variable initialization. Update Makefile to include new raytracing_helpers.c file. Refactor raycasting logic in raytracing.c for improved readability and maintainability.
 🔹 2906b43 textures done, norminette to go
@@ -84,16 +85,15 @@
 🔹 a57e8c8 need to sleep, most of it is done, just correct few bugs and norminette
 🔹 98f6672 Update file headers in cub3d.h and parsing.c to reflect the latest modification timestamp.
 🔹 e380f94 Refactor Makefile to include new source files for parsing, memory cleanup, and window management. Implement drawing helpers for grid and player visualization, and enhance configuration parsing logic.
-🔹 bee514c Update file headers in drawing2d.c and parsing.c to reflect the latest modification timestamp.
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      54 
-📄      35 project_extras/docs/PROJECT_ANALYTICS.md
-📄      18 Makefile
+📄      55 
+📄      36 project_extras/docs/PROJECT_ANALYTICS.md
 📄      18 include/cub3d.h
+📄      18 Makefile
 📄      13 src/movement/movement.c
 📄      12 src/drawing/drawing2d.c
 📄      11 src/inits/inits.c
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: qui 08 jan 2026 19:14:07 WET | Auto-updated on build*
+*🔄 Last updated: Fri Jan  9 22:49:11 WET 2026 | Auto-updated on build*
 
 </div>
 

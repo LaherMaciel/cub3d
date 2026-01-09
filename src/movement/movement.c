@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karocha- <karocha-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:37:22 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/04 10:21:02 by karocha-         ###   ########.fr       */
+/*   Updated: 2026/01/09 22:37:05 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,57 +71,10 @@ bool	is_valid_position(float x, float y)
 		return (false);
 	map_x = (int)x;
 	map_y = (int)y;
-	printf("\n\nmap_x: %d, map_y: %d\n", map_x, map_y);
-	printf("Position (%.2f, %.2f)	", x, y);
 	if (map_x < 0 || map_x >= game()->map_width || map_y < 0
 		|| map_y >= game()->map_height)
-	{
-		printf("1Position is out of bounds\n");
-		printf("False\n\n");
 		return (false);
-	}
-	if (game()->map[map_y][map_x] == '1')
-	{
-		if (x < game()->player_x && x >= map_x + 0.8)
-		{
-			if (game()->map[map_y][(int)game()->player_x] != '1')
-				game()->player_y = y;
-			printf("1 X Colliding with wall moving only Y\n");
-			printf("False\n\n");
-			return (false);
-		}
-		if (x < game()->player_x && x <= map_x + 0.2)
-		{
-			if (game()->map[map_y][(int)game()->player_x] != '1')
-				game()->player_y = y;
-			printf("2 X Colliding with wall moving only Y\n");
-			printf("False\n\n");
-			return (false);
-		}
-		if (y < game()->player_y && y >= map_y + 0.8)
-		{
-			if (game()->map[(int)game()->player_y][map_x] != '1')
-				game()->player_x = x;
-			printf("1 Y Colliding with wall moving only X\n");
-			printf("False\n\n");
-			return (false);
-		}
-		if (y < game()->player_y && y <= map_y + 0.2)
-		{
-			if (game()->map[(int)game()->player_y][map_x] != '1')
-				game()->player_x = x;
-			printf("2 Y Colliding with wall moving only X\n");
-			printf("False\n\n");
-			return (false);
-		}
-		printf("x(%) < game()->player_x && x >= map_x + 0.8\n", x, game()->player_x,
-			map_x + 0.8);
-		printf("2 Position is out of bounds\n");
-		printf("False\n\n");
-		return (false);
-	}
-	printf("\nTrue\n\n");
-	return (true);
+	return (game()->map[map_y][map_x] != '1');
 }
 
 /* void	move_player_3d(t_player *player)

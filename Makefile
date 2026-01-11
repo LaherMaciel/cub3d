@@ -248,7 +248,24 @@ re: fclean
 	@make -s
 
 run: $(NAME)
-	./$(NAME)
+	./$(NAME) minimalist2.cub
+
+VALGRIND_BASE_FLAGS = --track-fds=yes \
+                      --leak-check=full \
+                      --show-leak-kinds=all \
+                      --errors-for-leak-kinds=all
+
+VALGRIND_FULL_FLAGS = --trace-children=yes \
+                      --track-origins=yes
+
+val: $(NAME)
+	valgrind ./$(NAME) minimalist2.cub
+
+val_full: $(NAME)
+	valgrind $(VALGRIND_BASE_FLAGS) $(VALGRIND_FULL_FLAGS) ./$(NAME) minimalist2.cub
+
+val_full_errocommand: $(NAME)
+	valgrind --trace-children=yes --track-origins=yes ./$(NAME) minimalist2.cub
 
 submit:
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Preparing project for submission..."

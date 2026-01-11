@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:37:22 by lahermaciel       #+#    #+#             */
-/*   Updated: 2026/01/09 22:37:05 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2026/01/11 14:43:46 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ bool	is_valid_position(float x, float y)
 	return (game()->map[map_y][map_x] != '1');
 }
 
-/* void	move_player_3d(t_player *player)
+/* 
+void	move_player_3d(t_player *player)
 {
 	if (player->key_up)
 	{
@@ -103,4 +104,5 @@ bool	is_valid_position(float x, float y)
 		player->player_dir -= ROT_SPEED;
 	if (player->key_rot_right)
 		player->player_dir += ROT_SPEED;
-} */
+}
+ */

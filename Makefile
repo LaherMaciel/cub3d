@@ -267,13 +267,6 @@ val_full: $(NAME)
 val_full_errocommand: $(NAME)
 	valgrind --trace-children=yes --track-origins=yes ./$(NAME) minimalist2.cub
 
-submit:
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Preparing project for submission..."
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing none mandatory files..."
-	@./project_extras/scripts/prepare_submission.sh
-	@echo "[" "$(GREEN)OK$(RESET)" "] | None mandatory files removed!"
-	@echo "[" "$(GREEN)OK$(RESET)" "] | Project prepared for submission!"
-
 # Help target
 help:
 	@echo "Available targets:"
@@ -283,7 +276,6 @@ help:
 	@echo "  re          - Rebuild everything"
 	@echo "  run         - Build and run cub3d"
 	@echo "  norm        - Run norminette check"
-	@echo "  submit      - Prepare project for submission"
 	@echo "  help        - Show this help message"
 
 .PHONY: all clean fclean re run norm submit help $(MLX)

@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 13:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/17 12:44:32 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2026/01/14 23:05:27 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,30 @@ static void	free_map(void)
 	}
 }
 
+void	free_all_2(t_game	*g)
+{
+	if (g->textures.west.img)
+	{
+		mlx_destroy_image(g->mlx, g->textures.west.img);
+		g->textures.west.img = NULL;
+	}
+	if (g->textures.east.img)
+	{
+		mlx_destroy_image(g->mlx, g->textures.east.img);
+		g->textures.east.img = NULL;
+	}
+	if (g->textures.roof.img)
+	{
+		mlx_destroy_image(g->mlx, g->textures.roof.img);
+		g->textures.roof.img = NULL;
+	}
+	if (g->textures.floor.img)
+	{
+		mlx_destroy_image(g->mlx, g->textures.floor.img);
+		g->textures.floor.img = NULL;
+	}
+}
+
 // Frees all allocated resources: texture images, texture paths, and map
 // Safe to call multiple times (idempotent)
 void	free_all(void)
@@ -76,17 +100,16 @@ void	free_all(void)
 	if (g && g->mlx)
 	{
 		if (g->textures.north.img)
+		{
 			mlx_destroy_image(g->mlx, g->textures.north.img);
+			g->textures.north.img = NULL;
+		}
 		if (g->textures.south.img)
+		{
 			mlx_destroy_image(g->mlx, g->textures.south.img);
-		if (g->textures.west.img)
-			mlx_destroy_image(g->mlx, g->textures.west.img);
-		if (g->textures.east.img)
-			mlx_destroy_image(g->mlx, g->textures.east.img);
-		if (g->textures.roof.img)
-			mlx_destroy_image(g->mlx, g->textures.roof.img);
-		if (g->textures.floor.img)
-			mlx_destroy_image(g->mlx, g->textures.floor.img);
+			g->textures.south.img = NULL;
+		}
+		free_all_2(g);
 	}
 	free_textures();
 	free_map();
@@ -117,19 +140,3 @@ int	close_program(void)
 // Prints the error message (if provided) and exits the program
 // freeing all needed resources. If message is NULL or empty,
 // only cleanup is performed (useful when error already printed)
-void	error_exit(char *message, int code)
-{
-	if (message != NULL && ft_strlen(message) > 0)
-		ft_putstr_fd(message, 2);
-	free_all();
-	if (game()->image && game()->mlx)
-		mlx_destroy_image(game()->mlx, game()->image);
-	if (game()->window && game()->mlx)
-		mlx_destroy_window(game()->mlx, game()->window);
-	if (game()->mlx)
-	{
-		mlx_destroy_display(game()->mlx);
-		free(game()->mlx);
-	}
-	exit(code);
-}

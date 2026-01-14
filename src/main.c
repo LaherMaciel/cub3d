@@ -60,7 +60,6 @@ int	main(int argc, char **argv)
 	signal(SIGINT, signal_handler);
 	signal(SIGTERM, signal_handler);
 	init_game();
-	atexit((void (*)(void))free_all);
 	init_map(argv[1]);
 	init_player();
 	setup_hooks();

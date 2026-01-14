@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:37:22 by lahermaciel       #+#    #+#             */
-/*   Updated: 2026/01/11 14:43:46 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2026/01/14 22:50:37 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 int	key_press(int keycode, t_player *player)
 {
 	if (keycode == KEY_ESC)
-		exit(EXIT_SUCCESS);
+		close_program();
 	else if (keycode == KEY_W)
 		player->key_up = true;
 	else if (keycode == KEY_S)

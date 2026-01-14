@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 14:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2026/01/09 22:46:59 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2026/01/14 22:41:43 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,7 @@ static void	move_up(t_player *player)
 		sprint = 2;
 	new_x = game()->player_x + (MOVE_SPEED * sprint) * cos(game()->player_dir);
 	new_y = game()->player_y + (MOVE_SPEED * sprint) * sin(game()->player_dir);
-	if (is_valid_position(new_x, new_y))
-	{
-		game()->player_x = new_x;
-		game()->player_y = new_y;
-	}
+	move_to_new_x(new_x, new_y);
 }
 
 // Moves player backward (opposite of current direction)
@@ -45,11 +41,7 @@ static void	move_down(t_player *player)
 		sprint = 2;
 	new_x = game()->player_x - (MOVE_SPEED * sprint) * cos(game()->player_dir);
 	new_y = game()->player_y - (MOVE_SPEED * sprint) * sin(game()->player_dir);
-	if (is_valid_position(new_x, new_y))
-	{
-		game()->player_x = new_x;
-		game()->player_y = new_y;
-	}
+	move_to_new_x(new_x, new_y);
 }
 
 // Moves player left (perpendicular to current direction)
@@ -67,11 +59,7 @@ static void	move_left(t_player *player)
 			- PI / 2);
 	new_y = game()->player_y + (MOVE_SPEED * sprint) * sin(game()->player_dir
 			- PI / 2);
-	if (is_valid_position(new_x, new_y))
-	{
-		game()->player_x = new_x;
-		game()->player_y = new_y;
-	}
+	move_to_new_x(new_x, new_y);
 }
 
 // Moves player right (perpendicular to current direction)

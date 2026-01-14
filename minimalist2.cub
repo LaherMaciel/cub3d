@@ -3,7 +3,7 @@ SO ./images/xpm_image/SouthWall.xpm
 WE ./images/xpm_image/EastWall.xpm
 EA ./images/xpm_image/WestWall.xpm
 
-F 220,100,0
+F 2,20,100
 C 225,30,0
 
         1111111111111111111111111

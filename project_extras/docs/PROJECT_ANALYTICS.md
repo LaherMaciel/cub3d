@@ -4,7 +4,7 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-59-orange?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-60-orange?style=for-the-badge)
 ![Duration](https://img.shields.io/badge/Duration-124_Days-purple?style=for-the-badge)
 
 </div>
@@ -21,14 +21,14 @@
 
 | Developer | This Week | Activity Level | Energy Level | Lines Added | Lines Removed |
 |-----------|-----------|----------------|--------------|-------------|---------------|
-| **Laher Maciel** | 5 commits | 🏆 **EXCEPTIONAL** - Major progress (384 lines) | 🔥🔥🔥⚡⚡ | 234 | 150 |
+| **Laher Maciel** | 6 commits | 👑 **DOMINANT** - Outstanding week (530 lines) | 🔥🔥🔥🔥⚡ | 319 | 211 |
 | **Kayki Rocha** | 0 commits | 📝 **PENDING** - No activity this week | 💤⚡⚡⚡⚡ | 0 | 0 |
 
 ### 🏁 Development Race
 
 | Developer | Commits | Code Changes | Activity Level | Energy Level |
 |-----------|---------|--------------|----------------|--------------|
-| **Laher Maciel** | 55 | +39872/-3300 (43172 total) | 👑 **DOMINANT** - Primary contributor (97%) | 🚀🔥💯⚡🎯 |
+| **Laher Maciel** | 56 | +39957/-3361 (43318 total) | 👑 **DOMINANT** - Primary contributor (97%) | 🚀🔥💯⚡🎯 |
 | **Kayki Rocha** | 4 | +853/-353 (1206 total) | 🔧 **INITIAL** - Early contribution (2%) | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `59` | Total number of commits |
+| **📊 Total Commits** | `60` | Total number of commits |
 | **⏱️ Project Duration** | `124 days` | Days since first commit |
-| **➕ Lines Added** | `40725` | Total lines of code added |
-| **➖ Lines Removed** | `3653` | Total lines of code removed |
-| **🔄 Net Changes** | `37072` | Net code changes |
-| **⚡ Recent Activity** | `5 commits` | Commits in last 7 days |
+| **➕ Lines Added** | `40810` | Total lines of code added |
+| **➖ Lines Removed** | `3714` | Total lines of code removed |
+| **🔄 Net Changes** | `37096` | Net code changes |
+| **⚡ Recent Activity** | `6 commits` | Commits in last 7 days |
 
 </div>
 
@@ -60,7 +60,7 @@
 
 <div align="center">
 
-📈 **CONSISTENT EFFORT** - Steady progress! Push for more commits!
+⚡ **STRONG ACTIVITY** - Good pace! Maintain this steady progress!
 
 </div>
 
@@ -75,6 +75,7 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 b97a1dc Refactor memory management: add exit function, update cleanup logic, and enhance player movement handling. Now we just have to wait for the submission day.
 🔹 4145530 Remove submission target from Makefile and update project analytics for commit count and developer activity
 🔹 683ba63 added valgrind flags to the makefile
 🔹 835e1b8 the movment is still working weirdly
@@ -84,17 +85,16 @@
 🔹 2906b43 textures done, norminette to go
 🔹 99c9156 Refactor texture management: update Makefile to include new texture source file, enhance texture structure in cub3d.h, and implement texture loading functions in textures.c. Update parsing and memory cleanup to accommodate new texture handling.
 🔹 42abd5e Refactor texture handling and improve map parsing logic. Update Makefile to include new texture files and enhance error handling in parsing functions. Add utility functions for texture loading and player movement. Update file headers to reflect recent changes. Note: The Makefile is kinda working weirdly, but will fix that.
-🔹 4f0fc5e nearly finalized, just put the textures as will and its good to go, also we got sprint with shift
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      58 
-📄      39 project_extras/docs/PROJECT_ANALYTICS.md
-📄      21 Makefile
+📄      59 
+📄      40 project_extras/docs/PROJECT_ANALYTICS.md
+📄      22 Makefile
 📄      19 include/cub3d.h
-📄      15 src/movement/movement.c
+📄      16 src/movement/movement.c
 📄      12 src/drawing/drawing2d.c
 📄      11 src/inits/inits.c
 📄      10 project_extras/scripts/update_analytics.sh
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Wed Jan 14 23:06:49 WET 2026 | Auto-updated on build*
+*🔄 Last updated: Wed Jan 14 23:15:20 WET 2026 | Auto-updated on build*
 
 </div>
 

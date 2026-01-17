@@ -29,24 +29,6 @@ t_game	*game(void)
 	return (&game);
 }
 
-// Handles SIGINT and SIGTERM signals for graceful program termination
-// Performs cleanup before exiting
-static void	signal_handler(int sig)
-{
-	(void)sig;
-	free_all();
-	if (game()->mlx)
-	{
-		if (game()->image)
-			mlx_destroy_image(game()->mlx, game()->image);
-		if (game()->window)
-			mlx_destroy_window(game()->mlx, game()->window);
-		mlx_destroy_display(game()->mlx);
-		free(game()->mlx);
-	}
-	exit(0);
-}
-
 // Main entry point of the program
 // Validates arguments, initializes game, and starts the main loop
 int	main(int argc, char **argv)
@@ -57,8 +39,6 @@ int	main(int argc, char **argv)
 		|| ft_strlen(ft_strnstr(argv[1], ".cub", 0)) != 4)
 		return (ft_putstr_fd("Error: Invalid file extension\n", 2), 1);
 	ft_printf("Starting Cub3D...\n");
-	signal(SIGINT, signal_handler);
-	signal(SIGTERM, signal_handler);
 	init_game();
 	init_map(argv[1]);
 	init_player();

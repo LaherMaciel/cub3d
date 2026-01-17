@@ -4,8 +4,8 @@
 
 ![Analytics](https://img.shields.io/badge/Analytics-Live-brightgreen?style=for-the-badge)
 ![Team](https://img.shields.io/badge/Team-2_Members-blue?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-60-orange?style=for-the-badge)
-![Duration](https://img.shields.io/badge/Duration-124_Days-purple?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-61-orange?style=for-the-badge)
+![Duration](https://img.shields.io/badge/Duration-126_Days-purple?style=for-the-badge)
 
 </div>
 
@@ -21,14 +21,14 @@
 
 | Developer | This Week | Activity Level | Energy Level | Lines Added | Lines Removed |
 |-----------|-----------|----------------|--------------|-------------|---------------|
-| **Laher Maciel** | 6 commits | 👑 **DOMINANT** - Outstanding week (530 lines) | 🔥🔥🔥🔥⚡ | 319 | 211 |
+| **Laher Maciel** | 4 commits | 🏆 **EXCEPTIONAL** - Major progress (277 lines) | 🔥⚡⚡⚡⚡ | 156 | 121 |
 | **Kayki Rocha** | 0 commits | 📝 **PENDING** - No activity this week | 💤⚡⚡⚡⚡ | 0 | 0 |
 
 ### 🏁 Development Race
 
 | Developer | Commits | Code Changes | Activity Level | Energy Level |
 |-----------|---------|--------------|----------------|--------------|
-| **Laher Maciel** | 56 | +39957/-3361 (43318 total) | 👑 **DOMINANT** - Primary contributor (97%) | 🚀🔥💯⚡🎯 |
+| **Laher Maciel** | 57 | +39973/-3377 (43350 total) | 👑 **DOMINANT** - Primary contributor (97%) | 🚀🔥💯⚡🎯 |
 | **Kayki Rocha** | 4 | +853/-353 (1206 total) | 🔧 **INITIAL** - Early contribution (2%) | 💤⚡⚡⚡⚡ |
 
 ### 📊 Code Statistics Dashboard
@@ -37,12 +37,12 @@
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **📊 Total Commits** | `60` | Total number of commits |
-| **⏱️ Project Duration** | `124 days` | Days since first commit |
-| **➕ Lines Added** | `40810` | Total lines of code added |
-| **➖ Lines Removed** | `3714` | Total lines of code removed |
+| **📊 Total Commits** | `61` | Total number of commits |
+| **⏱️ Project Duration** | `126 days` | Days since first commit |
+| **➕ Lines Added** | `40826` | Total lines of code added |
+| **➖ Lines Removed** | `3730` | Total lines of code removed |
 | **🔄 Net Changes** | `37096` | Net code changes |
-| **⚡ Recent Activity** | `6 commits` | Commits in last 7 days |
+| **⚡ Recent Activity** | `4 commits` | Commits in last 7 days |
 
 </div>
 
@@ -60,7 +60,7 @@
 
 <div align="center">
 
-⚡ **STRONG ACTIVITY** - Good pace! Maintain this steady progress!
+📈 **CONSISTENT EFFORT** - Steady progress! Push for more commits!
 
 </div>
 
@@ -75,6 +75,7 @@
 ### 📝 Recent Activity
 
 ```text
+🔹 a0b9016 .
 🔹 b97a1dc Refactor memory management: add exit function, update cleanup logic, and enhance player movement handling. Now we just have to wait for the submission day.
 🔹 4145530 Remove submission target from Makefile and update project analytics for commit count and developer activity
 🔹 683ba63 added valgrind flags to the makefile
@@ -84,14 +85,13 @@
 🔹 8dd5f28 Enhance raytracing functionality by adding helper functions for wall rendering and ray variable initialization. Update Makefile to include new raytracing_helpers.c file. Refactor raycasting logic in raytracing.c for improved readability and maintainability.
 🔹 2906b43 textures done, norminette to go
 🔹 99c9156 Refactor texture management: update Makefile to include new texture source file, enhance texture structure in cub3d.h, and implement texture loading functions in textures.c. Update parsing and memory cleanup to accommodate new texture handling.
-🔹 42abd5e Refactor texture handling and improve map parsing logic. Update Makefile to include new texture files and enhance error handling in parsing functions. Add utility functions for texture loading and player movement. Update file headers to reflect recent changes. Note: The Makefile is kinda working weirdly, but will fix that.
 ```
 
 ### 📁 Most Active Files
 
 ```text
-📄      59 
-📄      40 project_extras/docs/PROJECT_ANALYTICS.md
+📄      60 
+📄      41 project_extras/docs/PROJECT_ANALYTICS.md
 📄      22 Makefile
 📄      19 include/cub3d.h
 📄      16 src/movement/movement.c
@@ -112,7 +112,7 @@
 
 <div align="center">
 
-*🔄 Last updated: Wed Jan 14 23:15:20 WET 2026 | Auto-updated on build*
+*🔄 Last updated: sáb 17 jan 2026 18:12:05 WET | Auto-updated on build*
 
 </div>
 

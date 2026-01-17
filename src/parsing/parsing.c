@@ -107,12 +107,7 @@ int	parse_cub_file(char *filename)
 	init_config_parsing();
 	if (read_file_lines(filename, &lines, &line_count) != 0)
 	{
-		if (lines)
-			ft_putstr_fd("Error: Cannot read file\n", 2);
-		else
-			ft_putstr_fd("Error: Cannot open file or file is empty\n", 2);
-		if (lines)
-			free_and_exit_on_error(lines, line_count);
+		ft_putstr_fd("Error while trying to read the map\n", 2);
 		error_exit(NULL, 1);
 	}
 	if (parse_file_content(lines, line_count) != 0)

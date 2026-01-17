@@ -268,5 +268,6 @@ void		draw_minimap_square(int start_x, int start_y, int size, int color);
 
 //Utils functions
 void		get_textures(void);
+int			ft_isalldigit(char **array);
 
 #endif

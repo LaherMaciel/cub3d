@@ -12,6 +12,21 @@
 
 #include "../../include/cub3d.h"
 
+int	validate_rgb(int *r, int *g, int *b, char **rgb_values)
+{
+	*r = ft_atoi(rgb_values[0]);
+	*g = ft_atoi(rgb_values[1]);
+	*b = ft_atoi(rgb_values[2]);
+	if (*r < 0 || *r > 255 || *g < 0 || *g > 255 || *b < 0
+		|| *b > 255)
+	{
+		ft_free_array(rgb_values, 3);
+		return (ft_putstr_fd("Error: Color values "
+				"must be between 0-255\n", 2), 1);
+	}
+	return (0);
+}
+
 // Parses a color line (F or C) and extracts RGB values
 // Validates RGB values are between 0-255
 // Returns 0 on success, 1 on error
@@ -27,15 +42,14 @@ static int	parse_color_line(char *line, int *color)
 	while (line[start] == ' ' || line[start] == '\t')
 		start++;
 	rgb_values = ft_split(&line[start], ',');
-	if (!rgb_values || ft_arraylen(rgb_values) != 3)
+	if (!rgb_values || ft_arraylen(rgb_values) != 3
+		|| ft_isalldigit(rgb_values))
+	{
+		ft_free_array(rgb_values, ft_arraylen(rgb_values));
 		return (ft_putstr_fd("Error: Invalid color format\n", 2), 1);
-	r = ft_atoi(rgb_values[0]);
-	g = ft_atoi(rgb_values[1]);
-	b = ft_atoi(rgb_values[2]);
-	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0
-		|| b > 255)
-		return (ft_putstr_fd("Error: Color values "
-				"must be between 0-255\n", 2), 1);
+	}
+	if (validate_rgb(&r, &g, &b, rgb_values))
+		return (1);
 	*color = convert_rgb_to_int(r, g, b);
 	ft_free_array(rgb_values, 3);
 	return (0);

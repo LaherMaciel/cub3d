@@ -12,4 +12,18 @@
 
 #include "../../include/cub3d.h"
 
-//
+int	ft_isalldigit(char **array)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (array[++i])
+	{
+		j = -1;
+		while (array[i][++j])
+			if (ft_isalpha(array[i][j]))
+				return (1);
+	}
+	return (0);
+}

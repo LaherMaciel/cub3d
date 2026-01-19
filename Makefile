@@ -11,13 +11,13 @@ LOOPS_AND_HOOKS_C = loop.c
 
 MOVEMENT_C = movement.c movement_helpers.c move_to_x.c
 
-PARSING_C = parsing.c parse_map.c parse_utils.c parsing_config.c parsing_colors.c parsing_textures.c parsing_validate_map.c parsing_validate_helpers.c
+PARSING_C = parsing.c parse_map.c parse_utils.c parsing_config.c parsing_colors.c parsing_textures.c parsing_validate_map.c  flood_filled.c
 
 FREE_C = memory_cleanup.c exit.c
 
 RAYTRACING_C = raytracing.c raytracing_helpers.c
 
-UTILS_C = utils.c textures.c
+UTILS_C = textures.c
 
 WINDOW_C = window_init.c window_management.c
 

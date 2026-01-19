@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
+/*   By: lawences <lawences@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 01:27:56 by lahermaciel       #+#    #+#             */
-/*   Updated: 2026/01/19 09:28:50 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2026/01/19 16:37:11 by lawences         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,6 +222,7 @@ int			parse_bonus_config(char *line);
 void		set_player_direction(char orientation);
 void		free_all(void);
 void		error_exit(char *message, int code);
+int			flood_fill(void);
 
 //linked list functions
 int			ft_lstsize2(t_map *lst);

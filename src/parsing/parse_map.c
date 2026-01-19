@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
+/*   By: lawences <lawences@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 14:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/13 14:31:20 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2026/01/19 17:28:18 by lawences         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,12 @@
 static int	count_map_lines(char **lines, int start_index)
 {
 	int	count;
-	int	i;
 
 	count = 0;
-	i = start_index;
-	while (lines[i] && is_map_line(lines[i]))
+	while (lines[start_index])
 	{
 		count++;
-		i++;
+		start_index++;
 	}
 	return (count);
 }

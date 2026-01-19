@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:20:26 by lwencesl          #+#    #+#             */
-/*   Updated: 2025/09/13 02:20:12 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2026/01/19 09:28:12 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int			ft_isalnum(int a);
 int			ft_isalpha(int c);
 int			ft_isascii(int a);
 int			ft_isdigit(int i);
+int			ft_isalldigit(char **array);
 int			ft_isprint(int a);
 int			ft_isspace(int c);
 int			ft_tolower(int a);

@@ -6,7 +6,7 @@
 #    By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/31 18:07:37 by lwencesl          #+#    #+#              #
-#    Updated: 2025/09/13 18:46:39 by lahermaciel      ###   ########.fr        #
+#    Updated: 2026/01/19 09:29:31 by lahermaciel      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ src/ft_lstadd_front.c src/ft_lstsize.c src/ft_lstlast.c src/ft_lstadd_back.c src
 src/ft_lstclear.c src/ft_lstiter.c src/ft_lstmap.c src/ft_printf.c src/ft_printf_utils.c src/ft_printf_utils2.c\
 src/ft_printf_fd.c src/ft_printf_fd_utils.c src/ft_printf_fd_arrays.c src/get_next_line_bonus.c src/get_next_line_utils_bonus.c\
 src/ft_strcmp.c src/ft_free_array.c src/ft_arraylen.c src/ft_swap.c src/ft_rm_from_array.c\
-src/ft_strcpy.c src/ft_realloc.c src/ft_realloc_and_clear.c src/ft_isspace.c
+src/ft_strcpy.c src/ft_realloc.c src/ft_realloc_and_clear.c src/ft_isspace.c src/ft_isalldigit.c
 
 AR = ar rc
 CC = cc

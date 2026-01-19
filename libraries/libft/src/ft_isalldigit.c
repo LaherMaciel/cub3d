@@ -1,13 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_isalldigit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 13:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2026/01/19 09:36:38 by lahermaciel      ###   ########.fr       */
+/*   Created: 2026/01/19 09:24:29 by lahermaciel       #+#    #+#             */
+/*   Updated: 2026/01/19 09:33:44 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3d.h"
+#include "../include/libft.h"
+
+int	ft_isalldigit(char **array)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (array[++i])
+	{
+		j = -1;
+		while (array[i][++j])
+			if (!ft_isdigit(array[i][j]) && !ft_isspace(array[i][j]))
+				return (0);
+	}
+	return (1);
+}

@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 01:27:56 by lahermaciel       #+#    #+#             */
-/*   Updated: 2026/01/09 22:46:27 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2026/01/19 09:28:50 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,6 +268,6 @@ void		draw_minimap_square(int start_x, int start_y, int size, int color);
 
 //Utils functions
 void		get_textures(void);
-int			ft_isalldigit(char **array);
+//int			ft_isalldigit(char **array);
 
 #endif

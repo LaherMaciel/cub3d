@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 14:00:00 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/11/13 14:33:48 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2026/01/19 09:21:31 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	parse_color_line(char *line, int *color)
 		start++;
 	rgb_values = ft_split(&line[start], ',');
 	if (!rgb_values || ft_arraylen(rgb_values) != 3
-		|| ft_isalldigit(rgb_values))
+		|| !ft_isalldigit(rgb_values))
 	{
 		ft_free_array(rgb_values, ft_arraylen(rgb_values));
 		return (ft_putstr_fd("Error: Invalid color format\n", 2), 1);

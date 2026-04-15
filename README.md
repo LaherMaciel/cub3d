@@ -1,156 +1,79 @@
-# Cub3D
+# cub3d
 
-[![42 School](https://img.shields.io/badge/42-School-blue)](https://42.fr/)
-[![Language](https://img.shields.io/badge/Language-C-orange)](https://en.wikipedia.org/wiki/C_(programming_language))
-[![Platform](https://img.shields.io/badge/Platform-Linux-green)](https://www.linux.org/)
-[![Status](https://img.shields.io/badge/Status-In_Development-yellow)]()
+[![42](https://img.shields.io/badge/42-Project-blue)](https://42.fr)
+[![C](https://img.shields.io/badge/Language-C-green)](https://en.wikipedia.org/wiki/C_(programming_language))
 
-A 3D raycasting game engine inspired by the legendary Wolfenstein 3D, built from scratch using the MiniLibX graphics library.
+> A 3D raycasting game engine inspired by Wolfenstein 3D, built with MiniLibX.
 
 ## Overview
 
-Cub3D is a 42 School project that involves creating a 3D game engine using raycasting techniques. This project demonstrates understanding of computer graphics, mathematics, and C programming. The engine renders a 3D world from a 2D map using raycasting algorithms, similar to the original Wolfenstein 3D.
-
-## Features
-
-- **3D Raycasting Engine**: Real-time 3D rendering using raycasting algorithm
-- **Texture Mapping**: Support for textured walls and sprites
-- **Player Movement**: Smooth first-person movement with collision detection
-- **Map Parsing**: Custom map format with configurable textures and colors
-- **MiniLibX Integration**: Uses 42's MiniLibX for window management and graphics
-
-## Installation
-
-### Prerequisites
-
-- GCC compiler
-- MiniLibX library (42 School graphics library)
-- Make
-- X11 libraries (for Linux)
-
-### Building
-
-```bash
-make
-```
-
-This will create the `cub3d` executable.
-
-### Available Make Targets
-
-- `make` or `make all` - Build the project
-- `make clean` - Remove object files
-- `make fclean` - Remove all generated files
-- `make re` - Rebuild from scratch
-- `make run` - Build and run the program
-- `make norm` - Check code style with norminette
-- `make submit` - Prepare project for submission (removes analytics)
-- `make help` - Show all available targets
+`cub3d` is a 42 School Rank 4 project, built in collaboration. The goal is to implement a first-person 3D game engine using raycasting: given a 2D map, the engine renders walls with textures and depth in real time, simulating a 3D perspective.
 
 ## Usage
 
 ```bash
+make
 ./cub3d map.cub
 ```
 
-Where `map.cub` is a valid map file following the cub3d format specification.
+## Map format (`.cub`)
 
-## Map Format
+| Element | Identifier | Description |
+|---------|------------|-------------|
+| North texture | `NO ./path` | Wall texture facing north |
+| South texture | `SO ./path` | Wall texture facing south |
+| West texture | `WE ./path` | Wall texture facing west |
+| East texture | `EA ./path` | Wall texture facing east |
+| Floor color | `F R,G,B` | Floor RGB color |
+| Ceiling color | `C R,G,B` | Ceiling RGB color |
 
-The `.cub` file format includes:
+Map grid characters:
 
-- **Textures**: Paths to wall and sprite textures
-- **Colors**: Floor and ceiling colors
-- **Map**: 2D grid representing the game world
-  - `0`: Empty space
-  - `1`: Wall
-  - `N/S/E/W`: Player starting position and orientation
-  - `2`: Collectible sprite
+| Character | Meaning |
+|-----------|---------|
+| `0` | Empty space |
+| `1` | Wall |
+| `N` / `S` / `E` / `W` | Player start position and orientation |
+
+The map must be enclosed by walls and contain exactly one player start position.
 
 ## Controls
 
-- **WASD**: Move forward/backward/left/right
-- **Arrow Keys**: Rotate camera
-- **ESC**: Exit game
+| Key | Action |
+|-----|--------|
+| `W A S D` | Move |
+| `←` `→` | Rotate camera |
+| `ESC` | Exit |
 
-## Project Structure
+## Project structure
 
 ```
 cub3d/
-├── src/                           # Project source code
-├── include/                       # Project header files
-│   └── cub3d.h                   # Main header file
-├── libraries/                     # External libraries
-│   ├── libft/                    # Custom C library
-│   │   ├── src/                  # Libft source files
-│   │   └── include/              # Libft headers
-│   └── minilibx-linux/           # Graphics library
-├── objects/                       # Compiled object files
-├── project_extras/                # Development tools and analytics
-│   ├── scripts/                  # Analytics and utility scripts
-│   ├── .github/                  # GitHub workflows and templates
-│   └── docs/                     # Documentation files
-├── Makefile                       # Build configuration
-├── .gitignore                     # Git ignore rules
-└── README.md                      # This file
+├── src/               # Source files
+├── include/
+│   └── cub3d.h
+├── libraries/
+│   ├── libft/
+│   └── minilibx-linux/
+└── Makefile
 ```
 
-## Technical Details
+## Make targets
 
-- **Language**: C
-- **Graphics Library**: MiniLibX
-- **Custom Library**: Libft (42 School standard library)
-- **Rendering**: Raycasting algorithm
-- **Platform**: Linux (WSL2 compatible)
-- **Build System**: Make
-- **Code Style**: Norminette compliant
-
-## Development
-
-This project is part of the 42 School curriculum and demonstrates:
-
-- C programming proficiency
-- Computer graphics understanding
-- Mathematical concepts (trigonometry, linear algebra)
-- Software architecture and design patterns
-
-## Screenshots
-
-*Screenshots will be added once the project is complete*
-
-## Collaboration
-
-This is a collaborative project between two developers. Please see [project_extras/docs/CONTRIBUTING.md](project_extras/docs/CONTRIBUTING.md) for guidelines on how to contribute to this project.
-
-### Development Workflow
-- Work directly on main branch
-- Coordinate changes with your collaborator
-- Follow the 42 norminette style guide
-- Test thoroughly before committing
-
-### Getting Started
-1. Clone the repository
-2. Make your changes
-3. Run `make norm` to check style
-4. Commit and push your changes
-
-### Analytics and Tracking
-- **Project Analytics**: See [project_extras/docs/PROJECT_ANALYTICS.md](project_extras/docs/PROJECT_ANALYTICS.md) for detailed development insights
-- **Auto-Updates**: Analytics update automatically on `make`, `fclean`, and `re`
-- **Submission Prep**: Use `make submit` to prepare for 42 submission
+| Target | Description |
+|--------|-------------|
+| `make` | Build the binary |
+| `make clean` | Remove object files |
+| `make fclean` | Remove object files and binary |
+| `make re` | Rebuild from scratch |
+| `make norm` | Run norminette |
 
 ## Authors
 
-**Laher Maciel** - 42 School Student
+**Laher Maciel**
 - GitHub: [@LaherMaciel](https://github.com/LaherMaciel)
-- 42 Profile: [@lawences](https://profile-v3.intra.42.fr/users/lawences)
+- 42 Login: lawences
 
-**Kayki Rocha** - 42 School Student
+**Kayki Rocha**
 - GitHub: [@UnderOfAll](https://github.com/UnderOfAll)
-- 42 Profile: [@karocha-](https://profile-v3.intra.42.fr/users/karocha-)
-
-## Acknowledgments
-
-- 42 School for providing the project specification
-- MiniLibX development team
-- The original Wolfenstein 3D for inspiration
+- 42 Login: karocha-

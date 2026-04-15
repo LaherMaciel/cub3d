@@ -69,3 +69,12 @@ Desktop.ini
 
 # Custom ignore patterns
 # Add any project-specific files to ignore here
+
+# Subject and evaluation files
+*.pdf
+*.tgz
+en.subject*
+*eval_sheet*
+*eval*
+*.zip
+
